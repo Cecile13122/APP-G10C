@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="inscription.css">
+    <title>Inscription</title>
+</head>
+<body>
+<header>
+    <img src="logo.png" alt="Logo d'ATC">
+</header>
+<main>
+    <h1>Inscription</h1>
+    <form>
+        <input type="text" name="prenom" value="Prénom">
+        <input type="text" name="nom" value="Nom">
+        <br>
+        <label for="naissance">Né(e) le <input type="date" id="naissance" name="dateDeNaissance"></label>
+        <br>
+        <input type="number" name="telephone" value="+ 33 _ __ __ __ __">
+        <br>
+        <select name="sexe" value="Genre à la Naissance">
+            <option value="F">Féminin</option>
+            <option value="M">Masculin</option>
+        </select>
+        <br>
+        <input type="number" name="codePostal" value="Code Postal">
+        <br>
+        <input type="email" name="email" value="exemple@mail.com">
+        <br>
+        <input type="email" name="confemail" value="exemple@mail.com">
+        <br>
+        <input type="password" name="motDePasse" value="Mot de Passe">
+        <br>
+        <input type="password" name="confmotDePasse" value="Confirmation Mot de Passe">
+        <br>
+        <label for="cgu"><input type="checkbox" id="cgu" name="CGU" value="oui"> J'accepte les conditions d'utilisation</label>
+        <br>
+        <input type="submit" value="Envoyer">
+
+    </form>
+</main>
+</body>
+</html>
