@@ -38,7 +38,7 @@
         <input type="email" name="confemail" value="exemple@mail.com">
         <br>
         <input type="submit" value="Envoyer">
-<p>test</p>
+
     </form>
 </main>
 </body>
