@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="inscription.css">
-    <title>Inscription</title>
+    <title>Modification information</title>
 </head>
 <body>
 <header>
     <img src="logo.png" alt="Logo d'ATC">
 </header>
 <main>
-    <h1>Inscription</h1>
+    <h1>Modifier ses informations</h1>
     <form>
         <input type="text" name="prenom" value="Prénom">
         <input type="text" name="nom" value="Nom">
@@ -19,9 +19,7 @@
         <br>
         <input type="number" name="telephone" value="+ 33 _ __ __ __ __">
         <br>
-        <label for="genre">Genre à la naissance</label>
-        <br>
-        <select name="sexe" id="genre" value="Genre à la Naissance">
+        <select name="sexe">
             <option value="F">Féminin</option>
             <option value="M">Masculin</option>
         </select>
@@ -35,8 +33,6 @@
         <input type="password" name="motDePasse" value="Mot de Passe">
         <br>
         <input type="password" name="confmotDePasse" value="Confirmation Mot de Passe">
-        <br>
-        <label for="cgu"><input type="checkbox" id="cgu" name="CGU" value="oui"> J'accepte les conditions d'utilisation</label>
         <br>
         <input type="submit" value="Envoyer">
 
