@@ -17,22 +17,25 @@
         <br>
         <label for="naissance">Né(e) le <input type="date" id="naissance" name="dateDeNaissance"></label>
         <br>
-        <input type="number" name="telephone" value="+ 33 _ __ __ __ __">
+        <label for="tel"> Numéro de téléphone :<br>
+            <input type="number" id="tel" name="telephone">
+        </label>
         <br>
-        <select name="sexe">
+        <label for="genre">Genre à la naissance</label>
+        <br>
+        <select name="sexe" id="genre" >
             <option value="F">Féminin</option>
             <option value="M">Masculin</option>
         </select>
         <br>
-        <input type="number" name="codePostal" value="Code Postal">
+        <label for="cp">Code postal :
+            <br>
+            <input type="number" id="cp" name="codePostal" value="Code Postal">
+        </label>
         <br>
         <input type="email" name="email" value="exemple@mail.com">
         <br>
         <input type="email" name="confemail" value="exemple@mail.com">
-        <br>
-        <input type="password" name="motDePasse" value="Mot de Passe">
-        <br>
-        <input type="password" name="confmotDePasse" value="Confirmation Mot de Passe">
         <br>
         <input type="submit" value="Envoyer">
 

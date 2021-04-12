@@ -11,6 +11,9 @@ img{
     width: 300px;
 }
 
-input{
+input,
+label,
+select {
     margin: 5px;
+
 }
