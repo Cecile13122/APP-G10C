@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ma première page</title>
+<!-- Exercice 5 -->
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
+<!-- Exercice 7 -->
+<link rel="stylesheet" type="text/css" href="style.css"/>
+
+
+</head>
+<body>
+Ma première page avec du texte (sans style)
+<h1>Ceci est un grand titre</h1>
+<h2>Ceci est un titre plus petit</h2>
+<p>Ceci est un paragraphe </p>
+<!-- Exercice 1 -->
+<a href="https://www.isep.fr">Ceci est un lien vers l'ISEP</a><br>
+<!-- Exercice 1.2 -->
+<a href="DeuxiemePage.html">Ceci est un lien vers la deuxième page HTML</a>
+<!-- Exercice 2 -->
+<p> Voici le logo de l'ISEP : </p>
+<img src="isep.png" alt="Logo de l'ISEP" width="400px" height="150px">
+<br>
+<!-- Exercice 3.1 -->
+Les parcours de formation à l'ISEP sont :
+<ul>
+    <li> Les parcours du domaine informatique
+        <ol>
+            <li>
+                Le parcours Ingénieur logiciel
+            </li>
+            <li>
+                Le parcours architecte des systèmes d'information
+            </li>
+            <li>
+                Le parcours sécurité numérique et réseaux
+            </li>
+        </ol>
+    </li>
+    <li> Les parcours du domaine électronique et Télécom
+        <ol>
+            <li>
+                Le parcours systèmes embarqués
+            </li>
+            <li>
+                Le parcours objets et services connectés
+            </li>
+        </ol>
+    </li>
+    <li> Les autres parcours
+        <ol>
+            <li>
+                Le parcours numérique et santé
+            </li>
+            <li>
+                Le parcours intélligence des données
+            </li>
+        </ol>
+    </li>
+</ul>
+<!-- Exercice 3.2 -->
+Les parcours de formation à l'ISEP sont :
+<ul>
+    <li> Les parcours du domaine informatique
+        <ol>
+            <li>
+                Le parcours Ingénieur logiciel
+            </li>
+            <li>
+                Le parcours architecte des systèmes d'information
+            </li>
+            <li>
+                Le parcours sécurité numérique et réseaux
+            </li>
+        </ol>
+    </li>
+    <li> Les parcours du domaine électronique et Télécom
+        <ol start='4' >
+            <li>
+                Le parcours systèmes embarqués
+            </li>
+            <li>
+                Le parcours objets et services connectés
+            </li>
+        </ol>
+    </li>
+    <li> Les autres parcours
+        <ol start='6' >
+            <li>
+                Le parcours numérique et santé
+            </li>
+            <li>
+                Le parcours intélligence des données
+            </li>
+        </ol>
+    </li>
+</ul>
+<!-- Exercice 3.3 -->
+Les parcours de formation à l'ISEP sont :
+<ul>
+    <li> Les parcours du domaine informatique
+        <ol type='a'>
+            <li>
+                Le parcours Ingénieur logiciel
+            </li>
+            <li>
+                Le parcours architecte des systèmes d'information
+            </li>
+            <li>
+                Le parcours sécurité numérique et réseaux
+            </li>
+        </ol>
+    </li>
+    <li> Les parcours du domaine électronique et Télécom
+        <ol  type='a'>
+            <li>
+                Le parcours systèmes embarqués
+            </li>
+            <li>
+                Le parcours objets et services connectés
+            </li>
+        </ol>
+    </li>
+    <li> Les autres parcours
+        <ol  type='a'>
+            <li>
+                Le parcours numérique et santé
+            </li>
+            <li>
+                Le parcours intélligence des données
+            </li>
+        </ol>
+    </li>
+</ul>
+
+<!-- Exercice 3.4 -->
+Les parcours de formation à l'ISEP sont :
+<ul type='square'>
+    <li> Les parcours du domaine informatique
+        <ol>
+            <li>
+                Le parcours Ingénieur logiciel
+            </li>
+            <li>
+                Le parcours architecte des systèmes d'information
+            </li>
+            <li>
+                Le parcours sécurité numérique et réseaux
+            </li>
+        </ol>
+    </li>
+    <li> Les parcours du domaine électronique et Télécom
+        <ol>
+            <li>
+                Le parcours systèmes embarqués
+            </li>
+            <li>
+                Le parcours objets et services connectés
+            </li>
+        </ol>
+    </li>
+    <li> Les autres parcours
+        <ol>
+            <li>
+                Le parcours numérique et santé
+            </li>
+            <li>
+                Le parcours intélligence des données
+            </li>
+        </ol>
+    </li>
+</ul>
+<!-- Exercice 4 -->
+<form method="get" action="index.php">
+    <fieldset>
+    <legend>Votre profil : </legend>
+    <pre>
+    Nom : <input type="text" name="nom" />
+    Pr&eacute;nom : <input type="text" name="prenom" />
+    Login : <input type="text" name="login" />
+    Mot de passe : <input class="champs1" type="password" name="pwd" />
+    </pre>
+    </fieldset>
+    <fieldset>
+    
+    <legend>Vos passe-temps : </legend>
+    <pre>
+    <span class="question1">Pratiquez-vous un sport ?</span>
+    <input type="radio" name="sport" value="oui" /> Oui
+    <input type="radio" name="sport" value="non" /> Non
+    <span class="question2">Si oui, lesquels parmi ceux-l&agrave; ?</span>
+    <input type="checkbox" name="sport[]" value="football" /> Football
+    <input type="checkbox" name="sport[]" value="golf" /> Golf
+    <input type="checkbox" name="sport[]" value="natation" /> Natation
+    <input type="checkbox" name="sport[]" value="football" /> Cyclisme<br />
+    <span class="question1">Aimez-vous lire ?</span>
+    <input type="radio" name="lecture" value="oui" /> Oui
+    <input type="radio" name="lecture" value="non" /> Non
+    <span class="question2">Si oui, quel livre &ecirc;tes-vous en train de lire ?</span>
+    <textarea name="informations" rows="4" cols="20">Informations Suppl&eacute;mentaires</textarea>
+    <input type="button" value="Envoyer"/>
+    <input type="reset" value="Nettoyer"/>
+    </pre>
+    </fieldset>
+    </form>
+<!-- exercice 5 : Table sans style-->
+<table>
+    <caption>Quelques professseurs de l'ISEP</caption>
+    <tr>
+        <th>
+            Prénom
+        </th> 
+        <th>
+            Nom
+        </th> 
+        <th>
+            Adresse mail
+         </th>   
+    </tr>
+    <tr>
+        <td>
+            Omar
+        </td>
+        <td>
+            Al Hammal
+        </td>
+        <td>
+            alhammal.isep@gmail.com
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Kévin
+        </td>
+        <td>
+            Malleron
+        </td>
+        <td>
+            kevin.malleron@isep.fr
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Zakia
+        </td>
+        <td>
+            Kazi-Aoul
+        </td>
+        <td>
+            zakia.kazi@isep.fr
+        </td>
+    </tr>  
+</table>
+<!-- exercice 6 : Table avec style inlined-->
+<table style="border:1px solid grey">
+    <caption>Quelques professseurs de l'ISEP</caption>
+    <tr>
+        <th>
+            Prénom
+        </th> 
+        <th>
+            Nom
+        </th> 
+        <th>
+            Adresse mail
+         </th>   
+    </tr>
+    <tr>
+        <td>
+            Omar
+        </td>
+        <td>
+            Al Hammal
+        </td>
+        <td>
+            alhammal.isep@gmail.com
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Kévin
+        </td>
+        <td>
+            Malleron
+        </td>
+        <td>
+            kevin.malleron@isep.fr
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Zakia
+        </td>
+        <td>
+            Kazi-Aoul
+        </td>
+        <td>
+            zakia.kazi@isep.fr
+        </td>
+    </tr>  
+</table>
+
+</body>
+</html>
+<br><br>
+
+<!-- exercice 7 : Table avec style externe-->
+<table>
+    <caption id="titretableau">Quelques professseurs de l'ISEP</caption>
+    <tr class="titres">
+        <th >
+            Prénom
+        </th> 
+        <th >
+            Nom
+        </th> 
+        <th >
+            Adresse mail
+         </th>   
+    </tr>
+    <tr class="ligne1">
+        <td>
+            Omar
+        </td>
+        <td>
+            Al Hammal
+        </td>
+        <td>
+            alhammal.isep@gmail.com
+        </td>
+    </tr>
+    <tr class="ligne2">
+        <td>
+            Kévin
+        </td>
+        <td>
+            Malleron
+        </td>
+        <td>
+            kevin.malleron@isep.fr
+        </td>
+    </tr>
+    <tr class="ligne1">
+        <td>
+            Zakia
+        </td>
+        <td>
+            Kazi-Aoul
+        </td>
+        <td>
+            zakia.kazi@isep.fr
+        </td>
+    </tr>  
+</table>
+
+<!-- Exercice 8 -->
+<p> Voici le logo de l'ISEP : </p>
+<img class="image" src="isep.png" alt="Logo de l'ISEP" width="400px" height="150px">
+<br>
+<!-- Exercice 9 -->
+<div>0000000<div>111111</div>222222</div>
+<p><span>0000000<span>111111</span>222222</span></p>
+<div class="titre">
+<h1>Localisation de l'ISEP</h1>
+</div>
+<div class="issy">
+    <h2>Issy-les-Moulineaux</h2>
+    <p>Le bâtiment Lorette (NDL) se situe au 10 rue de Vanves 92130 Issy-les-Moulineaux.
+        À 5 minutes du métro Corentin Celton, l’ISEP est au coeur de la Ville Numérique, aux côtés de Microsoft, 
+        Orange, Cisco, Cap Gemini et de chaînes de télévision (TF1, France Médias Monde)…
+
+    </p>
+</div>
+<div class="paris">
+    <h2>Paris 6ème arrondissement</h2>
+    <p>Le bâtiment Notre Dame des Champs (NDC) si situe au 28 rue notre Dame des Champs 75006 Paris. C’est ce bâtiment qui accueille
+         la majorité des bureaux des associations étudiantes. 
+         Cette situation permet de profiter pleinement de la vie parisienne, 
+         l’école étant proche du Jardin du Luxembourg, de Saint-Germain des Prés.</p>
+</div>
+<br>
+<br>
+<!-- Exercice 10 -->
+<div class="galerie"><a href="https://fr.wikipedia.org/wiki/Mario_(personnage)"><img src="mario.jpeg" alt="mario"></a>
+<p>Mario</p>
+</div>
+<div class="galerie"><a href="https://fr.wikipedia.org/wiki/Luigi"><img src="Luigi.jpeg" alt="luiji"></a>
+<p>Luigi</p>
+</div>
+<div class="galerie"><a href="https://fr.wikipedia.org/wiki/Yoshi"><img src="yoshi.jpeg" alt="yoshi"></a>
+<p>Yoshi</p>
+</div>
+<div class="galerie"><a href="https://fr.wikipedia.org/wiki/Princesse_Peach"><img src="princess.jpeg" alt="proncesse"></a>
+<p>Princesse Peach</p>
+</div>
+<div class="galerie"><a href="https://fr.wikipedia.org/wiki/Wario_(personnage)"><img src="wario.jpeg" alt="wario"></a>
+<p>Wario</p>
+</div>
+
+<br>
+<br>
+
+</body>
+</html>
+
