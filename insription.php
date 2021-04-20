@@ -12,40 +12,52 @@
 <main>
     <h1>Inscription</h1>
     <form>
-        <input type="text" name="prenom" value="Prénom">
-        <input type="text" name="nom" value="Nom">
+        <label for="genre">Civilité</label>
+        <input name="genre" type="radio" id="monsieur" value="M" required> <label for="monsieur">M.</label>
+        <input name="genre" type="radio" id="madame" value="F" required> <label for="madame">Mme</label>
         <br>
-        <label for="naissance">Né(e) le <input type="date" id="naissance" name="dateDeNaissance"></label>
-        <br>
-        <label for="tel"> Numéro de téléphone :<br>
-            <input type="number" id="tel" name="telephone">
+
+        <label for="firstname">
+            <input id="firstname"type="text" name="prenom" placeholder="Prénom" required>
         </label>
         <br>
-        <label for="genre">Genre à la naissance</label>
+
+        <label for="name">
+            <input id="name"type="text" name="nom" placeholder="Nom" required>
+        </label>
         <br>
-        <select name="sexe" id="genre" >
-            <option value="F">Féminin</option>
-            <option value="M">Masculin</option>
-        </select>
+
+        <label for="naissance">Né(e) le <input type="date" id="naissance" name="dateDeNaissance" placeholder="Date de naissance" required></label>
+        <br>
+
+        <label for="tel"> Numéro de téléphone :
+            <input type="text" id="tel" name="telephone" placeholder="+ 33 _ __ __ __ __" required>
+        </label>
         <br>
         <label for="cp">Code postal :
-            <br>
-            <input type="number" id="cp" name="codePostal" value="Code Postal">
+            <input type="number" id="cp" name="codePostal" placeholder="Code postal" required>
         </label>
         <br>
-        <input type="email" name="email" value="exemple@mail.com">
-        <br>
-        <input type="email" name="confemail" value="exemple@mail.com">
-        <br>
-        <label for="mdp">Mot de passe <br>
-            <input type="password" id="mdp" name="motDePasse" value="Mot de Passe">
+
+        <label for ="mail">Adresse mail :
+            <input id="mail" type="email" name="email" placeholder="exemple@mail.com" required>
         </label>
         <br>
-        <label for="cmdp">Confirmation de mot de passe <br>
-            <input type="password" id="cmdp" name="confmotDePasse" value="Confirmation Mot de Passe">
+
+        <label for="cmail">Confirmation d'adresse mail :
+            <input id="cmail" type="email" name="confemail" placeholder="exemple@mail.com" required>
         </label>
         <br>
-        <label for="cgu"><input type="checkbox" id="cgu" name="CGU" value="oui"> J'accepte les conditions d'utilisation</label>
+        <label for="mdp">Mot de passe :
+            <input type="password" id="mdp" name="motDePasse" placeholder="Mot de Passe" required>
+        </label>
+        <br>
+        <label for="cmdp">Confirmation de mot de passe :
+            <input type="password" id="cmdp" name="confmotDePasse" placeholder="Confirmation Mot de Passe" required>
+        </label>
+        <br>
+
+        <label for="cgu"><input type="checkbox" id="cgu" name="CGU" value="oui" required> J'accepte les conditions d'utilisation</label>
         <br>
         <input type="submit" value="Envoyer">
 

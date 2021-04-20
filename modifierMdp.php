@@ -13,17 +13,15 @@
     <h1>Modifier votre mot de passe</h1>
     <form>
 
-        <input type="email" name="email" value="exemple@mail.com">
+        <input type="email" name="email" placeholder="Adresse mail">
         <br>
-        <label for="mdp">Ancien mot de passe<br></label><input type="password" id="mdp"name="motDePasse" value="Mot de Passe">
+        <input type="password" id="mdp"name="motDePasse" placeholder="Mot de Passe">
         <br>
-        <label for="nmdp">Nouveau mot de passe<br>
-            <input type="password" id="nmdp" name="NvMotDePasse" value="Mot de Passe">
-        </label>
+
+            <input type="password" id="nmdp" name="NvMotDePasse" placeholder="Nouveau Mot de Passe">
+
         <br>
-        <label for="cnmdp">Confirmation mot de passe <br>
-            <input type="password" id="cnmdp" name="confNvMotDePasse" value="Confirmation Mot de Passe">
-        </label>
+            <input type="password" id="cnmdp" name="confNvMotDePasse" placeholder="Confirmation Mot de Passe">
         <br>
         <input type="submit" value="Envoyer">
 

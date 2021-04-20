@@ -12,9 +12,9 @@
 <main>
     <h1>Connexion</h1>
     <form>
-        <input type="email" name="email" value="exemple@mail.com">
+        <input type="email" name="email" placeholder="exemple@mail.com">
         <br>
-        <input type="password" name="motDePasse" value="Mot de Passe">
+        <input type="password" name="motDePasse" placeholder="Mot de Passe">
         <br>
         <input type="submit" value="Envoyer">
 
