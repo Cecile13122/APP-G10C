@@ -11,23 +11,23 @@
 </header>
 <main>
     <h1>Inscription</h1>
-    <form>
+    <form method="post" action="controlUser.php">
         <label for="genre">Civilité</label>
         <input name="genre" type="radio" id="monsieur" value="M" required> <label for="monsieur">M.</label>
         <input name="genre" type="radio" id="madame" value="F" required> <label for="madame">Mme</label>
         <br>
 
-        <label for="firstname">
-            <input id="firstname"type="text" name="prenom" placeholder="Prénom" required>
+        <label for="firstname">Prénom :
+            <input id="firstname" type="text" name="prenom" placeholder="Prénom" required pattern="^[A-Za-z '-]+$">
+        </label>
+
+        <br>
+        <label for="name">Nom
+            <input id="name" type="text" name="nom" placeholder="Nom" required>
         </label>
         <br>
 
-        <label for="name">
-            <input id="name"type="text" name="nom" placeholder="Nom" required>
-        </label>
-        <br>
-
-        <label for="naissance">Né(e) le <input type="date" id="naissance" name="dateDeNaissance" placeholder="Date de naissance" required></label>
+        <label for="naissance">Né(e) le <input type="date" id="naissance" name="date_naissance" placeholder="Date de naissance" required></label>
         <br>
 
         <label for="tel"> Numéro de téléphone :
@@ -35,7 +35,7 @@
         </label>
         <br>
         <label for="cp">Code postal :
-            <input type="number" id="cp" name="codePostal" placeholder="Code postal" required>
+            <input type="text" id="cp" name="code_postal" placeholder="Code postal" required>
         </label>
         <br>
 
@@ -49,7 +49,7 @@
         </label>
         <br>
         <label for="mdp">Mot de passe :
-            <input type="password" id="mdp" name="motDePasse" placeholder="Mot de Passe" required>
+            <input type="password" id="mdp" name="mot_de_passe" placeholder="Mot de Passe" required>
         </label>
         <br>
         <label for="cmdp">Confirmation de mot de passe :
