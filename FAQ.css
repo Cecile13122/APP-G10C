@@ -48,15 +48,23 @@ body {
 
 
 .faqglobal{
+	width: 80%;
+	padding: 10%;
+	
 }
 
 .faq1{
+	background-color: white;
 }
 
 .titrefaq1{
+	background-color: white;
+	width: 8%;
+
 }
 
 .contenufaq1_1{
+	background-color: white;
 }
 
 .contenufaq1_2{
