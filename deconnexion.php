@@ -1,7 +1,8 @@
 <?php
 session_start();
-?>
+session_destroy();
 
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -10,12 +11,10 @@ session_start();
     <title>Helitest</title>
 </head>
 <body>
-<p><?= "Bonjour ".$_SESSION['prenom']."  ".$_SESSION['nom'];?></p>
-<p>Vous êtes bien connecté</p>
-<a href="deconnexion.php">Déconnexion</a>
+
+<p>Vous êtes déconnecté</p>
+<a href="accueil.php">Revenir à la page d'accueil</a>
 <br>
 
 </body>
 </html>
-
-

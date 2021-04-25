@@ -11,10 +11,14 @@
 </header>
 <main>
     <h1>Connexion</h1>
-    <form>
-        <input type="email" name="email" placeholder="exemple@mail.com">
+    <form method="post" action="index.php">
+        <label>Adresse mail :<br>
+            <input type="email" name="email" placeholder="exemple@mail.com">
+        </label>
         <br>
-        <input type="password" name="motDePasse" placeholder="Mot de Passe">
+        <label>Mot de Passe :<br>
+            <input type="password" name="mot_de_passe" placeholder="Mot de Passe">
+        </label>
         <br>
         <input type="submit" value="Envoyer">
 

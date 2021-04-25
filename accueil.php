@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -10,12 +6,10 @@ session_start();
     <title>Helitest</title>
 </head>
 <body>
-<p><?= "Bonjour ".$_SESSION['prenom']."  ".$_SESSION['nom'];?></p>
-<p>Vous êtes bien connecté</p>
-<a href="deconnexion.php">Déconnexion</a>
+<a href="insription.php">Inscription</a>
 <br>
+<a href="connexion.php">Connexion</a>
 
+<a href="deconnexion.php">Deconnexion</a>
 </body>
 </html>
-
-
