@@ -47,113 +47,58 @@ nav.active {
 }
 
 
-.faqglobal{
+main{
 	width: 80%;
 	padding: 10%;
 	
 }
 
-.faq1{
+.ConditionPhysique{
 	background-color: white;
 }
 
-.titrefaq1{
+.titreconditionphysique{
 	background-color: white;
 	width: 8%;
 
 }
 
-.contenufaq1_1{
+.contenuconditionphysique{
 	background-color: white;
 	margin-left: 10%;
 }
 
-.contenufaq1_2{
-}
 
-.contenufaq1_3{
-}
-
-.contenufaq1_4{
-}
-
-.faq2{
+.stress{
 	background-color: white;
 }
 
-.titrefaq2{
+.titrestress{
 }
 
-.contenufaq2_1{
-}
-
-.contenufaq2_2{
-}
-
-.contenufaq2_3{
-}
-
-.contenufaq2_4{
+.contenustress{
 }
 
 
-.faq3{
+.Réflex{
 	background-color: white;
 }
 
-.titrefaq3{
+.titreréflex{
 }
 
-.contenufaq3_1{
+.contenuréflex{
 }
 
-.contenufaq3_2{
-}
-
-.contenufaq3_3{
-}
-
-.contenufaq3_4{
-}
-
-.faq4{
+.conclusion{
 	background-color: white;
 }
 
-.titrefaq4{
+.titreconclusion{
 }
 
-.contenufaq4_1{
+.contenuconclusion{
 }
-
-.contenufaq4_2{
-}
-
-.contenufaq4_3{
-}
-
-.contenufaq4_4{
-}
-
-.faq5{
-	background-color: white;
-}
-
-.titrefaq5{
-}
-
-.contenufaq5_1{
-}
-
-.contenufaq5_2{
-}
-
-.contenufaq5_3{
-}
-
-.contenufaq5_4{
-}
-
 
 }
 
