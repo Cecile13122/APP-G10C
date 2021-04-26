@@ -61,6 +61,10 @@ main{
 .ConditionPhysique{
 	background-color: white;
 	border-radius: 3%;
+	width: 40%;
+	position: fixed;
+	right: 10%;
+	
 }
 
 .titreconditionphysique{
@@ -70,13 +74,13 @@ main{
 .contenuconditionphysique{
 	text-align: lefts;
 	margin-left: 3%;
-	
 }
 
 
 .stress{
 	background-color: white;
 	border-radius: 3%;
+	width: 40%;
 }
 
 .titrestress{
@@ -89,6 +93,7 @@ main{
 .Réflex{
 	background-color: white;
 	border-radius: 3%;
+	width: 40%;
 }
 
 .titreréflex{
@@ -100,6 +105,9 @@ main{
 .conclusion{
 	background-color: white;
 	border-radius: 3%;
+	width: 40%;
+	position: fixed;
+	right: 10%;
 }
 
 .titreconclusion{
