@@ -53,19 +53,23 @@ main{
 	
 }
 
+.Pagesession{
+	color: white;
+}
+
 .ConditionPhysique{
 	background-color: white;
 }
 
 .titreconditionphysique{
 	background-color: white;
-	width: 8%;
-
+	
 }
 
 .contenuconditionphysique{
 	background-color: white;
-	margin-left: 10%;
+	text-align: lefts;
+	margin-left: 5%;
 }
 
 
