@@ -55,26 +55,28 @@ main{
 
 .Pagesession{
 	color: white;
+	font-size: 35px;
 }
 
 .ConditionPhysique{
 	background-color: white;
+	border-radius: 3%;
 }
 
 .titreconditionphysique{
-	background-color: white;
 	
 }
 
 .contenuconditionphysique{
-	background-color: white;
 	text-align: lefts;
-	margin-left: 5%;
+	margin-left: 3%;
+	
 }
 
 
 .stress{
 	background-color: white;
+	border-radius: 3%;
 }
 
 .titrestress{
@@ -86,6 +88,7 @@ main{
 
 .Réflex{
 	background-color: white;
+	border-radius: 3%;
 }
 
 .titreréflex{
@@ -96,6 +99,7 @@ main{
 
 .conclusion{
 	background-color: white;
+	border-radius: 3%;
 }
 
 .titreconclusion{
