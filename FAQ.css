@@ -6,7 +6,7 @@ body {
   background-color: #4C5760;
 }
 
-.topnav {
+.nav {
   overflow: hidden;
   background-color: #c2dcdb;
   position: fixed;
@@ -16,7 +16,7 @@ body {
 
 }
 
-.topnav a {
+.nav a {
   display: inline;
   color: black;
   padding: 2%;
@@ -24,14 +24,14 @@ body {
   font-size: 45px;
 }
 
-.topnav a:hover {
+.nav a:hover {
   background-color: #5a9c9a;
   color: white;
 }
 
 
 
-.topnav a.active {
+.nav.active {
   background-color: blue;
   color: white;
 }
@@ -65,7 +65,7 @@ body {
 
 .contenufaq1_1{
 	background-color: white;
-	margin-left: 5%
+	margin-left: 10%;
 }
 
 .contenufaq1_2{
