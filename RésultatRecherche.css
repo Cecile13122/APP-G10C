@@ -64,31 +64,37 @@ main{
 	width: 40%;
 	position: fixed;
 	right: 10%;
-	margin-top: 3.7%;
+	margin-top: 3.5%;
+	height: 20%;
 	
 }
 
 .titreconditionphysique{
+	font-size: 12px;
 	
 }
 
 .contenuconditionphysique{
 	text-align: lefts;
-	margin-left: 3%;
+	margin-left: 5%;
 }
 
 
 .stress{
 	background-color: white;
 	border-radius: 3%;
-	width: 40%;
-	margin-top: 5%;
+	width: 32.2%;
+	margin-top: 3.5%;
+	position: fixed;
+	height: 20%;
 }
 
 .titrestress{
+	font-size: 12px;
 }
 
 .contenustress{
+	margin-left: 5%;
 }
 
 
@@ -97,13 +103,16 @@ main{
 	border-radius: 3%;
 	width: 32.2%;
 	position: fixed;
-	margin-top: 10%;
+	margin-top: 20%;
+	height: 20%
 }
 
 .titreréflex{
+	font-size: 12px;
 }
 
 .contenuréflex{
+	margin-left: 5%;
 }
 
 .conclusion{
@@ -112,13 +121,16 @@ main{
 	width: 40%;
 	position: fixed;
 	right: 10%;
-	margin-top: 10%;
+	margin-top: 20%;
+	height: 20%;
 }
 
 .titreconclusion{
+	font-size: 12px;
 }
 
 .contenuconclusion{
+	text-align: center;
 }
 
 }
