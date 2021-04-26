@@ -1,0 +1,83 @@
+.header {
+  background-color: #DEE3E2;
+  font-family: LT Internet;
+  color: #4C5760;
+  height: 10%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.header .logo {
+  display: inline-block;
+  float: left;
+  width: 15%;
+  margin: 1%;
+  padding: 0;
+}
+
+.header ul {
+  display: inline;
+  font-size: 30px;
+  list-style-type: none;
+}
+
+.header li{
+  display: inline;
+  float: left;
+  margin: 7% 4% 2%;
+}
+
+.header li a{
+  display : inline;
+  color: #4C5760;
+  text-decoration: none;
+}
+
+.header li a:hover {
+  color: #111;
+}
+
+*{
+  background-color: #FAF6F0;
+  font-family: "LT Internet";
+  text-align: center;
+  font-size: 14pt;
+  color: #4C5760;
+  text-decoration: none;
+}
+
+.logoAccueil{
+  display: block;
+  width:350px;
+  position: relative;
+  margin:auto;
+  padding: 20px;
+}
+
+
+.footer{
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 2%;
+  width:99%;
+  bottom:0;
+}
+
+.button{
+  background-color: #DEE3E2;
+  border-radius: 15px;
+  border: none;
+  padding: 0px 20px 0px;
+  margin: 10px;
+}
+
+h1{
+  font-size: 32pt;
+}
+
+div{
+  position: relative;
+  margin: auto;
+  padding: 50px 50px 100px 50px;
+}
