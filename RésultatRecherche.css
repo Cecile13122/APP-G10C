@@ -64,6 +64,7 @@ main{
 	width: 40%;
 	position: fixed;
 	right: 10%;
+	margin-top: 3.7%;
 	
 }
 
@@ -81,6 +82,7 @@ main{
 	background-color: white;
 	border-radius: 3%;
 	width: 40%;
+	margin-top: 5%;
 }
 
 .titrestress{
@@ -93,7 +95,9 @@ main{
 .Réflex{
 	background-color: white;
 	border-radius: 3%;
-	width: 40%;
+	width: 32.2%;
+	position: fixed;
+	margin-top: 10%;
 }
 
 .titreréflex{
@@ -108,6 +112,7 @@ main{
 	width: 40%;
 	position: fixed;
 	right: 10%;
+	margin-top: 10%;
 }
 
 .titreconclusion{
