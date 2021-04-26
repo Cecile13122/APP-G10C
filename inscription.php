@@ -1,3 +1,6 @@
+<?php
+require_once('controlUser.php');
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -16,14 +19,13 @@
         <input name="genre" type="radio" id="monsieur" value="M" required> <label for="monsieur">M.</label>
         <input name="genre" type="radio" id="madame" value="F" required> <label for="madame">Mme</label>
         <br>
-
         <label for="firstname">Prénom :
-            <input id="firstname" type="text" name="prenom" placeholder="Prénom" required pattern="^[A-Za-z '-]+$">
+            <input id="firstname" type="text" name="prenom" placeholder="Prénom" required pattern="/[A-Za-zÜ-ü'-]+( *[A-Za-zÜ-ü'-]+)*/">
         </label>
 
         <br>
         <label for="name">Nom
-            <input id="name" type="text" name="nom" placeholder="Nom" required>
+            <input id="name" type="text" name="nom" placeholder="Nom" required pattern="/[A-Za-zÜ-ü'-]+( *[A-Za-zÜ-ü'-]+)*/">
         </label>
         <br>
 
@@ -53,7 +55,7 @@
         </label>
         <br>
         <label for="cmdp">Confirmation de mot de passe :
-            <input type="password" id="cmdp" name="confmotDePasse" placeholder="Confirmation Mot de Passe" required>
+            <input type="password" id="cmdp" name="confirmation_mdp" placeholder="Confirmation Mot de Passe" required>
         </label>
         <br>
 

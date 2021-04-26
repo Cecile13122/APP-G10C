@@ -18,3 +18,15 @@ function create_candidat($email, $nom, $prenom, $mot_de_passe, $date_naissance, 
 
 }
 
+function verification_utilisation_mail($mail){
+    $bdd = connect_bdd();
+    $requete = $bdd ->prepare('SELECT mail_candidat FROM candidat WHERE mail_candidat=?');
+    $requete->execute(array($mail));
+    $userexit = $requete->rowCount();
+    if ($userexit=0){
+        return true;
+    }
+    return false;
+
+}
+

@@ -1,16 +1,8 @@
 <?php
 
-include_once('requestsCandidat.php');
+// include_once('requestsCandidat.php');
 include_once('requestsConnexion.php');
-
-
-function test_input($donnee)
-{
-    $donnee = trim($donnee);
-    $donnee = stripslashes($donnee);
-    $donnee = htmlspecialchars($donnee);
-    return $donnee;
-}
+require_once('fonction.php');
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

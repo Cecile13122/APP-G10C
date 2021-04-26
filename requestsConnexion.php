@@ -5,7 +5,6 @@ function connect_bdd() {
     try {
         $bdd = new PDO ('mysql:host=localhost;port=3307; dbname=helitest; charset=utf8', 'root', '');
         $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo 'Connexion réussie';
         return $bdd;
 
     } catch (PDOException $e) {

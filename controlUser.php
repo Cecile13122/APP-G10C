@@ -1,16 +1,16 @@
 <?php
 
 include_once('requestsCandidat.php');
-include_once('index.php');
+include_once('fonction.php');
 
 
 // Controle du formulaire d'inscription
-$nom_pattern = "/[A-Za-z '-]+/";
+$nom_pattern = "/[A-Za-zÜ-ü'-]+( *[A-Za-zÜ-ü'-]+)*/";
 $postal_pattern = "/\d{5,6}/";
-$telephone_pattern = "/\d{10}/";
-//"(0|\+33)[1-9]( *[0-9]{2}){4}";
-$mdp_pattern = "/.+/";
-$err = "";
+$telephone_pattern = "/(0|\+33) *[1-9]( *[0-9]{2}){4}/";
+$mail_pattern = "/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/";
+$mdp_pattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&\._-])[A-Za-z\d@$!%*?&\._-]{8,}$/";
+$err_mail=$err_civilite=$err_code_postal=$err_mdp=$err_nom=$err_telephone = "";
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -21,41 +21,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $telephone = test_input($_POST["telephone"]);
     $code_postal = test_input($_POST["code_postal"]);
     $email = test_input($_POST["email"]);
+    $confirmation_mail= test_input($_POST["confemail"]);
     $mot_de_passe = test_input($_POST["mot_de_passe"]);
-
-    echo 'date naissance : '.$date_naissance.".";
-    echo 'nom : '.$nom.".";
-    echo 'prenom : '.$prenom.".";
-    echo 'mot de passe: '.$mot_de_passe.".";
+    $confirmation_mdp = test_input($_POST["confirmation_mdp"]);
 
 
     if (strlen($civilite) != 1) {
-        $err = "Civilité incorrect";
+        $err_civilite = "Civilité incorrect";
     }
     if (!preg_match($nom_pattern, $nom) && !preg_match($nom_pattern, $prenom)) {
-        $err = "Nom ou prenom incorrect";
+        $err_nom = "Nom ou prenom incorrect";
     }
 
     if (!preg_match($telephone_pattern, $telephone)) {
-        $err = "Telephone incorrect";
+        $err_telephone = "Telephone incorrect";
     }
 
     if (!preg_match($postal_pattern, $code_postal)) {
-        $err = " Le code postal est incorrect";
+        $err_code_postal = " Le code postal est incorrect";
     }
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $err = "Le mail est pas incorrect";
+        $err_mail = "Le mail n'est pas valide";
+    }
+
+    if ($email !=$confirmation_mail ){
+        $err_mail = "Le mail de confirmation ne correspond pas";
+    }
+    if (!verification_utilisation_mail($email)){
+        $err_mail = "L'adresse mail est déjà utilisé";
     }
 
     if (!preg_match($mdp_pattern, $mot_de_passe)) {
-        $err = "Mot de passe incorrect";
+        $err_mdp = "Mot de passe incorrect";
+    } elseif($mot_de_passe != $confirmation_mdp){
+        $err_mail = "Le mot de passe de confirmation ne correspond pas";
     } else {
         $mot_de_passe = password_hash($mot_de_passe, PASSWORD_DEFAULT);
     }
 
 
-    if (empty($err)) {
+    if (empty($err_mail) && empty($err_telephone) && empty($err_nom) && empty($err_mdp) && empty($err_code_postal) && empty($err_civilite)) {
         create_candidat($email, $nom, $prenom, $mot_de_passe, $date_naissance, $telephone, $civilite, $code_postal);
         session_start();
         $_SESSION['mail'] = $email;
@@ -63,9 +69,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['nom'] = $nom;
         header("Location: pageTypeConnecte.php");
         exit;
-
+    }else{
+        header("Location: inscription.php");
+        exit;
     }
-    
 }
 
 
