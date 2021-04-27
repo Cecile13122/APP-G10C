@@ -1,83 +1,110 @@
-.header {
-  background-color: #DEE3E2;
-  font-family: LT Internet;
-  color: #4C5760;
-  height: 10%;
-  width: 100%;
-  overflow: hidden;
+.profil{
+	font-size: 5px;
 }
-
-.header .logo {
-  display: inline-block;
-  float: left;
-  width: 15%;
-  margin: 1%;
-  padding: 0;
+a{
+  text-decoration:none;
 }
-
-.header ul {
-  display: inline;
-  font-size: 30px;
-  list-style-type: none;
-}
-
-.header li{
-  display: inline;
-  float: left;
-  margin: 7% 4% 2%;
-}
-
-.header li a{
-  display : inline;
-  color: #4C5760;
-  text-decoration: none;
-}
-
-.header li a:hover {
-  color: #111;
-}
-
 *{
-  background-color: #FAF6F0;
   font-family: "LT Internet";
   text-align: center;
   font-size: 14pt;
-  color: #4C5760;
+  background-color: #DEE3E2;
   text-decoration: none;
 }
 
-.logoAccueil{
-  display: block;
-  width:350px;
+.footer,.footer a{
+  color:#4C5760;
   position: relative;
-  margin:auto;
-  padding: 20px;
+  margin: 0px;
+  padding: 10px;
+  bottom: 0px;
+  height: 30px;
 }
 
-
-.footer{
-  position: fixed;
-  margin: 0;
-  padding: 0;
-  padding-bottom: 2%;
-  width:99%;
-  bottom:0;
-}
-
-.button{
-  background-color: #DEE3E2;
-  border-radius: 15px;
-  border: none;
-  padding: 0px 20px 0px;
-  margin: 10px;
+.underline{
+  text-decoration: underline;
 }
 
 h1{
   font-size: 32pt;
+  padding-bottom: 10px;
+  margin:auto;
+}
+.navbar{
+  top: 0;
+  overflow:hidden;
+  height: 130px;
+  width:100%;
+  margin: 0;
+  position:relative;
+}
+.navbar a{
+  font-size: 20pt;
+  float: left;
+  display: block;
+  color: #4C5760;
+  text-align: center;
+  margin: 70px 20px 80px;
+}
+.navbar img{
+  float: left;
+  display: block;
+  height: 125px;
+}
+.main{
+  border-radius: 10px;
+  margin: 0;
+  width: auto;
+  background-color: #4C5760;
+  color: #FAF6F0;
+  padding: 20px;
+}
+.main a{
+  background-color: #4C5760;
+  color: #FAF6F0;
+  padding: auto;
 }
 
-div{
-  position: relative;
-  margin: auto;
-  padding: 50px 50px 100px 50px;
+.themeFAQ{
+  background-color: white;
+  color: #4C5760;
+  margin:20px 20px 50px 20px;
+  padding: 10px 2px 2px 20px;
+  border-radius: 20px;
+}
+
+h2{
+  background-color: #4C5760;
+  font-size: 20pt;
+  padding-left: 30px;
+  text-align: left;
+  color:white;
+  margin: 0px;
+  width: auto;
+}
+
+.themeFAQ h3{
+  background-color: white;
+  font-size: 16pt;
+  text-align: left;
+  padding-left:20px;
+}
+
+.themeFAQ p{
+  background-color: white;
+  font-size: 14pt;
+  text-align: left;
+}
+
+.link{
+  height: 200px;
+  margin: 20px 20px 20px 20px;
+}
+
+textarea{
+  background-color: white;
+  border-radius: 15px;
+  color:#93A8AC;
+  text-align: left;
+  padding-left: 30px;
 }

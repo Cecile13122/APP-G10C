@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" name="viewport"/>
+        <link type="text/css" rel="stylesheet" href="styleForm.css"/>
+        <title>Army's Test Company</title>
+    </head>
+    <body>
+      <img src="ATC_v200.png" alt="Logo ATC">
+      <h1>Inscription</h1>
+      <form method="post" action="controlUser.php">
+        <table>
+          <tr>
+            <td class="critere"><label for="genre">Civilité :</label></td>
+            <td colspan="2"><input name="genre" type="radio" id="monsieur" value="M" class="inputForm" required> <label for="monsieur">M.</label><input name="genre" type="radio" id="madame" value="F" class="inputForm" required> <label for="madame">Mme</label></td>
+          </tr>
+          <tr>
+            <td class="critere"><label for="firstname">Prénom :</td>
+            <td><input id="firstname" type="text" name="prenom" placeholder="Prénom" class="inputForm" required pattern="^[A-Za-z '-]+$"></label></td>
+          </tr>
+          <tr>
+            <td class="critere"><label for="name">Nom :</td>
+            <td><input id="name" type="text" name="nom" placeholder="Nom" class="inputForm" required></label></td>
+          </tr>
+          <tr>
+            <td class="critere"><label for="naissance">Né(e) le :</td>
+            <td><input type="date" id="naissance" name="date_naissance" placeholder="Date de naissance" class="inputForm" required></label></td>
+          </tr>
+          <tr>
+            <td class="critere"><label for="tel"> Numéro de téléphone :</td>
+            <td><input type="text" id="tel" name="telephone" placeholder="+ 33 _ __ __ __ __" class="inputForm" required></label></td>
+          </tr>
+          <tr>
+            <td class="critere"><label for="cp">Code postal :</td>
+            <td><input type="text" id="cp" name="code_postal" placeholder="__ ____" class="inputForm" required></label></td>
+          </tr>
+          <tr>
+            <td class="critere"><label for ="mail">Adresse mail :</td>
+            <td><input id="mail" type="email" name="email" placeholder="exemple@mail.com" class="inputForm" required></label></td>
+          </tr>
+          <tr>
+            <td class="critere"><label for="cmail">Confirmation d'adresse mail :</td>
+            <td><input id="cmail" type="email" name="confemail" placeholder="exemple@mail.com" class="inputForm" required></label></td>
+          </tr>
+          <tr>
+            <td class="critere"><label for="mdp">Mot de passe :</td>
+            <td><input type="password" id="mdp" name="mot_de_passe" placeholder="********" class="inputForm" required></label></td>
+          </tr>
+          <tr>
+            <td class="critere"><label for="cmdp">Confirmation de mot de passe :</td>
+            <td><input type="password" id="cmdp" name="confmotDePasse" placeholder="********" class="inputForm" required></label></td>
+          </tr>
+          <tr>
+            <td colspan="2"><label for="cgu"><input type="checkbox" id="cgu" name="CGU" value="oui" required> J'accepte les conditions d'utilisation.</label></td>
+        </table>
+        <p>Déjà un compte ? <a href="connexion.html" class="underline">Se connecter.</a></p>
+        <input type="submit" value="Envoyer" class="buttonForm">
+      </form>
+      <div class="footerForm"><a href="CGU.php">CGU</a>  |  <a href="mentionsLegales.php">Mentions Légales</a>  |  <a href="planDuSite.html">Plan du site</a></div>
+    </body>
+</html>
