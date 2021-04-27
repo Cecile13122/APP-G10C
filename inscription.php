@@ -17,12 +17,12 @@
         <input name="genre" type="radio" id="madame" value="F" required> <label for="madame">Mme</label>
         <br>
         <label for="firstname">Prénom :
-            <input id="firstname" type="text" name="prenom" placeholder="Prénom" required pattern="/[A-Za-zÜ-ü'-]+( *[A-Za-zÜ-ü'-]+)*/">
+            <input id="firstname" type="text" name="prenom" placeholder="Prénom" required pattern="[A-Za-zÜ-ü'-]+( *[A-Za-zÜ-ü'-]+)*">
         </label>
 
         <br>
         <label for="name">Nom
-            <input id="name" type="text" name="nom" placeholder="Nom" required pattern="/[A-Za-zÜ-ü'-]+( *[A-Za-zÜ-ü'-]+)*/">
+            <input id="name" type="text" name="nom" placeholder="Nom" required pattern="[A-Za-zÜ-ü'-]+( *[A-Za-zÜ-ü'-]+)*">
         </label>
         <br>
 
