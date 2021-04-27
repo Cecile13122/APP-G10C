@@ -14,7 +14,7 @@ function calcul_age($date)
 // Controle du formulaire d'inscription
 $nom_pattern = "/^[A-Za-zÜ-ü'-]+( *[A-Za-zÜ-ü'-]+)*$/";
 $postal_pattern = "/\d{5,6}/";
-$telephone_pattern = "/(0|\+33) *[1-9]( *[0-9]{2}){4}/";
+$telephone_pattern = "/(0|\+ ?33) *[1-9]( *[0-9]{2}){4}/";
 $mail_pattern = "/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/";
 $mdp_pattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&\._-])[A-Za-z\d@$!%*?&\._-]{8,}$/";
 $date_pattern = "#\d{4}(-\d{2}){2}#";

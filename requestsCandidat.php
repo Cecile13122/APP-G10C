@@ -32,3 +32,13 @@ function verification_utilisation_mail($mail)
 
 }
 
+function recuperation_profil($mail){
+    $bdd =connect_bdd();
+    $requete = $bdd->prepare('SELECT * FROM candidat WHERE mail_candidat = ?');
+    $requete->execute(array($mail));
+    $info_candidat= $requete->fetch();
+    return $info_candidat;
+}
+
+
+

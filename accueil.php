@@ -6,9 +6,9 @@
     <title>Helitest</title>
 </head>
 <body>
-<a href="inscription.php">Inscription</a>
+<a href="inscription.html">Inscription</a>
 <br>
-<a href="connexion.php">Connexion</a>
+<a href="connexion.html">Connexion</a>
 
 <a href="deconnexion.php">Deconnexion</a>
 </body>
