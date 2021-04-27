@@ -1,0 +1,110 @@
+.profil{
+	font-size: 5px;
+}
+a{
+  text-decoration:none;
+}
+*{
+  font-family: "LT Internet";
+  text-align: center;
+  font-size: 14pt;
+  background-color: #DEE3E2;
+  text-decoration: none;
+}
+
+.footer,.footer a{
+  color:#4C5760;
+  position: relative;
+  margin: 0px;
+  padding: 10px;
+  bottom: 0px;
+  height: 30px;
+}
+
+.underline{
+  text-decoration: underline;
+}
+
+h1{
+  font-size: 32pt;
+  padding-bottom: 10px;
+  margin:auto;
+}
+.navbar{
+  top: 0;
+  overflow:hidden;
+  height: 130px;
+  width:100%;
+  margin: 0;
+  position:relative;
+}
+.navbar a{
+  font-size: 20pt;
+  float: left;
+  display: block;
+  color: #4C5760;
+  text-align: center;
+  margin: 70px 20px 80px;
+}
+.navbar img{
+  float: left;
+  display: block;
+  height: 125px;
+}
+.main{
+  border-radius: 10px;
+  margin: 0;
+  width: auto;
+  background-color: #4C5760;
+  color: #FAF6F0;
+  padding: 20px;
+}
+.main a{
+  background-color: #4C5760;
+  color: #FAF6F0;
+  padding: auto;
+}
+
+.themeFAQ{
+  background-color: white;
+  color: #4C5760;
+  margin:20px 20px 50px 20px;
+  padding: 10px 2px 2px 20px;
+  border-radius: 20px;
+}
+
+h2{
+  background-color: #4C5760;
+  font-size: 20pt;
+  padding-left: 30px;
+  text-align: left;
+  color:white;
+  margin: 0px;
+  width: auto;
+}
+
+.themeFAQ h3{
+  background-color: white;
+  font-size: 16pt;
+  text-align: left;
+  padding-left:20px;
+}
+
+.themeFAQ p{
+  background-color: white;
+  font-size: 14pt;
+  text-align: left;
+}
+
+.link{
+  height: 200px;
+  margin: 20px 20px 20px 20px;
+}
+
+textarea{
+  background-color: white;
+  border-radius: 15px;
+  color:#93A8AC;
+  text-align: left;
+  padding-left: 30px;
+}
