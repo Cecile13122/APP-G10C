@@ -14,7 +14,7 @@ session_start();
 <p>Vous êtes bien connecté</p>
 <a href="deconnexion.php">Déconnexion</a>
 <br>
-
+<a href="modificationProfil.php">Modifier son profil</a>
 </body>
 </html>
 

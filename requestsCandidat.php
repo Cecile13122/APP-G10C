@@ -40,5 +40,28 @@ function recuperation_profil($mail){
     return $info_candidat;
 }
 
+function verification_utilisation_mail_modification($mail, $info_session){
+    $bdd = connect_bdd();
+    $requete = $bdd->prepare('SELECT mail_candidat FROM candidat WHERE mail_candidat=? AND prenom!=? AND nom!=?');
+    $requete->execute(array($mail, $info_session['prenom'], $info_session['nom']));
+    $userexit = $requete->rowCount();
+    if ($userexit === 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
+function modifier_profil($prenom, $nom, $telephone, $code_postal, $email, $ancien_email){
+    $bdd = connect_bdd();
+    $requete = $bdd->prepare('UPDATE candidat SET mail_candidat =:mail, nom =:nom, prenom=:prenom, numero_tel=:telephone, code_postal=:code_postal WHERE mail_candidat =:ancien_email');
+    $requete->execute(array(
+        'mail' => $email,
+        'nom' => $nom,
+        'prenom' => $prenom,
+        'telephone' => $telephone,
+        'code_postal' => $code_postal,
+        'ancien_email'=> $ancien_email));
+
+}
 
