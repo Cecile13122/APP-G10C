@@ -6,12 +6,55 @@ body {
   background-color: #4C5760;
 }
 
+nav {
+  overflow: hidden;
+  background-color: #c2dcdb;
+  position: fixed;
+  top: 0%;
+  width : 100%;
+  text-align: center;
+
+}
+
+nav a {
+  display: inline;
+  color: black;
+  padding: 2%;
+  text-decoration: none;
+  font-size: 45px;
+}
+
+nav a:hover {
+  background-color: #5a9c9a;
+  color: white;
+}
+
+
+
+nav.active {
+  background-color: blue;
+  color: white;
+}
+
+
+.logo {
+	max-width: 7%;
+	height: auto;
+	
+}
+
+.profil{
+	font-size: 5px;
+}
+
+
 .grandtitre1{
 	color: white;
 	overflow: hidden;
     flex-direction: column;
     position: fixed;
     left: 10%;
+	margin-top: 10;
 	
 }
 
@@ -21,6 +64,7 @@ body {
     flex-direction: column;
     position: fixed;
     right: 10%;
+	margin-top: 10%
 }
 
 .informations{
@@ -50,6 +94,8 @@ body {
 }
 
 
+
+}
 
 
 @media screen and (max-width: 600px) {
