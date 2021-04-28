@@ -50,3 +50,49 @@ function verification_role($email){
     }
 
 }
+
+function recuperation_mdp($email){
+    $bdd =connect_bdd();
+    $requete = $bdd->prepare('SELECT mdp FROM candidat WHERE mail_candidat = ? UNION SELECT mdp FROM recruteur WHERE mail_recruteur = ? UNION SELECT mdp FROM administrateur WHERE mail_admin = ?');
+    $requete->execute(array($email,$email, $email));
+    return $requete->fetch();
+}
+
+function modifier_mot_de_passe($mot_de_passe, $mail, $role){
+    $bdd = connect_bdd();
+    if ($role == "recruteur"){
+        $requete = $bdd ->prepare('UPDATE recruteur SET mdp=:mdp WHERE mail_recruteur = :mail ');
+        $requete ->execute(array(
+            'mdp'=> $mot_de_passe,
+            'mail' => $mail));
+    }
+    elseif ($role == "administrateur"){
+        $requete = $bdd ->prepare('UPDATE administrateur SET mdp=:mdp WHERE mail_admin = :mail ');
+        $requete ->execute(array(
+            'mdp'=> $mot_de_passe,
+            'mail' => $mail));
+    }else {
+        $requete = $bdd ->prepare('UPDATE candidat SET mdp=:mdp WHERE mail_candidat = :mail ');
+        $requete ->execute(array(
+            'mdp'=> $mot_de_passe,
+            'mail' => $mail));
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

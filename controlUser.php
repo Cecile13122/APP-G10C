@@ -86,19 +86,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['mail'] = $email;
         $_SESSION['prenom'] = $prenom;
         $_SESSION['nom'] = $nom;
-        $role = verification_role($email);
-        $_SESSION['role'] = $role;
-        if ($role == 'administrateur') {
-            header("Location: pageAdministrateur.html");
-            exit;
-        } else {
-            header("Location: pageTypeConnecte.php");
-            exit;
-        }
+        $_SESSION['role'] = "candidat";
+        header("Location: pageTypeConnecte.php");
+        exit;
     } else {
-        echo "Il y a une erreur dans le remplissage de votre formulaire.<br>";
-        echo $err_civilite . "<br>" . $err_nom . "<br>" . $err_date_naissance . "<br>" . $err_telephone . "<br>" . $err_code_postal . "<br>" . $err_mail . "<br>" . $err_mdp;
-    }
+    echo "Il y a une erreur dans le remplissage de votre formulaire.<br>";
+    echo $err_civilite . "<br>" . $err_nom . "<br>" . $err_date_naissance . "<br>" . $err_telephone . "<br>" . $err_code_postal . "<br>" . $err_mail . "<br>" . $err_mdp;
+}
 }
 
 

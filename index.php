@@ -20,8 +20,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['mail'] = $userinfo['mail'];
             $_SESSION['prenom'] = $userinfo['prenom'];
             $_SESSION['nom'] = $userinfo['nom'];
-            header("Location: pageTypeConnecte.php");
-            exit;
+            $role = verification_role($userinfo['mail']);
+            $_SESSION['role'] = $role;
+            if ($role == 'administrateur') {
+                header("Location: pageAdministrateur.html");
+                exit;
+            } else {
+                header("Location: pageTypeConnecte.php");
+                exit;
+            }
         } else {
             echo "mot de passe incorrect";
 

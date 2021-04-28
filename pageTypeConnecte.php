@@ -15,6 +15,8 @@ session_start();
 <a href="deconnexion.php">Déconnexion</a>
 <br>
 <a href="modificationProfil.php">Modifier son profil</a>
+<br>
+<a href="modificationMdp.php">Modifier son mot de passe</a>
 </body>
 </html>
 

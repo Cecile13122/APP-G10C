@@ -29,7 +29,7 @@ $info_candidat = recuperation_profil($_SESSION['mail']);
         </tr>
         <tr>
             <td class="critere"><label for="tel">Numéro de téléphone :</label></td>
-            <td><input type="number" id="tel" name="telephone" class="inputForm"
+            <td><input type="text" id="tel" name="telephone" class="inputForm"
                        value="<?= $info_candidat['numero_tel'] ?>" class="inputForm" required pattern="(0|\+33) *[1-9]( *[0-9]{2}){4}"></td>
         </tr>
         <tr>

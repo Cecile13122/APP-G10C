@@ -21,8 +21,8 @@ function create_candidat($email, $nom, $prenom, $mot_de_passe, $date_naissance, 
 function verification_utilisation_mail($mail)
 {
     $bdd = connect_bdd();
-    $requete = $bdd->prepare('SELECT mail_candidat FROM candidat WHERE mail_candidat=?');
-    $requete->execute(array($mail));
+    $requete = $bdd->prepare('SELECT mail_candidat FROM candidat WHERE mail_candidat=? UNION SELECT mail_recruteur FROM recruteur WHERE mail_recruteur=? UNION SELECT mail_admin FROM administrateur WHERE mail_admin=? ');
+    $requete->execute(array($mail,$mail,$mail));
     $userexit = $requete->rowCount();
     if ($userexit === 0) {
         return true;
@@ -42,8 +42,8 @@ function recuperation_profil($mail){
 
 function verification_utilisation_mail_modification($mail, $info_session){
     $bdd = connect_bdd();
-    $requete = $bdd->prepare('SELECT mail_candidat FROM candidat WHERE mail_candidat=? AND prenom!=? AND nom!=?');
-    $requete->execute(array($mail, $info_session['prenom'], $info_session['nom']));
+    $requete = $bdd->prepare('SELECT mail_candidat FROM candidat WHERE mail_candidat=? AND prenom!=? AND nom!=? UNION SELECT mail_recruteur FROM recruteur WHERE mail_recruteur=? AND prenom!=? AND nom!=? UNION SELECT mail_admin FROM administrateur WHERE mail_admin=? AND prenom!=? AND nom!=? ');
+    $requete->execute(array($mail, $info_session['prenom'], $info_session['nom'],$mail, $info_session['prenom'], $info_session['nom'],$mail, $info_session['prenom'], $info_session['nom']));
     $userexit = $requete->rowCount();
     if ($userexit === 0) {
         return true;
