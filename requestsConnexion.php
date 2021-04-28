@@ -29,3 +29,24 @@ function connexion_personne($mail)
         return null;
     }
 }
+
+
+function verification_role($email){
+    $bdd= connect_bdd();
+    $requete_candidat = $bdd->prepare('SELECT mail_candidat FROM candidat WHERE mail_candidat=?');
+    $requete_candidat->execute(array($email));
+    if ($requete_candidat->rowCount()==1){
+        return "candidat";
+    }
+    $requete_recruteur= $bdd->prepare('SELECT mail_recruteur FROM recruteur WHERE mail_recruteur=?');
+    $requete_recruteur->execute(array($email));
+    if ($requete_recruteur->rowCount()==1){
+        return "recruteur";
+    }
+    $requete_admin= $bdd->prepare('SELECT mail_admin FROM administrateur WHERE mail_admin=?');
+    $requete_admin->execute(array($email));
+    if ($requete_admin->rowCount()==1){
+        return "administrateur";
+    }
+
+}
