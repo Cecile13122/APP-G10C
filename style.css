@@ -8,6 +8,7 @@ body{
   color:#F6FAF0;
   background-color: #4C5760;
   padding:5%;
+  text-align: justify;
 }
 
 .main ul{
@@ -160,6 +161,17 @@ textarea{
   padding-left: 30px;
 }
 
+input {
+  background-color: white;
+  border-radius: 15px;
+  color:#93A8AC;
+  text-align: left;
+  padding-left: 30px;
+}
+input::placeholder{
+  color:#93A8AC;
+}
+
 table{
   background-color: inherit;
   text-align: center;
@@ -290,4 +302,13 @@ li.genre{
 .configSession li{
   text-align: left;
   padding: 2% 0% 0% 9%;
+}
+
+.article{
+  color:#F6FAF0;
+  background-color: #4C5760;
+  text-align: left;
+  font-weight: bold;
+  padding: 5px;
+  font-size: 18px;
 }
