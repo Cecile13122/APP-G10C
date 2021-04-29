@@ -109,3 +109,26 @@ textarea{
   text-align: left;
   padding-left: 30px;
 }
+
+
+nav{
+  top: 0;
+  overflow:hidden;
+  height: 130px;
+  width:100%;
+  margin: 0;
+  position:relative;
+}
+nav a{
+  font-size: 20pt;
+  float: left;
+  display: block;
+  color: #4C5760;
+  text-align: center;
+  margin: 70px 20px 80px;
+}
+nav img{
+  float: left;
+  display: block;
+  height: 125px;
+}

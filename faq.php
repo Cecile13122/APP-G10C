@@ -3,13 +3,14 @@ require_once('requestsFaq.php');
 $faq=recuperation_faq();
 $themes= $faq[0];
 $donne_faq= $faq[1];
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
         <meta charset="utf-8" name="viewport"/>
         <link rel="stylesheet" type="text/css" href="style.css"/>
-        <title>Army's Test Company</title>
+        <title>Helitest</title>
     </head>
     <body>
       <div class="navbar">
@@ -26,7 +27,7 @@ $donne_faq= $faq[1];
         <h2><?=$theme['theme']?></h2>
         <div class= "themeFAQ">
             <?php foreach ($donne_faq as $donnee):
-            if ($donnee["theme"] == $theme['theme']){?>
+            if ($donnee['theme'] == $theme['theme']){?>
             <p><h3><?=$donnee['question'] ?></h3><br><?=$donnee['reponse'] ?><br></p>
             <?php }
            endforeach;?>
