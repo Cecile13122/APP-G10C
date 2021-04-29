@@ -1,56 +1,27 @@
-.profil{
-	font-size: 5px;
-}
-a{
-  text-decoration:none;
-}
-*{
-  font-family: "LT Internet";
-  text-align: center;
-  font-size: 14pt;
-  background-color: #DEE3E2;
-  text-decoration: none;
+body{
+	margin: 0;
+	padding: 0% 1% 0% 1%;
 }
 
-.footer,.footer a{
-  color:#4C5760;
-  position: relative;
-  margin: 0px;
-  padding: 10px;
-  bottom: 0px;
-  height: 30px;
+.main p{
+	border-radius: 10px;
+	color:#F6FAF0;
+	background-color: #4C5760;
+	padding:5%;
 }
 
-.underline{
-  text-decoration: underline;
+.main ul{
+	background-color: #4C5760;
 }
 
-h1{
-  font-size: 32pt;
-  padding-bottom: 10px;
-  margin:auto;
+.main li{
+	margin: auto;
+	background-color: #4C5760;
+	list-style-type: none;
+	list-style-position: outside;
+	padding: 1% 5% 0% 5%;
 }
-.navbar{
-  top: 0;
-  overflow:hidden;
-  height: 130px;
-  width:100%;
-  margin: 0;
-  position:relative;
-}
-.navbar a{
-  font-size: 20pt;
-  float: left;
-  display: block;
-  color: #4C5760;
-  text-align: center;
-  margin: 70px 20px 80px;
-}
-.navbar img{
-  float: left;
-  display: block;
-  height: 125px;
-}
+
 .main{
   border-radius: 10px;
   margin: 0;
@@ -65,12 +36,36 @@ h1{
   padding: auto;
 }
 
-.themeFAQ{
-  background-color: white;
-  color: #4C5760;
-  margin:20px 20px 50px 20px;
-  padding: 10px 2px 2px 20px;
-  border-radius: 20px;
+a{
+  text-decoration:none;
+}
+
+*{
+  font-family: "LT Internet";
+  text-align: center;
+  font-size: 14pt;
+  background-color: #FAF6F0;
+  text-decoration: none;
+}
+
+.footer,.footer a{
+  color:#4C5760;
+  position: relative;
+  padding: 10px;
+  bottom: 0px;
+}
+
+.underline{
+  text-decoration: underline;
+}
+
+h1{
+  font-size: 28pt;
+  margin: 1% 5% 5% 5%;
+	border-radius: 10px;
+	color: #4C5760;
+	padding: 1% 4% 1% 4%;
+	background-color: white;
 }
 
 h2{
@@ -81,6 +76,56 @@ h2{
   color:white;
   margin: 0px;
   width: auto;
+}
+
+.navbar{
+  overflow:hidden;
+  height: 130px;
+  width:100%;
+  margin: 1% 0% 1%;
+  position:relative;
+}
+.navbar a{
+  font-size: 20pt;
+  float: left;
+  display: block;
+  color: #4C5760;
+  text-align: center;
+  margin: 7% 0% 10%;
+	padding:1%;
+}
+.navbar a:hover {
+  background-color: #93A8AC;
+	padding:1%;
+	border-radius: 5px;
+}
+
+.navbar img{
+  float: left;
+  display: block;
+  height: 125px;
+}
+
+.profil h2{
+	font-size: 21px;
+	color:#4C5760;
+	text-align: right;
+	padding: 2% 0% 0% 0%;
+	background-color: #FAF6F0;
+}
+
+.profil{
+	font-size: 14px;
+	text-align: right;
+	color: #93A8AC;
+	margin : 1% 8% 0% 10%;
+}
+.themeFAQ{
+  background-color: white;
+  color: #4C5760;
+  margin:20px 20px 50px 20px;
+  padding: 10px 2px 2px 20px;
+  border-radius: 20px;
 }
 
 .themeFAQ h3{
@@ -94,11 +139,17 @@ h2{
   background-color: white;
   font-size: 14pt;
   text-align: left;
+	padding: 0% 10% 1%;
 }
 
 .link{
   height: 200px;
   margin: 20px 20px 20px 20px;
+}
+
+.active{
+	border-bottom-color: #4C5760;
+	border-bottom-style: double;
 }
 
 textarea{
@@ -107,4 +158,136 @@ textarea{
   color:#93A8AC;
   text-align: left;
   padding-left: 30px;
+}
+
+table{
+	background-color: inherit;
+	text-align: center;
+	width: 100%;
+  position: relative;
+}
+
+table .plan{
+	width: 100%;
+	border-radius: 10px;
+	margin: 5% 5% 5% 5%;
+}
+
+table form, label{
+	background-color: inherit;
+}
+
+table td, tr, ul{
+	background-color: #4C5760;
+	padding: inherit;
+}
+
+table td h1{
+  font-size: 22pt;
+  width: auto;
+	  font-size: 32pt;
+	  margin: 1% 5% 5% 5%;
+		border-radius: 10px;
+		color: #4C5760;
+		padding: 2% 5% 2% 5%;
+		background-color: white;
+}
+
+.inputForm{
+  background-color: white;
+  border-color: #93A8AC;
+  padding: 2px 10px 2px;
+  margin: 10px;
+  color:#93A8AC;
+  border-style: solid;
+}
+
+.placeholder{
+  color:#93A8AC;
+}
+
+.buttonForm{
+  background-color: white;
+  border-color: #DEE3E2;
+  padding: 3px 20px 3px;
+  margin: 10px;
+  border-style: solid;
+  border-radius: 5px;
+  position: relative;
+	color:#4C5760;
+}
+
+.inputMessage{
+	height: 200px;
+	background-color: white;
+  border-color: #93A8AC;
+  padding: 2px 10px 2px;
+  margin: 10px;
+  color:#93A8AC;
+  border-style: solid;
+}
+
+
+.test{
+	background-color: white;
+	color: #4C5760;
+	margin: 5% 5% 10% 10%;
+	padding: 0;
+	border-radius: 10px;
+	width: 46%;
+	height: auto;
+	/*border: 50px solid #4C5760;*/
+	position: relative;
+}
+.resultat{
+	border-collapse: separate;
+	border-spacing: 30pt;
+	padding: 3% 3% 5% %;
+}
+
+.test h3{
+	background-color: #93A8AC;
+	color:white;
+	border-radius: 10px;
+	padding: 3% 3% 3% 6%;
+	margin: 4% 5% 3% 5%;
+	text-align: left;
+}
+
+.test li, .test p{
+	background-color: white;
+	color: #4C5760;
+}
+
+
+.test .left{
+	text-align: left;
+}
+
+.test li .result{
+	text-align: right;
+}
+.result{
+	text-align: right;
+}
+
+td .test{
+	padding-top: 2%;
+}
+
+.nouvTest{
+	text-align: left;
+}
+
+.lanceTest{
+	padding-bottom: 50%;
+}
+
+li.genre{
+	padding-left: 20%;
+}
+
+.configSession li{
+	text-align: left;
+	padding: 2% 0% 0% 9%;
 }
