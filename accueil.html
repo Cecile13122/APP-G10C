@@ -1,22 +1,38 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="utf-8" name="viewport"/>
-        <link rel="stylesheet" type="text/css" href="styleForm.css"/>
-        <link rel="shortcut icon" type="image/x-icon" href="ATC_v200.png"/>
-        <title>Helitest</title>
-    </head>
-    <body>
-      <div class="headerForm">
-        <img src="ATC_v200.png" alt="Logo ATC">
-        <h1>Bienvenue</h1>
-      </div>
-      <div class="mainForm">
-        <p>Sur ce site vous trouverez vos résultats aux différents tests. <br>Une fois que tous les candidats de votre session auront passé les tests vous saurez si vous êtes admis pour la prochaine phase de recrutement.</p>
-        <a href="connexion.html" class="button">Connexion</a><a href="inscription.html" class="button">Inscription</a>
-      </div>
-      <div class="footerForm">
-        <a href="cgu.php">CGU</a> | <a href="mentionsLegales.php">Mentions Légales</a>  |  <a href="planDuSite.php">Plan du site</a>
-      </div>
-    </body>
+<head>
+  <meta charset="utf-8" name="viewport"/>
+  <link rel="stylesheet" type="text/css" href="styleForm.css"/>
+  <link rel="shortcut icon" type="image/x-icon" href="ATC_v200.png"/>
+  <title>Helitest</title>
+</head>
+<body>
+  <div class="headerForm">
+    <img src="ATC_v200.png" alt="Logo ATC">
+    <h1>Bienvenue</h1>
+  </div>
+  <script>
+  function myFunction(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("toShow") == -1) {
+      x.className += "toShow";
+    } else {
+      x.className = x.className.replace(" toShow", "");
+    }
+  }
+</script>
+  <div class="mainForm">
+    <p>Sur ce site vous trouverez vos résultats aux différents tests. <br>Une fois que tous les candidats de votre session auront passé les tests vous saurez si vous êtes admis pour la prochaine phase de recrutement.</p>
+
+
+<a href="connexion.html" class="button">Connexion</a><a href="inscription.html" class="button">Inscription</a><br><br>
+<button onclick="myFunction('Demo1')" class="savoirButton">En savoir plus.</button>
+<div id="Demo1" class="toHide">
+  <p>Il est important de mesurer les réflexes d’un futur pilote d'hélicoptère. En effet, tout le monde n’a pas les mêmes aptitudes, et dans le cadre des réflexes et du temps de réaction, la part de l’innée est très importante et l’entraînement ne permet pas de rattraper toutes les lacunes. Il est donc très important d’écarter grâce aux tests psychotechniques ceux qui ne pourront jamais obtenir les aptitudes requises.  Pour cela, on va par exemple mesurer la capacité du candidat à reconnaître une tonalité et à la répéter. Cette mesure donnera par exemple un aperçu de la validation opérationnelle d’un candidat face à des bruits extérieurs ayant des fréquences différentes, que l’on peut assimiler à différentes sonneries d’alarmes. On testera aussi ses reflex à l’aide de stimuli sonore ou visuel. La gestion du stress est aussi un élément important dans la vie d’un militaire, c’est pourquoi différents tests permettent de la mesurer.</p>
+</div>
+</div>
+<div class="footerForm">
+  <a href="cgu.php">CGU</a> | <a href="mentionsLegales.php">Mentions Légales</a>  |  <a href="planDuSite.php">Plan du site</a>
+</div>
+</body>
 </html>
