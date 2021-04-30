@@ -34,7 +34,8 @@ session_start();
     </table>
     <input type="submit" value="Envoyer" class="buttonForm">
 </form>
-<div class="footerForm"><a href="CGU.php">CGU</a> | <a href="mentionsLegales.php">Mentions Légales</a> | <a
-        href="planDuSite.html">Plan du site</a></div>
+<div class="footerForm">
+    <a href="cgu.php">CGU</a> | <a href="mentionsLegales.php">Mentions Légales</a>  |  <a href="planDuSite.php">Plan du site</a>
+</div>
 </body>
 </html>

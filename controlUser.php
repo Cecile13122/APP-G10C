@@ -87,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['prenom'] = $prenom;
         $_SESSION['nom'] = $nom;
         $_SESSION['role'] = "candidat";
-        header("Location: pageTypeConnecte.php");
+        header("Location: resultat.php");
         exit;
     } else {
     echo "Il y a une erreur dans le remplissage de votre formulaire.<br>";

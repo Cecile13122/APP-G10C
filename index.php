@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: pageAdministrateur.html");
                 exit;
             } else {
-                header("Location: pageTypeConnecte.php");
+                header("Location: resultat.php");
                 exit;
             }
         } else {

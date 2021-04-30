@@ -1,23 +1,15 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="utf-8" name="viewport"/>
-    <link rel="stylesheet" type="text/css" href="style.css"/>
-    <title>Army's Test Company</title>
-</head>
-<body>
-<div class="navbar">
-    <img src="ATC_v200.png" alt="Logo ATC">
-    <a href="resultats.html" >Résultats</a>
-    <a href="test.html">Test</a>
-    <a href="faq.html">FAQ</a>
-    <a href="contact.html" class="active">Contact</a>
-    <a href="#recherche"><textarea name="informations" rows="1" cols="20">Luc Colin</textarea></a>
-    <div class="profil">
-        <h2>Didier LOURANT</h2>
-        Se déconnecter
-    </div>
-</div>
+<?php
+session_start();
+
+if (empty($_SESSION)){
+    include_once("headerNonConnecte.php");
+}
+elseif ($_SESSION['role']=="candidat"){
+    include_once("headerCandidat.php");}
+elseif ($_SESSION['role']=="recruteur"){
+    include_once("headerRecruteur.php");
+}
+?>
 <div class="main">
     <table>
         <tr>
@@ -34,9 +26,9 @@
                 </ul>
             </td>
             <td>
-                <form>
+                <form mrthod="post">
                     <input type="firstname" placeholder="Prénom" class="inputForm"><br>
-                    <input type="name" placeholder="Nom de famille" class="inputForm"><br>
+                    <input type="name" placeholder="Nom" class="inputForm"><br>
                     <input type="email" name="email" placeholder="exemple@mail.com" class="inputForm"><br>
                     <label>Message :<br>
                         <input type="message" class="inputMessage">
@@ -48,7 +40,7 @@
     </table>
 </div>
 <div class="footer">
-    <a href="CGU.html">CGU</a>  |  <a href="mentionsLegales.html">Mentions Légales</a>  |  <a href="planDuSite.html">Plan du site</a>
+    <a href="cgu.php">CGU</a>  |  <a href="mentionsLegales.php">Mentions Légales</a>  |  <a href="planDuSite.php">Plan du site</a>
 </div>
 </body>
 </html>

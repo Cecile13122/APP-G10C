@@ -20,7 +20,7 @@ session_destroy();
     <a href="accueil.html" class="button">Revenir à la page d'accueil</a>
 </div>
 <div class="footerForm">
-    <a href="cgu.html">CGU</a> | <a href="mentionsLegales.php">Mentions Légales</a>  |  <a href="planDuSite.html">Plan du site</a>
+    <a href="cgu.php">CGU</a> | <a href="mentionsLegales.php">Mentions Légales</a>  |  <a href="planDuSite.php">Plan du site</a>
 </div>
 </body>
 
