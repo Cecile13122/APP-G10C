@@ -10,7 +10,7 @@ elseif ($_SESSION['role']=="recruteur"){
 }
 ?>
 <div class="main">
-    <h2>Luc Colin - Session 1202</h2>
+    <h2><?=$_SESSION['prenom']." ". strtoupper($_SESSION['nom'])?> - Session 1202</h2>
     <table class="resultat">
         <tr>
             <td class="test">
