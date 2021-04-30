@@ -22,6 +22,6 @@ elseif ($_SESSION['role']=="recruteur"){
         <a href="mentionsLegales.php" class="link">Mentions Légales</a><br>
         <a href="cgu.php" class="link">Conditions Générales d'Utilisation</a><br>
       </div>
-      <div class="footer"><a href=cgu.php">CGU</a>  |  <a href="mentionsLegales.php">Mentions Légales</a>  |  <a href="planDuSite.php">Plan du site</a></div>
+      <div class="footer"><a href="cgu.php">CGU</a>  |  <a href="mentionsLegales.php">Mentions Légales</a>  |  <a href="planDuSite.php">Plan du site</a></div>
     </body>
 </html>

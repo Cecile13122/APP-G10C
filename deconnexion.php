@@ -13,10 +13,10 @@ session_destroy();
 <body>
 <div class="headerForm">
     <img src="ATC_v200.png" alt="Logo ATC">
-    <h1>Bienvenue</h1>
+    <h1>Merci pour votre visite</h1>
 </div>
 <div class="mainForm">
-    <p>Vous êtes bien déconnecté. <br>Merci pour votre visite</p>
+    <p>Vous êtes bien déconnecté.</p>
     <a href="accueil.html" class="button">Revenir à la page d'accueil</a>
 </div>
 <div class="footerForm">
