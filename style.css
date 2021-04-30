@@ -44,7 +44,7 @@ a{
 *{
   font-family: "LT Internet";
   text-align: center;
-  font-size: 14pt;
+  font-size: 16pt;
   background-color: #FAF6F0;
   text-decoration: none;
 }
@@ -131,14 +131,14 @@ h2{
 
 .themeFAQ h3{
   background-color: white;
-  font-size: 16pt;
+  font-size: 18pt;
   text-align: left;
   padding-left:20px;
 }
 
 .themeFAQ p{
   background-color: white;
-  font-size: 14pt;
+  font-size: 16pt;
   text-align: left;
   padding: 0% 10% 1%;
 }
@@ -310,5 +310,5 @@ li.genre{
   text-align: left;
   font-weight: bold;
   padding: 5px;
-  font-size: 18px;
+  font-size: 18pt;
 }
