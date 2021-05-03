@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 session_start();
 if (empty($_SESSION)){
@@ -12,12 +11,82 @@ elseif ($_SESSION['role']=="recruteur"){
 ?>
   <div class="main">
     <h1>Bienvenue</h1>
-    <p class="milieu">Sur ce site vous trouverez vos résultats aux différents tests. Une fois que tous les candidats de votre session auront passé les tests vous saurez si vous êtes admis pour la prochaine phase de recrutement.<br><br>
-Il est important de mesurer les réflexes d’un futur pilote d'hélicoptère. En effet, tout le monde n’a pas les mêmes aptitudes, et dans le cadre des réflexes et du temps de réaction, la part de l’innée est très importante et l’entraînement ne permet pas de rattraper toutes les lacunes. Il est donc très important d’écarter grâce aux tests psychotechniques ceux qui ne pourront jamais obtenir les aptitudes requises.  Pour cela, on va par exemple mesurer la capacité du candidat à reconnaître une tonalité et à la répéter. Cette mesure donnera par exemple un aperçu de la validation opérationnelle d’un candidat face à des bruits extérieurs ayant des fréquences différentes, que l’on peut assimiler à différentes sonneries d’alarmes. On testera aussi ses reflex à l’aide de stimuli sonore ou visuel. La gestion du stress est aussi un élément important dans la vie d’un militaire, c’est pourquoi différents tests permettent de la mesurer.</p>
-
+    <p class="milieu">Sur ce site vous trouverez vos résultats aux différents tests. Une fois que tous les candidats de votre session auront passé les tests vous saurez si vous êtes admis pour la prochaine phase de recrutement.</p>
+    <h2>Voici notre équipe :</h2><br>
+    <div class="slideshow">
+      <div class="slide">
+        <img src="adam.jpg">
+        <h3>Adam ASMAHARI</h3>
+        <p class="milieu">Respo jsp</p>
+      </div>
+        <div class="slide">
+          <img src="cecile.jpg">
+          <h3>Cécile MEYNIEUX</h3>
+          <p class="milieu">Respo jsp</p>
+        </div>
+          <div class="slide">
+            <img src="elarig.jpg">
+            <h3>Elarig RAULT</h3>
+            <p class="milieu">Respo jsp</p>
+          </div>
+            <div class="slide">
+              <img src="marie.jpg">
+              <h3>Marie MOTTIER</h3>
+              <p class="milieu">Respo jsp</p>
+            </div>
+              <div class="slide">
+                <img src="paul.jpg">
+                <h3>Paul VIDOR</h3>
+                <p class="milieu">Respo jsp</p>
+              </div>
+                <div class="slide">
+                  <img src="robin.jpg">
+                  <h3>Robin HENRY</h3>
+                  <p class="milieu">Respo jsp</p>
+                </div>
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<div class="dots">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+</div>
 </div>
 <div class="footer">
   <a href="cgu.php">CGU</a> | <a href="mentionsLegales.php">Mentions Légales</a>  |  <a href="planDuSite.php">Plan du site</a>
 </div>
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("slide");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}</script>
 </body>
 </html>

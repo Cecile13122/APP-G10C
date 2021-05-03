@@ -21,14 +21,13 @@ nav{
 }
 
 nav a{
-    font-size: 20pt;
-    float: left;
-    display: block;
-    color: #4C5760;
-    text-align: center;
-    margin: 8% 0% 0% 5%;
-    text-decoration:none;
-
+  font-size: 20pt;
+  float: left;
+  display: block;
+  color: #4C5760;
+  text-align: center;
+  margin: 7% 0% 10%;
+  padding:1%;
 }
 
 nav a:hover {
