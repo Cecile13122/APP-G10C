@@ -31,11 +31,13 @@ html{
 .main{
   border-radius: 10px;
   margin: 0;
-  width: auto;
+  height: auto;
+  min-height: 70%;
   background-color: #4C5760;
   color: #FAF6F0;
   padding: 20px;
 }
+
 .main a{
   background-color: #4C5760;
   color: #FAF6F0;
@@ -330,4 +332,8 @@ li.genre{
   font-weight: bold;
   padding: 5px;
   font-size: 18pt;
+}
+
+p.milieu{
+  text-align: center;
 }
