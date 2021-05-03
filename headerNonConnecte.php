@@ -10,6 +10,10 @@
 </head>
 <body>
 <nav>
-    <img  src="ATC_v200.png" alt="Logo ATC">
-    <a href="accueil.html" >Revenir à la page d'accueil</a>
+    <img src="ATC_v200.png" alt="Logo ATC">
+    <a href="accueil.php">Accueil</a>
+    <a href="accueil.php">Accueil</a>
+    <a href="accueil.php">Accueil</a>
+
+    <a href="connexion.html" class="button">Se connecter.</a>
 </nav>

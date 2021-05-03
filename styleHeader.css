@@ -1,6 +1,8 @@
 body{
     margin: 0;
     padding: 0 1% 0 1%;
+    height:auto;
+    min-height: 100%;
 }
 
 *{
@@ -24,8 +26,7 @@ nav a{
     display: block;
     color: #4C5760;
     text-align: center;
-    margin-top: 3%;
-    padding:1%;
+    margin: 8% 0 0 5%;
     text-decoration:none;
 
 }
@@ -33,6 +34,7 @@ nav a{
 nav a:hover {
     background-color: #93A8AC;
     padding:1%;
+    color:white;
     border-radius: 5px;
 }
 
@@ -41,7 +43,16 @@ nav img{
     display: block;
     height: 125px;
     vertical-align: middle;
+}
 
+nav button,nav .button {
+    border-color:#4C5760;
+    border-style: solid;
+    border-radius: 15px;
+    position: relative;
+    color:#4C5760;
+    margin:2% 0% 0% 50%;
+    padding: 1% 2% 1% 2%;
 }
 
 .profil h2{
@@ -120,17 +131,6 @@ input::placeholder{
     height:30px;
 }
 
-nav button {
-
-    border-color:#4C5760;
-    border-style: solid;
-    border-radius: 15px;
-    position: relative;
-    color:#4C5760;
-    margin:0;
-    padding-bottom: 0;
-    padding-top: 0;
-}
 .recherche{
     font-size: 20pt;
     float: left;
