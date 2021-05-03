@@ -11,7 +11,7 @@
 <body>
 <nav>
     <img  src="ATC_v200.png" alt="Logo ATC">
-    <a href="resultat.php" >Résultats</a>
+    <a href="resultat.php">Résultats</a>
     <a href="faq.php">FAQ</a>
     <a href="contact.php">Contact</a>
     <div class="profil"><a href class="modif_profil"><h2><?=$_SESSION['prenom']." ". strtoupper($_SESSION['nom'])?></h2>Mon profil</a>
