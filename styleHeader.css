@@ -14,7 +14,8 @@ body{
 }
 
 nav{
-    height: 130px;
+    height: auto;
+    min-height: 130px;
     width:100%;
     margin: 1% 0 1%;
     position:relative;
@@ -26,15 +27,13 @@ nav a{
   display: block;
   color: #4C5760;
   text-align: center;
-  margin: 7% 0% 10%;
-  padding:1%;
+  margin: 90px 3% 0% 3%;
+  max-height: 50px;
 }
 
 nav a:hover {
     background-color: #93A8AC;
-    padding:1%;
     color:white;
-    border-radius: 5px;
 }
 
 nav img{
@@ -42,6 +41,7 @@ nav img{
     display: block;
     height: 125px;
     vertical-align: middle;
+    border-radius: 10pt;
 }
 
 nav button,nav .button {
@@ -50,7 +50,8 @@ nav button,nav .button {
     border-radius: 15px;
     position: relative;
     color:#4C5760;
-    margin:2% 0% 0% 50%;
+    float: right;
+    margin:0;
     padding: 1% 2% 1% 2%;
 }
 
