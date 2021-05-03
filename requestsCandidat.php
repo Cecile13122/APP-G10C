@@ -65,3 +65,8 @@ function modifier_profil($prenom, $nom, $telephone, $code_postal, $email, $ancie
 
 }
 
+function supprimer_candidat($mail){
+    $bdd=connect_bdd();
+    $requete=$bdd->prepare('DELETE candidat FROM candidat WHERE mail_candidat=?');
+    $requete->execute(array($mail));
+}
