@@ -10,7 +10,7 @@ elseif ($_SESSION['role']=="recruteur"){
 }
         ?>
       <div class="main">
-        <a href="accueil.html" class="link">Accueil</a><br>
+        <a href="accueil.php" class="link">Accueil</a><br>
         <a href="connexion.html" class="link">Connexion</a><br>
         <a href="inscription.html" class="link">Inscription</a><br>
         <a href="modificationProfil.php" class="link">Modification du profil</a><br>
