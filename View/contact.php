@@ -22,7 +22,7 @@ elseif ($_SESSION['role']=="recruteur"){
                     <li>+33 _ __ __ __ __</li>
                     <li>10 rue de Vanves</li>
                     <li>92 130 Issy-Les Moulineaux</li>
-                    <li><img src="map.png" alt="Plan" class="plan"></li>
+                    <li><img src="../Images/map.png" alt="Plan" class="plan"></li>
                 </ul>
             </td>
             <td>

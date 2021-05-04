@@ -17,7 +17,7 @@ elseif ($_SESSION['role']=="recruteur"){
         </tr>
         <tr>
             <td class="lanceTest">
-                <form method="post" action="controlTest.php">
+                <form method="post" action="../Controler/controlTest.php">
                     <input class="inputForm" type="text" name="mail" placeholder="Adresse mail candidat" required
                            pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$">
                     <br>

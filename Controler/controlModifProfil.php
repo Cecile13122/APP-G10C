@@ -1,7 +1,7 @@
 <?php
 
-require_once("requestsCandidat.php");
-require_once("requestsConnexion.php");
+require_once("Model/requestsCandidat.php");
+require_once("Model/requestsConnexion.php");
 require_once("fonction.php");
 
 session_start();
@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['mail'] = $email;
         $_SESSION['prenom'] = $prenom;
         $_SESSION['nom'] = $nom;
-        header("Location: resultat.php");
+        header("Location: View/resultat.php");
         exit;
     } else {
         echo "Il y a une erreur dans le remplissage de votre formulaire.<br>";

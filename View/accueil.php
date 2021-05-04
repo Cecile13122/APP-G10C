@@ -15,32 +15,32 @@ elseif ($_SESSION['role']=="recruteur"){
     <h2>Voici notre équipe :</h2><br>
     <div class="slideshow">
       <div class="slide">
-        <img src="adam.jpg">
+        <img src="../Images/adam.jpg">
         <h3>Adam ASMAHARI</h3>
         <p class="milieu">Respo jsp</p>
       </div>
         <div class="slide">
-          <img src="cecile.jpg">
+          <img src="../Images/cecile.jpg">
           <h3>Cécile MEYNIEUX</h3>
           <p class="milieu">Respo jsp</p>
         </div>
           <div class="slide">
-            <img src="elarig.jpg">
+            <img src="../Images/elarig.jpg">
             <h3>Elarig RAULT</h3>
             <p class="milieu">Respo jsp</p>
           </div>
             <div class="slide">
-              <img src="marie.jpg">
+              <img src="../Images/marie.jpg">
               <h3>Marie MOTTIER</h3>
               <p class="milieu">Respo jsp</p>
             </div>
               <div class="slide">
-                <img src="paul.jpg">
+                <img src="../Images/paul.jpg">
                 <h3>Paul VIDOR</h3>
                 <p class="milieu">Respo jsp</p>
               </div>
                 <div class="slide">
-                  <img src="robin.jpg">
+                  <img src="../Images/robin.jpg">
                   <h3>Robin HENRY</h3>
                   <p class="milieu">Respo jsp</p>
                 </div>

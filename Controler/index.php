@@ -1,7 +1,7 @@
 <?php
 
 // include_once('requestsCandidat.php');
-include_once('requestsConnexion.php');
+include_once('../Model/requestsConnexion.php');
 require_once('fonction.php');
 
 
@@ -23,10 +23,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $role = verification_role($userinfo['mail']);
             $_SESSION['role'] = $role;
             if ($role == 'administrateur') {
-                header("Location: pageAdministrateur.html");
+                header("Location: ..\Administrateur\pageAdministrateur.html");
                 exit;
             } else {
-                header("Location: resultat.php");
+                header("Location: ../View/resultat.php");
                 exit;
             }
         } else {

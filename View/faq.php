@@ -1,5 +1,5 @@
 <?php
-require_once('requestsFaq.php');
+require_once('Model/requestsFaq.php');
 $faq=recuperation_faq();
 $themes= $faq[0];
 $donne_faq= $faq[1];

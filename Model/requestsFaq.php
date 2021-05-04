@@ -1,5 +1,5 @@
 <?php
-require_once ('requestsConnexion.php');
+require_once('requestsConnexion.php');
 
 function recuperation_faq(){
     $bdd=connect_bdd();

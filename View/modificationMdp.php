@@ -1,6 +1,6 @@
 <?php
 
-require_once("requestsConnexion.php");
+require_once("Model/requestsConnexion.php");
 session_start();
 ?>
 <!DOCTYPE html>
@@ -8,13 +8,13 @@ session_start();
 <head>
     <meta charset="utf-8" name="viewport"/>
     <link type="text/css" rel="stylesheet" href="styleForm.css"/>
-    <link rel="shortcut icon" type="image/x-icon" href="ATC_v200.png"/>
+    <link rel="shortcut icon" type="image/x-icon" href="../Images/ATC_v200.png"/>
     <title>Helitest</title>
 </head>
 <body>
-<img src="ATC_v200.png" alt="Logo ATC">
+<img src="../Images/ATC_v200.png" alt="Logo ATC">
 <h1>Modifier son mot de passe</h1>
-<form method="post" action="controlModifMdp.php">
+<form method="post" action="../Controler/controlModifMdp.php">
     <table>
         <tr>
             <td class="critere"><label for="mdp">Mot de passe actuel :</label></td>

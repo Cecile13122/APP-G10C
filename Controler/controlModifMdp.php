@@ -1,5 +1,5 @@
 <?php
-require_once("requestsConnexion.php");
+require_once("Model/requestsConnexion.php");
 require_once("fonction.php");
 session_start();
 
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($err_mail) && empty($err_telephone) && empty($err_nom) && empty($err_mdp) && empty($err_code_postal)) {
         modifier_mot_de_passe($nouveau_mot_de_passe, $_SESSION['mail'],$_SESSION['role']);
-        header("Location: resultat.php");
+        header("Location: View/resultat.php");
         exit;
     } else {
         echo "Il y a une erreur dans le remplissage de votre formulaire.<br>";

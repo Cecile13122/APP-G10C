@@ -1,5 +1,5 @@
 <?php
-require_once("requestsCandidat.php");
+require_once("Model/requestsCandidat.php");
 session_start();
 $info_candidat = recuperation_profil($_SESSION['mail']);
 
@@ -9,13 +9,13 @@ $info_candidat = recuperation_profil($_SESSION['mail']);
 <head>
     <meta charset="utf-8" name="viewport"/>
     <link type="text/css" rel="stylesheet" href="styleForm.css"/>
-    <link rel="shortcut icon" type="image/x-icon" href="ATC_v200.png"/>
+    <link rel="shortcut icon" type="image/x-icon" href="../Images/ATC_v200.png"/>
     <title>Helitest</title>
 </head>
 <body>
-<img src="ATC_v200.png" alt="Logo ATC">
+<img src="../Images/ATC_v200.png" alt="Logo ATC">
 <h1>Modifier ses informations</h1>
-<form method="post" action="controlModifProfil.php">
+<form method="post" action="../Controler/controlModifProfil.php">
     <table>
         <tr>
             <td class="critere"><label for="firstname">Prénom :</label></td>
