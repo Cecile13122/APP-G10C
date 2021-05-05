@@ -26,12 +26,12 @@ elseif ($_SESSION['role']=="recruteur"){
                 </ul>
             </td>
             <td>
-                <form mrthod="post">
+                <form method="post">
                     <input type="firstname" placeholder="Prénom" class="inputForm"><br>
                     <input type="name" placeholder="Nom" class="inputForm"><br>
                     <input type="email" name="email" placeholder="exemple@mail.com" class="inputForm"><br>
                     <label>Message :<br>
-                        <input type="message" class="inputMessage">
+                        <textarea class="inputMessage">
                     </label><br>
                     <input type="submit" value="Envoyer" class="buttonForm">
                 </form>

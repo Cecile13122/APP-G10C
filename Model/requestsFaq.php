@@ -30,7 +30,7 @@ function ajout_question($theme, $question, $reponse){
 
 function affiche_faq(){
     $bdd=connect_bdd();
-    $requete=$bdd->prepare('SELECT * FROM faq ORDER BY theme');
+    $requete=$bdd->prepare('SELECT * FROM faq');
     $requete->execute();
     $faq=[];
     while($donnee_faq = $requete->fetch()){
