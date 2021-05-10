@@ -48,7 +48,7 @@ $faq=affiche_faq();
     </form>
 </div>
 <div id="modif_faq">
-    <h3>Ajouter questions FAQ</h3>
+    <h3>Modifier questions FAQ</h3>
     <form method="post" action="../Controler/controlFaq.php">
         <label>ID de la question
             <input type="number" name="id_faq" required>
