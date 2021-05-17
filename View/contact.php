@@ -1,12 +1,11 @@
 <?php
 session_start();
 
-if (empty($_SESSION)){
+if (empty($_SESSION)) {
     include_once("headerNonConnecte.php");
-}
-elseif ($_SESSION['role']=="candidat"){
-    include_once("headerCandidat.php");}
-elseif ($_SESSION['role']=="recruteur"){
+} elseif ($_SESSION['role'] == "candidat") {
+    include_once("headerCandidat.php");
+} elseif ($_SESSION['role'] == "recruteur") {
     include_once("headerRecruteur.php");
 }
 ?>
@@ -27,10 +26,11 @@ elseif ($_SESSION['role']=="recruteur"){
             </td>
             <td>
                 <form method="post" action="../Controler/controlContact.php">
-                    <input type="text" placeholder="Sujet" name="sujet" class="inputForm" required><br>
+                    <input type="text" placeholder="Prénom Nom" name="nom" class="inputForm" required><br>
                     <input type="email" name="email" placeholder="exemple@mail.com" class="inputForm" required><br>
                     <br>
-                    <textarea class="inputMessage" name="message" placeholder="Votre message"></textarea>
+                    <input type="text" placeholder="Sujet" name="sujet" class="inputForm" required><br>
+                    <textarea class="inputMessage" name="message" placeholder="Votre message" required></textarea>
                     <br>
                     <input type="submit" value="Envoyer" class="buttonForm">
                 </form>
@@ -39,7 +39,8 @@ elseif ($_SESSION['role']=="recruteur"){
     </table>
 </div>
 <div class="footer">
-    <a href="cgu.php">CGU</a>  |  <a href="mentionsLegales.php">Mentions Légales</a>  |  <a href="planDuSite.php">Plan du site</a>
+    <a href="cgu.php">CGU</a> | <a href="mentionsLegales.php">Mentions Légales</a> | <a href="planDuSite.php">Plan du
+        site</a>
 </div>
 </body>
 </html>
