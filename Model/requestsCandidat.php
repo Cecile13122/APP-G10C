@@ -70,3 +70,35 @@ function supprimer_candidat($mail){
     $requete=$bdd->prepare('DELETE candidat FROM candidat WHERE mail_candidat=?');
     $requete->execute(array($mail));
 }
+
+function is_candidat_valide($mail){
+    $bdd=connect_bdd();
+    $requete=$bdd->prepare('SELECT valider FROM candidat WHERE mail_candidat=?');
+    $requete->execute(array($mail));
+    $valider = $requete->fetch();
+    if($valider){
+     return true;
+    }
+    else {
+        return false;
+    }
+}
+
+function valider_candidat($mail){
+    $bdd=connect_bdd();
+    $requete=$bdd->prepare('UPDATE candidat SET valider=TRUE WHERE mail_candidat=?');
+    $requete->execute(array($mail));
+}
+
+function recuperation_candidat(){
+
+        $bdd=connect_bdd();
+        $requete=$bdd->prepare('SELECT * FROM candidat ORDER BY nom');
+        $requete->execute();
+        $candidats=[];
+        while($candidat = $requete->fetch()){
+            $candidats[]=$candidat;
+        }
+        return $candidats;
+
+}
