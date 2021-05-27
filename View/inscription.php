@@ -4,6 +4,7 @@
     <meta charset="utf-8" name="viewport"/>
     <link type="text/css" rel="stylesheet" href="styleForm.css"/>
     <link rel="shortcut icon" type="image/x-icon" href="../Images/ATC_v200.png"/>
+    <script src="verificationFormulaire.js" type="text/javascript"></script>
     <title>Helitest</title>
 </head>
 <body>
@@ -12,13 +13,17 @@
 <form method="post" action="../Controler/controlUser.php">
     <table>
         <tr>
-            <td class="critere"><label for="monsieur">Civilité :</label></td>
+            <td class="critere"><label for="monsieur">Civilité :*</label></td>
             <td colspan="2"><input name="genre" type="radio" id="monsieur" value="M" class="inputForm" required> <label
-                    for="monsieur">M.</label><input name="genre" type="radio" id="madame" value="F" class="inputForm"
-                                                    required> <label for="madame">Mme</label></td>
+                        for="monsieur">M.</label><input name="genre" type="radio" id="madame" value="F"
+                                                        class="inputForm"
+                                                        required> <label for="madame">Mme</label></td>
         </tr>
         <tr>
-            <td class="critere"><label for="firstname">Prénom :</label></td>
+            <span id="err_nom"></span>
+        </tr>
+        <tr>
+            <td class="critere"><label for="firstname">Prénom :*</label></td>
             <td><input id="firstname" type="text" name="prenom" placeholder="Prénom" class="inputForm" required
                        pattern="^[A-Za-zÜ-ü'-]+( *[A-Za-zÜ-ü'-]+)*$"></td>
         </tr>
@@ -67,13 +72,14 @@
         </tr>
         <tr>
             <td colspan="2"><label for="cgu"><input type="checkbox" id="cgu" name="CGU" value="oui" required> J'accepte
-                les conditions d'utilisation.</label></td>
+                    les conditions d'utilisation.</label></td>
     </table>
-    <p>Déjà un compte ? <a href="connexion.html" class="underline">Se connecter.</a></p>
+    <p>Déjà un compte ? <a href="connexion.php" class="underline">Se connecter.</a></p>
     <input type="submit" value="Envoyer" class="buttonForm">
 </form>
 <div class="footerForm">
-    <a href="cgu.php">CGU</a> | <a href="mentionsLegales.php">Mentions Légales</a>  |  <a href="planDuSite.php">Plan du site</a>
+    <a href="cgu.php">CGU</a> | <a href="mentionsLegales.php">Mentions Légales</a> | <a href="planDuSite.php">Plan du
+        site</a>
 </div>
 </body>
 </html>

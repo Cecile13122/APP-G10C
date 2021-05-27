@@ -30,11 +30,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 exit;
             }
         } else {
-            echo "mot de passe incorrect";
+            header('Location: ../View/connexion.php?err=1');
+            exit;
 
         }
     } else {
-        echo "identifiant incorrect";
+        header('Location: ../View/connexion.php?err=1');
+        exit;
 
 
     }

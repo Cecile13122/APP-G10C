@@ -11,8 +11,8 @@ elseif ($_SESSION['role']=="recruteur"){
         ?>
       <div class="main">
         <a href="accueil.php" class="link">Accueil</a><br>
-        <a href="connexion.html" class="link">Connexion</a><br>
-        <a href="inscription.html" class="link">Inscription</a><br>
+        <a href="connexion.php" class="link">Connexion</a><br>
+        <a href="inscription.php" class="link">Inscription</a><br>
         <a href="modificationProfil.php" class="link">Modification du profil</a><br>
         <a href="modificationMdp.php" class="link">Modification du mot de passe</a><br>
         <a href="resultat.php" class="link">Résultats</a><br>

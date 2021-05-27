@@ -13,5 +13,5 @@
     <img src="../Images/ATC_v200.png" alt="Logo ATC">
     <a href="accueil.php">Accueil</a>
 
-    <a href="connexion.html" class="button">Se connecter.</a>
+    <a href="connexion.php" class="button">Se connecter.</a>
 </nav>
