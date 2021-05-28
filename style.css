@@ -1,0 +1,435 @@
+body{
+  margin: 0;
+  padding: 0 1% 0 1%;
+  height: auto;
+  min-height: 100%;
+}
+html{
+  height: auto;
+  min-height: 100%;
+}
+.main p{
+  border-radius: 10px;
+  color:#F6FAF0;
+  background-color: #4C5760;
+  padding:2%;
+  text-align: justify;
+}
+
+.main ul{
+  background-color: #4C5760;
+}
+
+.main li{
+  margin: auto;
+  background-color: #4C5760;
+  list-style-type: none;
+  list-style-position: outside;
+  padding: 1% 5% 0% 5%;
+}
+
+.main{
+  border-radius: 10px;
+  margin: 0;
+  height: auto;
+  min-height: 70%;
+  background-color: #4C5760;
+  color: #FAF6F0;
+  padding: 20px;
+}
+
+.main a{
+  background-color: #4C5760;
+  color: #FAF6F0;
+  padding: auto;
+}
+
+a{
+  text-decoration:none;
+}
+
+*{
+  font-family: "LT Internet";
+  text-align: center;
+  font-size: 16pt;
+  background-color: #FAF6F0;
+  text-decoration: none;
+}
+
+.footer,.footer a{
+  color:#4C5760;
+  position: relative;
+  padding: 10px;
+  bottom: 0px;
+}
+
+.underline{
+  text-decoration: underline;
+}
+
+h1{
+  font-size: 28pt;
+  margin: 1% 5% 5% 5%;
+  border-radius: 10px;
+  color: #4C5760;
+  padding: 1% 4% 1% 4%;
+  background-color: white;
+}
+
+h2{
+  background-color: #4C5760;
+  font-size: 20pt;
+  padding-left: 30px;
+  text-align: left;
+  color:white;
+  margin: 0px;
+  width: auto;
+}
+
+h3{
+  background-color: white;
+  font-size: 18pt;
+  color:#4C5760;
+  margin:2% 30% 0% 30%;
+  padding: 1% 2% 1% 2%;
+  border-radius: 10pt;
+}
+
+.navbar{
+  overflow:hidden;
+  height: 130px;
+  width:100%;
+  margin: 1% 0% 1%;
+  position:relative;
+}
+/*
+.navbar a{
+  font-size: 20pt;
+  float: left;
+  display: block;
+  color: #4C5760;
+  text-align: center;
+  margin: 7% 0% 10%;
+  padding:1%;
+}
+.navbar a:hover {
+  background-color: #93A8AC;
+  padding:1%;
+  border-radius: 5px;
+}
+*/
+.navbar img{
+  float: left;
+  display: block;
+  height: 125px;
+}
+
+.profil h2{
+  font-size: 21px;
+  color:#4C5760;
+  text-align: right;
+  padding: 2% 0% 0% 0%;
+  background-color: #FAF6F0;
+}
+
+.profil{
+  font-size: 14px;
+  text-align: right;
+  color: #93A8AC;
+  margin : 1% 8% 0% 10%;
+}
+.themeFAQ{
+  background-color: white;
+  color: #4C5760;
+  margin:20px 20px 50px 20px;
+  padding: 10px 2px 2px 20px;
+  border-radius: 20px;
+}
+
+.themeFAQ h3{
+  background-color: white;
+  font-size: 18pt;
+  text-align: left;
+  padding-left:20px;
+}
+
+.themeFAQ p{
+  background-color: white;
+  font-size: 16pt;
+  text-align: left;
+  padding: 0% 10% 1%;
+}
+
+.link{
+  height: 200px;
+  margin: 20px 20px 20px 20px;
+}
+
+.active{
+  border-bottom-color: #4C5760;
+}
+
+textarea{
+  background-color: white;
+  border-radius: 15px;
+  color:#93A8AC;
+  text-align: left;
+  padding-left: 30px;
+}
+
+input {
+  background-color: white;
+  border-radius: 15px;
+  color:#93A8AC;
+  text-align: left;
+  padding-left: 30px;
+}
+input::placeholder{
+  color:#93A8AC;
+}
+
+table{
+  background-color: inherit;
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+
+table .plan{
+  width: 100%;
+  border-radius: 10px;
+  margin: 5% 5% 5% 5%;
+}
+
+table form, label{
+  background-color: inherit;
+}
+
+table td, tr, ul{
+  background-color: #4C5760;
+  padding: inherit;
+}
+
+table td h1{
+  font-size: 22pt;
+  width: auto;
+  font-size: 32pt;
+  margin: 1% 5% 5% 5%;
+  border-radius: 10px;
+  color: #4C5760;
+  padding: 2% 5% 2% 5%;
+  background-color: white;
+}
+
+.inputForm{
+  background-color: white;
+  border-color: #93A8AC;
+  padding: 2px 10px 2px;
+  margin: 10px;
+  color:#93A8AC;
+  border-style: solid;
+}
+
+.placeholder{
+  color:#93A8AC;
+}
+
+.buttonForm{
+  background-color: white;
+  border-color: #DEE3E2;
+  padding: 3px 20px 3px;
+  margin: 10px;
+  border-style: solid;
+  border-radius: 5px;
+  position: relative;
+  color:#4C5760;
+}
+
+.buttonCon{
+  background-color: white;
+  border-color: #DEE3E2;
+  padding: 1% 2% 1% 2%;
+  margin: 0% 0% 0% 50%;
+  border-style: solid;
+  border-radius: 5px;
+  position: relative;
+  color:#4C5760;
+  text-align: right;
+  top:15%;
+}
+
+.inputMessage{
+  height: 200px;
+  background-color: white;
+  border-color: #93A8AC;
+  padding: 2px 10px 2px;
+  margin: 10px;
+  color:#93A8AC;
+  border-style: solid;
+}
+
+
+.test{
+  background-color: white;
+  color: #4C5760;
+  margin: 5% 5% 10% 10%;
+  padding: 0;
+  border-radius: 10px;
+  width: 46%;
+  height: auto;
+  /*border: 50px solid #4C5760;*/
+  position: relative;
+}
+.resultat{
+  border-collapse: separate;
+  border-spacing: 30pt;
+  padding: 3% 3% 5% %;
+}
+
+.test h3{
+  background-color: #93A8AC;
+  color:white;
+  border-radius: 10px;
+  padding: 3% 3% 3% 6%;
+  margin: 4% 5% 3% 5%;
+  text-align: left;
+}
+
+.test li, .test p{
+  background-color: white;
+  color: #4C5760;
+}
+
+
+.test .left{
+  text-align: left;
+}
+
+.test li .result{
+  text-align: right;
+}
+.result{
+  text-align: right;
+}
+
+td .test{
+  padding-top: 2%;
+}
+
+.nouvTest{
+  text-align: left;
+}
+
+.lanceTest{
+  padding-bottom: 50%;
+}
+
+li.genre{
+  padding-left: 20%;
+}
+
+.configSession li{
+  text-align: left;
+  padding: 2% 0% 0% 9%;
+}
+
+.article{
+  color:#F6FAF0;
+  background-color: #4C5760;
+  text-align: left;
+  font-weight: bold;
+  padding: 5px;
+  font-size: 18pt;
+}
+
+p.milieu{
+  text-align: center;
+  background-color: #4C5760;
+}
+/* Slideshow container */
+.slideshow{
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.slide {
+  display: none;
+  background-color: #4C5760;
+}
+
+.slide img{
+  height: auto;
+  max-height: 400px;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev{
+  left: 0;
+
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+.dots{
+  background-color: #4C5760;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
