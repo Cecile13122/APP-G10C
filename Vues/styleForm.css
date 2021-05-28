@@ -1,10 +1,23 @@
+html,body{
+  height: 100%;
+  font-family: 'lt_internetregular';
+  margin: auto;
+}
+
 *{
   background-color: #FAF6F0;
-  font-family: "LT Internet";
   text-align: center;
   font-size: 14pt;
   color: #4C5760;
   text-decoration: none;
+}
+
+@font-face {
+    font-family: 'lt_internetregular';
+    src: url('ltinternet-regular-webfont.woff2') format('woff2'),
+         url('ltinternet-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 img{
@@ -15,15 +28,17 @@ img{
   padding: 10px;
 }
 
+p{
+  margin:2% 2% 2% 2%;
+}
+
 .footerForm{
   position: relative;
-  margin: 2% 2%;
-  width: 96%;
-  height: 20%;
-  padding: 0;
-  text-align: center;
-  bottom:0;
-  display: block;
+height: auto;
+text-align: center;
+display: block;
+padding-top: 2%;
+min-height: 5%;
 }
 
 .button{
@@ -47,6 +62,13 @@ img{
   color:#93A8AC;
 }
 
+.savoirButton{
+  background-color: inherit;
+  padding: auto;
+  position: relative;
+  text-decoration: underline;
+  border: none;
+}
 .buttonForm{
   background-color: white;
   border-color: #DEE3E2;
@@ -73,9 +95,17 @@ h1{
 
 .mainForm{
   position: relative;
-  margin: auto;
-  padding: 50px 50px 100px 50px;
-  height: auto;
+  margin: 0%;
+padding: auto;
+padding-left: 3%;
+padding-right: 3%;
+height: auto;
+min-height: 35%;
+}
+
+.headerForm{
+  height:auto;
+  min-height:45%;
 }
 
 table{
@@ -85,4 +115,16 @@ table{
 
 .critere{
   text-align: right;
+}
+
+.accueil{
+  background-image: url(../Images/ATC_v200.png);
+}
+
+.toHide{
+  display: none!important;
+}
+
+.toShow{
+display: block!important;
 }
