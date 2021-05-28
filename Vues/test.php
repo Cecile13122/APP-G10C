@@ -6,7 +6,7 @@
         </tr>
         <tr>
             <td class="lanceTest">
-                <form method="post" action="../Controler/controlTest.php">
+                <form method="post" action="index.php?cible=test.session&fonction=nouveau_test">
                     <input class="inputForm" type="text" name="mail" placeholder="Adresse mail candidat" required
                            pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$">
                     <br>
@@ -17,7 +17,7 @@
                 </form>
             </td>
             <td class="configSession">
-                <form method="post" action="controlSession.php">
+                <form method="post" action="index.php?cible=test.session&fonction=configurer_session">
 
                     <input type="text" class="inputForm" name="n_session" placeholder="Numéro de session" required
                            pattern="/d+"><br>

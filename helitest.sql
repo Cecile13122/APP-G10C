@@ -30,18 +30,18 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `administrateur`;
 CREATE TABLE IF NOT EXISTS `administrateur` (
-  `mail_admin` varchar(255) NOT NULL,
+  `mail_administrateur` varchar(255) NOT NULL,
   `prenom` varchar(255) NOT NULL,
   `nom` varchar(128) NOT NULL,
   `mdp` varchar(64) NOT NULL,
-  PRIMARY KEY (`mail_admin`)
+  PRIMARY KEY (`mail_administrateur`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `administrateur`
 --
 
-INSERT INTO `administrateur` (`mail_admin`, `prenom`, `nom`, `mdp`) VALUES
+INSERT INTO `administrateur` (`mail_administrateur`, `prenom`, `nom`, `mdp`) VALUES
 ('cecile.meynieux@free.fr', 'Cecile', 'Meynieux', '$2y$10$tMvDpQMUfUdscJZ3U1VF9e838zyaKdXTkGT1Yp7il6EsaM41apjHu');
 
 -- --------------------------------------------------------

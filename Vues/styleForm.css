@@ -1,15 +1,23 @@
 html,body{
   height: 100%;
+  font-family: 'lt_internetregular';
   margin: auto;
 }
 
 *{
   background-color: #FAF6F0;
-  font-family: "LT Internet";
   text-align: center;
   font-size: 14pt;
   color: #4C5760;
   text-decoration: none;
+}
+
+@font-face {
+    font-family: 'lt_internetregular';
+    src: url('ltinternet-regular-webfont.woff2') format('woff2'),
+         url('ltinternet-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 img{

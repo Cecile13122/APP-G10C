@@ -1,20 +1,3 @@
-<html>
-  <head>
-    <meta charset="utf-8" name="viewport"/>
-    <link type="text/css" rel="stylesheet" href="style.css"/>
-    <script src=myFile.js></script>
-    <title>Helitest</title>
-  </head>
-  <body>
-    <div class="header">
-      <img src="../Images/ATC_v200.png" alt="Logo ATC">
-      <div class="profil">
-
-      </div>
-    </div>
-    <div class="navbar">
-
-    </div>
     <div class="main">
       <h2><?=$_SESSION['prenom']." ". strtoupper($_SESSION['nom'])?> - Session 1202</h2>
       <table class="resultat">
@@ -57,8 +40,3 @@
         </tr>
       </table>
     </div>
-    <div class="footer">
-      <a href="cgu.php">CGU</a>  |  <a href="mentionsLegales.php">Mentions Légales</a>  |  <a href="planDuSite.php">Plan du site</a>
-    </div>
-  </body>
-</html>

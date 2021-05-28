@@ -1,3 +1,4 @@
+<!-- ajout table cgu dans base de données ? -->
     <div class="main">
       <h1>Conditions Générales d'Utilisation</h1>
       <p class="cgu">

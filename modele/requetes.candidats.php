@@ -1,27 +1,30 @@
 <?php
-include('requestsConnexion.php');
 
+/**
+ * Liste des fonctions spécifiques à la table des candidats
+ */
 
-function create_candidat($email, $nom, $prenom, $mot_de_passe, $date_naissance, $telephone, $civilite, $code_postal)
-{
-    $bdd = connect_bdd();
-    $requete = $bdd->prepare('INSERT INTO candidat(mail_candidat, nom, prenom, mdp, date_naissance, numero_tel, genre, code_postal) VALUES (:mail,:nom,:prenom, :mdp, :date_naissance, :telephone, :genre, :code_postal)');
-    $requete->execute(array(
-        'mail' => $email,
-        'nom' => $nom,
-        'prenom' => $prenom,
-        'mdp' => $mot_de_passe,
-        'date_naissance' => $date_naissance,
-        'telephone' => $telephone,
-        'genre' => $civilite,
-        'code_postal' => $code_postal));
+// on récupère les requêtes génériques
+include_once('requetes.generiques.php');
+include_once('requetes.utilisateurs.php');
 
+//on définit le nom de la table
+$table = "candidat";
+
+/**
+ * Insère un nouveau candidat dans la table
+ * @param PDO $bdd
+ * @param array $values
+ * @param string $table
+ * @return boolean
+ */
+function create_candidat(PDO $bdd, array $values, string $table): bool{
+    return insertion($bdd, $values, $table);
 }
 
-function verification_utilisation_mail($mail)
-{
+function verification_utilisation_mail($mail){
     $bdd = connect_bdd();
-    $requete = $bdd->prepare('SELECT mail_candidat FROM candidat WHERE mail_candidat=? UNION SELECT mail_recruteur FROM recruteur WHERE mail_recruteur=? UNION SELECT mail_admin FROM administrateur WHERE mail_admin=? ');
+    $requete = $bdd->prepare('SELECT mail_candidat FROM candidat WHERE mail_candidat=? UNION SELECT mail_recruteur FROM recruteur WHERE mail_recruteur=? UNION SELECT mail_administrateur FROM administrateur WHERE mail_administrateur=? ');
     $requete->execute(array($mail,$mail,$mail));
     $userexit = $requete->rowCount();
     if ($userexit === 0) {
@@ -29,7 +32,6 @@ function verification_utilisation_mail($mail)
     } else {
         return false;
     }
-
 }
 
 function recuperation_profil($mail){
@@ -70,3 +72,37 @@ function supprimer_candidat($mail){
     $requete=$bdd->prepare('DELETE candidat FROM candidat WHERE mail_candidat=?');
     $requete->execute(array($mail));
 }
+
+function is_candidat_valide($mail){
+    $bdd=connect_bdd();
+    $requete=$bdd->prepare('SELECT valider FROM candidat WHERE mail_candidat=?');
+    $requete->execute(array($mail));
+    $valider = $requete->fetch();
+    if($valider){
+     return true;
+    }
+    else {
+        return false;
+    }
+}
+
+function valider_candidat($mail){
+    $bdd=connect_bdd();
+    $requete=$bdd->prepare('UPDATE candidat SET valider=TRUE WHERE mail_candidat=?');
+    $requete->execute(array($mail));
+}
+
+function recuperation_candidats(){
+        $bdd=connect_bdd();
+        $requete=$bdd->prepare('SELECT * FROM candidat ORDER BY nom');
+        $requete->execute();
+        $candidats=[];
+        while($candidat = $requete->fetch()){
+            $candidats[]=$candidat;
+        }
+        return $candidats;
+
+}
+
+
+?>

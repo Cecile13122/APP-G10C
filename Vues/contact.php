@@ -14,7 +14,7 @@
             </ul>
           </td>
           <td>
-            <form method="post" action="../Controler/controlContact.php">
+            <form method="post" action="index.php?cible=contact&fonction=message">
               <input type="text" placeholder="Sujet" name="sujet" class="inputForm" required><br>
               <input type="email" name="email" placeholder="exemple@mail.com" class="inputForm" required><br><br>
               <textarea class="inputMessage" name="message" placeholder="Votre message"></textarea><br>

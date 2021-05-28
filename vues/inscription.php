@@ -1,21 +1,14 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="utf-8" name="viewport"/>
-    <link type="text/css" rel="stylesheet" href="styleForm.css"/>
-    <link rel="shortcut icon" type="image/x-icon" href="../Images/ATC_v200.png"/>
-    <title>Helitest</title>
-</head>
-<body>
-<a href="accueil.php"><img src="../Images/ATC_v200.png" alt="Logo ATC"></a>
 <h1>Inscription</h1>
-<form method="post" action="../Controler/candidat.php">
+<form method="post" action="index.php?cible=utilisateurs&fonction=inscription">
     <table>
         <tr>
             <td class="critere"><label for="monsieur">Civilité :</label></td>
             <td colspan="2"><input name="genre" type="radio" id="monsieur" value="M" class="inputForm" required> <label
                     for="monsieur">M.</label><input name="genre" type="radio" id="madame" value="F" class="inputForm"
                                                     required> <label for="madame">Mme</label></td>
+        </tr>
+        <tr>
+            <span id="err_nom"></span>
         </tr>
         <tr>
             <td class="critere"><label for="firstname">Prénom :</label></td>
@@ -69,11 +62,6 @@
             <td colspan="2"><label for="cgu"><input type="checkbox" id="cgu" name="CGU" value="oui" required> J'accepte
                 les conditions d'utilisation.</label></td>
     </table>
-    <p>Déjà un compte ? <a href="connexion.html" class="underline">Se connecter.</a></p>
+    <p>Déjà un compte ? <a href="index.php?cible=utilisateurs&fonction=connexion" class="underline">Se connecter.</a></p>
     <input type="submit" value="Envoyer" class="buttonForm">
 </form>
-<div class="footerForm">
-    <a href="../Vues/cgu.php">CGU</a> | <a href="../Vues/mentionsLegales.php">Mentions Légales</a>  |  <a href="../Vues/planDuSite.php">Plan du site</a>
-</div>
-</body>
-</html>

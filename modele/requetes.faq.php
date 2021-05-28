@@ -1,5 +1,14 @@
 <?php
-require('requestsConnexion.php');
+
+/**
+ * Liste des fonctions spécifiques à la table de la FAQ
+ */
+
+// on récupère les requêtes génériques
+include_once('requetes.generiques.php');
+
+//on définit le nom de la table
+$table = "faq";
 
 function recuperation_faq(){
     $bdd=connect_bdd();
@@ -36,7 +45,7 @@ function affiche_faq(){
     while($donnee_faq = $requete->fetch()){
         $faq[]=$donnee_faq;
     }
-    $themes= $faq[0];
+    /*$themes= $faq[0];
     $donne_faq= $faq[1];
     foreach ($themes as $theme):
       echo "<h2>".$theme['theme']."</h2><div class= "themeFAQ">";
@@ -46,7 +55,8 @@ function affiche_faq(){
         }
      endforeach;
      echo "</div>";
-   endforeach;
+   endforeach;*/
+    return $faq;
 }
 
 function effacer_question($id){

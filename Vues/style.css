@@ -1,5 +1,5 @@
-*{
-  font-family: "LT Internet";
+html{
+    font-family: 'lt_internetregular';
   text-align: center;
   font-size: 16pt;
   background-color: #FAF6F0;
@@ -15,6 +15,14 @@ body{
 
 a{
   text-decoration:none;
+}
+
+@font-face {
+    font-family: 'lt_internetregular';
+    src: url('ltinternet-regular-webfont.woff2') format('woff2'),
+         url('ltinternet-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 h1{
@@ -40,20 +48,12 @@ h1{
   height: 125px;
 }
 
-.profil{
-    font-size: 14px;
-    text-align: right;
-    color: #93A8AC;
-    margin : 1% 8% 0 10%;
-    position: relative;
-    display: block;
-}
-
 .navbar{
     height: auto;
     width:100%;
     margin: 1% 0 1%;
     position:relative;
+    color: #4C5760;
     display: block;
 }
 
@@ -65,7 +65,6 @@ h1{
   text-align: center;
   margin: 90px 3% 0% 3%;
   max-height: 50px;
-  display: none;
 }
 
 .navbar a:hover {
@@ -97,6 +96,8 @@ h1{
   position: relative;
   padding: 10px;
   display: inline-block;
+  height: auto;
+  min-height: 20px;
 }
 
 @media screen and (max-width: 400px) {
@@ -128,11 +129,11 @@ h1{
   text-align: left;
   padding: 0% 10% 1%;
 }
-
+/*
 .link{
   height: 200px;
   margin: 20px 20px 20px 20px;
-}
+}*/
 
 .active{
   border-bottom-color: #4C5760;
@@ -333,45 +334,52 @@ p.milieu{
 
 }
 
-.sous_profil{
-    display:block;
-    /*box-shadow: 0 1px 2px #93A8AC;*/
-    background-color: #DEE3E2;
-    position: absolute;
-    right:0;
-    z-index: 1;
-}
-
-.sous_profil a{
-    float:none;
-    width: 100%;
-    text-align: center;
-    display: block;
-    margin: 0 3px;
-
-}
-
-.profil:hover .sous_profil{
-    display: block;
-
-}
-/*
-.sous_profil a:hover{
-    background-color: #93A8AC;
-}
-*/
-
-
 .modif_profil{
     font-size: 14px;
     text-align: right;
     color: #93A8AC;
     float: right;
+}
+
+.profil{
+    font-size: 16px;
+    text-align: right;
+    color: #93A8AC;
+    margin : 1% 8% 0 10%;
+    position: relative;
+    display: block;
+}
+
+.sous_profil{
+    display:none;
+    box-shadow: 0 2px 3px 0px #93A8AC;
+    background-color: #DEE3E2;
+    position: absolute;
+    right:0;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+    margin: 20px -6px 1px 2px;
+}
+
+.sous_profil a{
+    color: #93A8AC;
+    text-align: center;
+    display: block;
+}
+
+.sous_profil a:hover{
+  color: white;
+    background-color: #93A8AC;
+    margin:  1px 1px 1px 1px;
+    border-radius: 3px;
 
 }
-.modif_profil:hover{
-    border: 1px solid #93A8AC;
-    border-radius: 5px;
+
+.profil:hover .sous_profil{
+    display: block;
+}
+
+.profil:hover .modif_profil{
     background-color: #FAF6F0;
 }
 
@@ -398,4 +406,92 @@ input::placeholder{
     margin:0;
     padding: 1% 2% 1% 2%;
     display:block;
+}
+
+/* Slideshow container */
+.slideshow{
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.slide {
+  display: none;
+  background-color: #4C5760;
+}
+
+.slide img{
+  height: auto;
+  max-height: 400px;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev{
+  left: 0;
+
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+.dots{
+  background-color: #4C5760;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
 }

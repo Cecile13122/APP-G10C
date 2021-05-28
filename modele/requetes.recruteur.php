@@ -1,5 +1,14 @@
 <?php
-include('requestsConnexion.php');
+
+/**
+ * Liste des fonctions spécifiques à la table des recruteurs
+ */
+
+// on récupère les requêtes génériques
+include_once('requetes.generiques.php');
+
+//on définit le nom de la table
+$table = "recruteur";
 
 function create_recruteur($email, $nom, $prenom, $mot_de_passe)
 {
