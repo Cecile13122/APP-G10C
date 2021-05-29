@@ -1,5 +1,5 @@
 <h1>Modifier son mot de passe</h1>
-<form method="post" action="index.php?cible=utilisateurs&fonction=modification_profil">
+<form method="post" action="index.php?cible=utilisateurs&fonction=modification_mdp">
     <table>
         <tr>
             <td class="critere"><label for="mdp">Mot de passe actuel :</label></td>

@@ -30,7 +30,18 @@ switch ($function) {
         $vue = "erreur404";
         $message = "Erreur 404 : la page recherchée n'existe pas.";
 }
-if(!session_start()){session_start();}
+
+
+if(session_status()==1 || session_status()==0){session_start();}
+if (isset($_SESSION['role']) && ($_SESSION['role']=="administrateur")){
+        $role = $_SESSION['role'];
+        }else {
+    $role="";
+}
+if ($vue=="faq"){
+    $vue=$vue.'.'.$role;
+}
+
 include ('vues/header.'.$_SESSION['role'].'.php');
 include ('vues/' . $vue . '.php');
 include ('vues/footer.php');

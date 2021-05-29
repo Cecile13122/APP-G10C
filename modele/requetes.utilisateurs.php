@@ -60,4 +60,4 @@ function modifier_mot_de_passe($mot_de_passe, $mail, $role){
             'mdp'=> $mot_de_passe,
             'mail' => $mail));
 }
-?>
+
