@@ -127,7 +127,9 @@ switch ($function) {
 
             if (empty($err_mail) && empty($err_telephone) && empty($err_nom) && empty($err_mdp) && empty($err_code_postal) && empty($err_civilite) && empty($err_date_naissance)) {
                 $mot_de_passe = crypter_mdp($mot_de_passe);
-                $values = array('mail_candidat' => $email, 'nom' => $nom, 'prenom' => $prenom, 'mdp' => $mot_de_passe, 'date_naissance' => $date_naissance, 'numero_tel' => $telephone, 'genre' => $civilite, 'code_postal' => $code_postal);
+                $clef=confirmation_compte();
+                mail_confirmation_compte($email,$clef);
+                $values = array('mail_candidat' => $email, 'nom' => $nom, 'prenom' => $prenom, 'mdp' => $mot_de_passe, 'date_naissance' => $date_naissance, 'numero_tel' => $telephone, 'genre' => $civilite, 'code_postal' => $code_postal, 'valider'=>0, 'clef_confirmation'=> $clef );
                 create_candidat($bdd, $values, $table);
                 session_start();
                 $role = "candidat";
@@ -136,12 +138,32 @@ switch ($function) {
                 $_SESSION['nom'] = $nom;
                 $_SESSION['role'] = $role;
                 $form = "";
+                $vue="accueil";
             } else {
                 echo "Il y a une erreur dans le remplissage de votre formulaire.<br>";
                 echo $err_civilite . "<br>" . $err_nom . "<br>" . $err_date_naissance . "<br>" . $err_telephone . "<br>" . $err_code_postal . "<br>" . $err_mail . "<br>" . $err_mdp;
             }
         }
         break;
+
+    case 'confirmation':
+        if (isset($_GET['mail'], $_GET['key']) && !empty($_GET['mail']) && !empty($_GET['key'])){
+            $mail = test_input(urldecode($_GET['mail']));
+            $key = intval($_GET['key']);
+
+            $info_user=recuperation_profil_clef($mail,$key);
+            if (!$info_user['valider']){
+                valider_candidat($mail, $key);
+                echo 'Vous avez bien validé votre compte';
+            }else {
+                echo 'Votre compte a déjà été valider';
+            }
+            $form="";
+            $vue="connexion";
+        }
+        break;
+
+
 
     case 'deconnexion':
         session_start();

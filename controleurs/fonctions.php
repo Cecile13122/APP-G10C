@@ -93,3 +93,32 @@ function test_input($donnee)
     $donnee = htmlspecialchars($donnee);
     return $donnee;
 }
+
+function confirmation_compte(){
+    $longeurclef = 15;
+    $clef ="";
+    for ($i=1; $i<$longeurclef; $i++){
+        $clef .= mt_rand(0,9);
+    }
+    return $clef;
+}
+
+function mail_confirmation_compte($mail, $key){
+    $destinataire = $mail;
+    $header="MIME-Version: 1.0\r\n";
+    $header.='From:"Helitest"<appg10c@mail.com>'."\n";
+    $header.='Content-Type:text/html; charset="uft-8"'."\n";
+    $header.='Content-Transfer-Encoding: 8bit';
+    $sujet ='Confirmation de votre compte Hélitest';
+
+    $message= ' <html>
+                        <body>
+                           <div align="center">
+                              <a href="http://localhost/APP-G10C/index?cible=utilisateurs&fonction=confirmation&mail='.urlencode($mail).'&key='.$key.'">Confirmez votre compte !</a>
+                           </div>
+                        </body>
+                     </html>
+    ';
+        return (mail($destinataire, $sujet, $message, $header));
+
+}

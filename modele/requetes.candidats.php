@@ -44,7 +44,7 @@ function recuperation_profil($mail){
 
 function verification_utilisation_mail_modification($mail, $info_session){
     $bdd = connect_bdd();
-    $requete = $bdd->prepare('SELECT mail_candidat FROM candidat WHERE mail_candidat=? AND prenom!=? AND nom!=? UNION SELECT mail_recruteur FROM recruteur WHERE mail_recruteur=? AND prenom!=? AND nom!=? UNION SELECT mail_admin FROM administrateur WHERE mail_admin=? AND prenom!=? AND nom!=? ');
+    $requete = $bdd->prepare('SELECT mail_candidat FROM candidat WHERE mail_candidat=? AND prenom!=? AND nom!=? UNION SELECT mail_recruteur FROM recruteur WHERE mail_recruteur=? AND prenom!=? AND nom!=? UNION SELECT mail_administrateur FROM administrateur WHERE mail_administrateur=? AND prenom!=? AND nom!=? ');
     $requete->execute(array($mail, $info_session['prenom'], $info_session['nom'],$mail, $info_session['prenom'], $info_session['nom'],$mail, $info_session['prenom'], $info_session['nom']));
     $userexit = $requete->rowCount();
     if ($userexit === 0) {
@@ -86,12 +86,18 @@ function is_candidat_valide($mail){
     }
 }
 
-function valider_candidat($mail){
+function valider_candidat($mail, $key){
     $bdd=connect_bdd();
-    $requete=$bdd->prepare('UPDATE candidat SET valider=TRUE WHERE mail_candidat=?');
-    $requete->execute(array($mail));
+    $requete=$bdd->prepare('UPDATE candidat SET valider=1 WHERE mail_candidat=? AND clef_confirmation=?');
+    $requete->execute(array($mail, $key));
 }
-
+function recuperation_profil_clef($mail, $key){
+    $bdd =connect_bdd();
+    $requete = $bdd->prepare('SELECT * FROM candidat WHERE mail_candidat = ? AND clef_confirmation=?');
+    $requete->execute(array($mail,$key));
+    $info_candidat= $requete->fetch();
+    return $info_candidat;
+}
 function recuperation_candidats(){
         $bdd=connect_bdd();
         $requete=$bdd->prepare('SELECT * FROM candidat ORDER BY nom');
