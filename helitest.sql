@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3307
--- Généré le :  lun. 03 mai 2021 à 19:11
+-- Généré le :  sam. 29 mai 2021 à 15:04
 -- Version du serveur :  10.3.14-MariaDB
 -- Version de PHP :  7.2.18
 
@@ -60,6 +60,8 @@ CREATE TABLE IF NOT EXISTS `candidat` (
   `numero_tel` varchar(64) NOT NULL,
   `genre` char(1) NOT NULL,
   `code_postal` int(11) NOT NULL,
+  `valider` tinyint(1) NOT NULL DEFAULT 0,
+  `clef_confirmation` varchar(255) NOT NULL,
   PRIMARY KEY (`mail_candidat`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -67,10 +69,11 @@ CREATE TABLE IF NOT EXISTS `candidat` (
 -- Déchargement des données de la table `candidat`
 --
 
-INSERT INTO `candidat` (`mail_candidat`, `nom`, `prenom`, `mdp`, `date_naissance`, `numero_tel`, `genre`, `code_postal`) VALUES
-('pconde@isep.fr', 'Conde-CESPESDES', 'Patricia', '$2y$10$CbZF.PyXgQ5EGcfRUQ0IL.e1rTjqY6pTTAOTVEXXDivAWYylAwYvi', '2000-10-11', '0633100256', 'F', 75006),
-('pv@gmail.com', 'Vidor', 'Paul', '$2y$10$d0DlgNacFN.NgMaAPV3.9.XmpAe4U9LiFTAOAQB0LT8C8w5EZe1vS', '1997-06-27', '0633100256', 'M', 75467),
-('R.h@free.fr', 'Henry', 'Robin', '$2y$10$ou2LJ/qekAy.0002WnKa9.9wjQFrYRK.MJmIl3v2cN2h8lEf49.bK', '1999-02-28', '0834543212', 'M', 13122);
+INSERT INTO `candidat` (`mail_candidat`, `nom`, `prenom`, `mdp`, `date_naissance`, `numero_tel`, `genre`, `code_postal`, `valider`, `clef_confirmation`) VALUES
+('cecile.meynieux@eleve.isep.fr', 'Meynieux', 'Cécile', '$2y$10$BEJMiosCMzdSaaDYlxgFYOHjdk00s1jwTNSPqwESpYh8vKq/HOy3u', '1998-03-28', '0633100256', 'F', 13122, 1, '90945295826925'),
+('pconde@isep.fr', 'Conde-CESPESDES', 'Patricia', '$2y$10$CbZF.PyXgQ5EGcfRUQ0IL.e1rTjqY6pTTAOTVEXXDivAWYylAwYvi', '2000-10-11', '0633100256', 'F', 75006, 0, ''),
+('pv@gmail.com', 'Vidor', 'Paul', '$2y$10$cMwmP0ExShef7yMkG1nP8u/CfaZAiluqvjN.IRv6fL83WXv/uU0Yy', '1997-06-27', '0633100256', 'M', 75467, 0, ''),
+('R.h@free.fr', 'Henry', 'Robin', '$2y$10$ou2LJ/qekAy.0002WnKa9.9wjQFrYRK.MJmIl3v2cN2h8lEf49.bK', '1999-02-28', '0834543212', 'M', 13122, 0, '');
 
 -- --------------------------------------------------------
 
