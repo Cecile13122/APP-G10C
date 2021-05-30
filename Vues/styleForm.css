@@ -128,3 +128,7 @@ table{
 .toShow{
 display: block!important;
 }
+
+span {
+  color: red;
+}

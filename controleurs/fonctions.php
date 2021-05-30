@@ -73,7 +73,7 @@ function verification_mail($email, $confirmation_mail, $mail_actuel = NULL)
 
 function verification_mdp($mot_de_passe, $confirmation_mdp)
 {
-    $mdp_pattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&\._-])[A-Za-z\d@$!%*?&\._-]{8,}$/";
+    $mdp_pattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&\._-]{8,}$/";
     if (!preg_match($mdp_pattern, $mot_de_passe)) {
         return "Mot de passe incorrect";
     } elseif ($mot_de_passe != $confirmation_mdp) {

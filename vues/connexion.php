@@ -8,7 +8,7 @@
         <br>
           <span id="err_mail"></span><br>
         <label>Mot de passe :<br>
-            <input type="password" id="mdp" name="mot_de_passe" placeholder="********" class="inputForm" required oninput="verificationMdp(this.value, this.id)">
+            <input type="password" id="mdp" name="mot_de_passe" placeholder="********" class="inputForm" required>
         </label><br>
         <span id="err_mdp">
           </span>

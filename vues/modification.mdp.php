@@ -6,11 +6,7 @@
         <tr>
             <td class="critere"><label for="mdp">Mot de passe actuel :</label></td>
             <td><input type="password" id="mdp" name="mot_de_passe" placeholder="********" class="inputForm" required
-                       oninput="verificationMdp(this.value, this.id)"></td>
-        </tr>
-        <tr><td></td>
-            <td><span id="err_mdp"></span></td>
-
+                       ></td>
         </tr>
         <tr>
             <td class="critere"><label for="nmdp">Nouveau mot de passe :</label></td>
