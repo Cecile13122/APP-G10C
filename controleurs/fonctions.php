@@ -181,3 +181,28 @@ function calcul_candidats_session($id){
 function calcul_ratio_admissibles($id){
   //faire fonction, modifier les db
 }
+
+function recuperation_candidats_recherche($recherches){
+    $resultat = array();
+    foreach ($recherches as $recherche) {
+        $profils=recuperation_profil_recherche('%'.$recherche.'%');
+        foreach ($profils as $profil){
+        if (!in_array($profil,$resultat)){
+        array_push($resultat,$profil);}
+
+    }}
+
+    return $resultat;
+}
+
+function calcul_modif_cardiaque($fcardique1,$fcardique2 ){
+ return abs($fcardique1-$fcardique2);
+}
+
+function calcul_modif_temperature($temp1, $temp2){
+    return abs($temp1-$temp2)/100;
+}
+
+function calcul_resultat($id_test){
+
+}

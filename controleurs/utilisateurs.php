@@ -297,6 +297,18 @@ switch ($function) {
         $form = "";
         break;
 
+    case 'recherche':
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (isset($_POST['recherche'])&& !empty($_POST['recherche'])){
+                $recherche =test_input($_POST['recherche']);
+                $recherche = explode(' ',$recherche);
+                $resultat_recherche= recuperation_candidats_recherche($recherche);
+                $vue ="recherche";
+                $form="";
+            }
+        }
+        break;
+
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET
         $vue = "erreur404";
@@ -308,4 +320,21 @@ if (!isset($erreur)) {
     $erreur = "";
 }
 
-redirection($form, $vue, $erreur);
+//redirection($form, $vue, $erreur);
+if (session_status() == 1 || session_status() == 0) {
+    session_start();
+}
+
+if (!empty($form)) {
+    include('vues/header.form.php');
+} else {
+    if (isset($_SESSION['role'])){
+        $role = $_SESSION['role'];
+    }else {
+        $role="";
+    }
+    include('vues/header.' . $role . '.php');
+}
+
+include('vues/' . $vue . '.php' . $erreur);
+include('vues/footer.php');

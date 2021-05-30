@@ -22,6 +22,12 @@ switch ($function) {
         $vue = "resultats";
         break;
 
+    case 'resultat':
+        if (isset($_GET['mail']) || empty($_GET['mail'])) {
+            $resultats_candidat = recuperation_resultat($_GET['mail']);
+        }
+        $vue="resultat";
+        break;
 
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET

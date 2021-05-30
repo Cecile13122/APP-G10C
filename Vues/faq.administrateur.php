@@ -9,11 +9,11 @@ $faq=recuperation_faq();
             <?php foreach ($faq[1] as $donnee):
                 if ($donnee['theme'] == $theme['theme']){?>
                     <form method="post" action="index.php?cible=faq&fonction=modifier_question">
-                        <input type="hidden" name="id_faq" value="<?=$donnee['id_faq'] ?>"required>
+                        <input type="hidden" name="id_faq" value="<?=$donnee['id_faq'] ?>" required>
                         <input type="hidden" name="theme" value="<?=$donnee['theme'] ?>" required>
                         <h3><input type="text" name="question" value="<?=$donnee['question'] ?>" required></h3>
                         <br>
-                        <p><input type="text" name="reponse" value="<?=$donnee['reponse'] ?>"required></p>
+                        <p><input type="text" name="reponse" value="<?=$donnee['reponse'] ?>" required></p>
                         <br>
                         <input type="submit" value="Modifier">
                         <button value="<?=$donnee['id_faq'] ?>" onclick="supprimer(this.value)">Supprimer</button>
@@ -40,9 +40,10 @@ $faq=recuperation_faq();
 
 <script>
 function supprimer(id){
-  if (confirm("Êtes-vous sur de supprimer ?")){
+  if (confirm("Êtes-vous sur de vouloir supprimer ?")){
     window.location.href = "index.php?cible=faq&fonction=supprimer&id="+id;
   }
+    alert("La question a été supprimée");
 }
 
 function openForm() {

@@ -74,3 +74,13 @@ function recuperation_profil_jeton($jeton, $role){
     return $requete->fetch();
 }
 
+function recuperation_profil_recherche($recherche){
+    $bdd=connect_bdd();
+    $candidats=[];
+    $requete=$bdd->prepare('SELECT mail_candidat AS mail, nom, prenom FROM candidat WHERE nom LIKE ? OR prenom LIKE ?');
+    $requete ->execute(array($recherche, $recherche));
+    while($candidat = $requete->fetch()){
+        $candidats[]=$candidat;
+    }
+    return $candidats;
+}

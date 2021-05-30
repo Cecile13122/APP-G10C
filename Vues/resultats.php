@@ -1,10 +1,12 @@
+
+
 <div class="main">
   <h1>Résultats</h1>
-  <input list="id_session" name="n_session" placeholder="Numéro de session" oninput="afficher_candidats(this.value)" required pattern="/d+"><br>
+  <input list="id_session" name="n_session" placeholder="Numéro de session" onchange="afficher_candidats(this.value)" required pattern="\d+"><br><span id="erreur"></span>
   <datalist id="id_session">
-    <?php foreach ($id_sessions as $id){?>
+    <?php foreach ($id_sessions as $id):?>
       <option value="<?=$id?>">
-      <?php }?>
+      <?php endforeach;?>
     </datalist><br><br>
   <table>
     <tr class="resultat">
@@ -16,7 +18,8 @@
       <td>Stimulus Visuel</td>
       <td>Stimulus Audio</td>
     </tr>
-      <?php foreach ($candidats as $candidat) {?>
+      <?php if (isset($candidats)){
+      foreach ($candidats as $candidat) :?>
         <tr>
           <td rowspan="2"><?=$candidat['mail_candidat']?></td>
           <td rowspan="2"><?=$candidat['date_test']?></td>
@@ -26,12 +29,21 @@
           <td rowspan="2"><?=$candidat['stimulus_visuel']?></td>
           <td rowspan="2"><?=$candidat['stimulus_audio']?></td>
         </tr>
-      <?php}?>
+      <?php endforeach;}
+      else {
+          ?><p>Veuillez sélectionner un numéro de session</p><?php
+      }?>
   </table>
 </div>
 
 <script>
-function afficher_candidats(id){
-  window.location.href = "index.php?cible=test&fonction=recuperation_candidats&id="+id;
-}
+    function afficher_candidats(id){
+        let pattern= /\d+/;
+        if (id.match(pattern)===null) {
+            document.getElementById('erreur').innerHTML = "Un chiffre est attendu";
+        }
+        else {
+            window.location.href = "index.php?cible=test&fonction=recuperation_candidats&id="+id;
+        }
+    }
 </script>
