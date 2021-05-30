@@ -8,22 +8,22 @@
   <body>
     <div class="header">
       <a href="index.php?cible=utilisateurs&fonction=accueil"><img src="./images/ATC_v200.png" alt="Logo ATC"></a>
+      <div class="navbar">
+        <a href="index.php?cible=test.session&fonction=afficher_resultats">Résultats</a>
+        <a href="index.php?cible=test.session&fonction=afficher_sessions">Tests</a>
+        <a href="index.php?cible=faq&fonction=afficher_faq">FAQ</a>
+        <a href="index.php?cible=contact&fonction=contact">Contact</a>
+        <div class="recherche">
+          <input type="text" name="recherche" placeholder="Recherche">
+          <button type="submit"><img src="./images/loupe.png" alt="Loupe"></button>
+        </div>
+      </div>
       <div class="profil">
-        <a href class="modif_profil"><h2><?=$_SESSION['prenom']." ". strtoupper($_SESSION['nom'])?></h2>Mon profil</a>
+        <a href class="modif_profil"><h2><?=$_SESSION['prenom']." ". strtoupper($_SESSION['nom'])?></h2><br>Mon profil</a>
         <div class = "sous_profil">
           <a href="index.php?cible=utilisateurs&fonction=modification_profil">Modification profil</a>
           <a href="index.php?cible=utilisateurs&fonction=modification_mdp">Modification mot de passe</a>
           <a href="index.php?cible=utilisateurs&fonction=deconnexion">Déconnexion</a>
         </div>
-      </div>
-    </div>
-    <div class="navbar">
-      <a href="index.php?cible=test&fonction=afficher_resultats">Résultats</a>
-      <a href="index.php?cible=test.session&fonction=afficher_vierge">Tests</a>
-      <a href="index.php?cible=faq&fonction=afficher_faq">FAQ</a>
-      <a href="index.php?cible=utilisateurs&fonction=contact">Contact</a>
-      <div class="recherche">
-        <input type="text" name="recherche" placeholder="Recherche">
-        <button type="submit"><img src="./images/loupe.png" alt="Loupe"></button>
       </div>
     </div>

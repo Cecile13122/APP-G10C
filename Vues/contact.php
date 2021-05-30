@@ -7,19 +7,21 @@
         <tr>
           <td>
             <ul>
-              <li>+33 1 75 87 89 23</li>
-              <li>10 rue de Vanves</li>
-              <li>92 130 Issy-Les Moulineaux</li>
+              <li><h3>+33 1 75 87 89 23</h3></li>
+              <li><h3>10 rue de Vanves</h3></li>
+              <li><h3>92 130 Issy-Les Moulineaux</h3></li>
               <li><img src="./images/map.png" alt="Plan" class="plan"></li>
             </ul>
           </td>
           <td>
             <form method="post" action="./index.php?cible=contact&fonction=message">
-                <input type="text" placeholder="Prénom Nom" name="nom" class="inputForm" required><br>
+
+                <input type="text" name="nom" placeholder="Nom Prénom" class="inputForm" required><br>
+
                 <input type="email" name="email" placeholder="exemple@mail.com" class="inputForm" required><br>
-                <br>
-                <input type="text" placeholder="Sujet" name="sujet" class="inputForm" required><br>
-                <textarea class="inputMessage" name="message" placeholder="Votre message" required></textarea>
+                <input type="text" name="sujet" placeholder="Objet" class="inputForm" required>
+                <h3>Message :</h3>
+                <input type="text" name="message" class="inputMessage"required>
                 <br>
               <input type="submit" value="Envoyer" class="buttonForm">
             </form>

@@ -18,12 +18,37 @@ switch ($function) {
 
     case 'afficher_faq':
         $vue = "faq";
+
         break;
 
     case 'ajout_question':
       $vue = "faq";
+      if ($_SERVER["REQUEST_METHOD"]=="POST"){
+        ajout_question(test_input($_POST["theme"]),test_input($_POST["question"]),test_input($_POST["reponse"]));
+      }
       break;
 
+    case 'supprimer':
+    echo "lol";
+      echo $_GET['id'];
+      echo test_input($_GET['id']);
+      $vue = "faq";
+      supprimer(test_input($_GET['id']));
+      break;
+
+    case 'modifier_question':
+      $vue = "faq";
+      if ($_SERVER["REQUEST_METHOD"]=="POST"){
+        modifier_question(test_input($_POST["id_faq"]),test_input($_POST["theme"]),test_input($_POST["question"]),test_input($_POST["reponse"]));
+      }
+      break;
+
+    case 'ajout_theme':
+      $vue = "faq";
+      if ($_SERVER["REQUEST_METHOD"]=="POST"){
+        ajout_question(test_input($_POST["theme"]),test_input($_POST["question"]),test_input($_POST["reponse"]));
+      }
+      break;
 
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET

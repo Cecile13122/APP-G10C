@@ -4,4 +4,4 @@
     </div>
   </body>
 </html>
-<!-- <?=$form ?> était dans la classe mais fonctionne pas, je connais pas son utilité-->
+<!-- < ?=$form ?> était dans la classe mais fonctionne pas, je connais pas son utilité-->

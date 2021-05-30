@@ -156,7 +156,7 @@ switch ($function) {
                 valider_candidat($mail, $key);
                 echo 'Vous avez bien validé votre compte';
             }else {
-                echo 'Votre compte a déjà été valider';
+                echo 'Votre compte a déjà été validé';
             }
             $form="";
             $vue="connexion";
@@ -224,15 +224,6 @@ switch ($function) {
         $form = "";
         break;
 
-    case 'contact' :
-        $form = "";
-        $vue = "contact";
-        break;
-
-    case 'faq' :
-
-        break;
-
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET
         $vue = "erreur404";
@@ -240,22 +231,8 @@ switch ($function) {
         $message = "Erreur 404 : la page recherchée n'existe pas.";
 }
 
-if (session_status() == 1 || session_status() == 0) {
-    session_start();
-}
-
-if (!empty($form)) {
-    include('vues/header.form.php');
-} else {
-    if (!isset($role)) {
-        $role = "";
-    }
-    include('vues/header.' . $role . '.php');
-}
-
 if (!isset($erreur)) {
     $erreur = "";
 }
 
-include('vues/' . $vue . '.php' . $erreur);
-include('vues/footer.php');
+redirection($form, $vue, $erreur);

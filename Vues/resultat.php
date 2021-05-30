@@ -1,5 +1,5 @@
     <div class="main">
-      <h2><?=$_SESSION['prenom']." ". strtoupper($_SESSION['nom'])?> - Session 1202</h2>
+      <h2><?=$_SESSION['prenom']." ". strtoupper($_SESSION['nom'])?> - Session </h2>
       <table class="resultat">
         <tr>
             <td class="test">

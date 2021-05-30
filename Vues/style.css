@@ -32,6 +32,7 @@ h1{
   color: #4C5760;
   padding: 1% 4% 1% 4%;
   background-color: white;
+  box-shadow: -2px 2px 11px -4px black;
 }
 
 .header{
@@ -81,6 +82,7 @@ h1{
   background-color: #4C5760;
   color: #FAF6F0;
   padding: 20px;
+  box-shadow: -2px 2px 11px -8px black;
 }
 
 .main p{
@@ -109,6 +111,7 @@ h1{
 
 
 .themeFAQ{
+  box-shadow: -2px 2px 11px -4px black;
   background-color: white;
   color: #4C5760;
   margin:20px 20px 50px 20px;
@@ -124,6 +127,7 @@ h1{
 }
 
 .themeFAQ p{
+  color: #93A8AC;
   background-color: white;
   font-size: 16pt;
   text-align: left;
@@ -149,7 +153,7 @@ textarea{
 
 input {
   background-color: white;
-  border-radius: 15px;
+  border-radius: 9px;
   color:#93A8AC;
   text-align: left;
   padding-left: 30px;
@@ -166,7 +170,8 @@ table{
 }
 
 table .plan{
-  width: 100%;
+  width: 63%;
+  box-shadow: -2px 2px 11px -4px black;
   border-radius: 10px;
   margin: 5% 5% 5% 5%;
 }
@@ -178,26 +183,35 @@ table form, label{
 table td, tr, ul{
   background-color: #4C5760;
   padding: inherit;
+  list-style-type: none;
 }
 
 table td h1{
-  font-size: 22pt;
   width: auto;
   font-size: 32pt;
   margin: 1% 5% 5% 5%;
   border-radius: 10px;
   color: #4C5760;
-  padding: 2% 5% 2% 5%;
+  padding: 12px 20px 12px 20px;
   background-color: white;
+}
+
+form h2{
+  color: #FAF6F0;
+  font-size: 25px;
+  font-weight: normal;
+  text-align: left;
+  margin-left: 40px;
 }
 
 .inputForm{
   background-color: white;
   border-color: #93A8AC;
+  border-width: 1px;
   padding: 2px 10px 2px;
-  margin: 10px;
   color:#93A8AC;
   border-style: solid;
+  margin: 10px;
 }
 
 .placeholder{
@@ -210,9 +224,23 @@ table td h1{
   padding: 3px 20px 3px;
   margin: 10px;
   border-style: solid;
-  border-radius: 5px;
+  border-width: 1px;
+  border-radius: 8px;
   position: relative;
   color:#4C5760;
+  font-weight: normal;
+  box-shadow: -10px 6px 12px -12px black;
+}
+
+.button_session{
+  background-color: #93A8AC;
+  padding: 6px 20px 6px;
+  margin: 10px;
+  border-radius: 8px;
+  position: relative;
+  color:white;
+  font-weight: normal;
+  box-shadow: -10px 6px 12px -12px black;
 }
 
 .buttonCon{
@@ -236,6 +264,7 @@ table td h1{
   margin: 10px;
   color:#93A8AC;
   border-style: solid;
+  border-width: 1px;
 }
 
 
@@ -287,7 +316,7 @@ td .test{
 }
 
 .nouvTest{
-  text-align: left;
+  text-align: center;
 }
 
 .lanceTest{
@@ -298,9 +327,7 @@ li.genre{
   padding-left: 20%;
 }
 
-.configSession li{
-  text-align: left;
-  padding: 2% 0% 0% 9%;
+.config_session{
 }
 
 .article{
@@ -385,7 +412,7 @@ p.milieu{
 
 input {
     background-color: white;
-    border-radius: 15px;
+    border-radius: 10px;
     color:#93A8AC;
     text-align: left;
     padding-left: 30px;
@@ -397,9 +424,8 @@ input::placeholder{
 }
 
 .header .button{
-    border-color:#4C5760;
     border-style: solid;
-    border-radius: 15px;
+    border-radius: 10px;
     position: relative;
     color:#4C5760;
     float: right;
@@ -494,4 +520,107 @@ input::placeholder{
 @keyframes fade {
   from {opacity: .4}
   to {opacity: 1}
+}
+
+{box-sizing: border-box;}
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+#myForm .form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+.config_session{
+  color:#FAF6F0;
+  background: inherit;
+}
+datalist {
+  display: none;
+}
+.table ul, .table li,.main ul, .main li{
+  list-style-type: none;
+  color:#FAF6F0;
+}
+.resultat{
+background-color: #93A8AC;
+  border-radius: 5px;
+  box-shadow: -2px 2px 11px -4px black;
+}
+.resultat td, .resultat a{
+  border-radius: 5px;
+  background-color: #93A8AC;
+  font-size: 20px;
+  color:white;
+}
+.resultat thead tr, .resultat thead td{
+  font-size: 25px;
+  color: #4C5760;
+  background-color: white;
+  padding: 10px;
+  font-weight: normal;
+  box-shadow: -10px 6px 12px -12px black;
+}
+.underline{
+  text-decoration: underline;
 }

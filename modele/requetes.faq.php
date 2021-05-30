@@ -59,7 +59,7 @@ function affiche_faq(){
     return $faq;
 }
 
-function effacer_question($id){
+function supprimer($id){
     $bdd=connect_bdd();
     $requete=$bdd->prepare('DELETE faq FROM faq WHERE id_faq=?');
     $requete->execute(array($id));

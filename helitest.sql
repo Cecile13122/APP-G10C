@@ -145,6 +145,7 @@ CREATE TABLE IF NOT EXISTS `session_test` (
   `seuil_dif_temperature` int(11) NOT NULL DEFAULT 10,
   `seuil_stimulus_audio` int(11) NOT NULL DEFAULT 225,
   `seuil_stimulus_visuel` int(11) NOT NULL DEFAULT 250,
+  `session_finie` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'En cours',
   PRIMARY KEY (`id_session`),
   UNIQUE KEY `mail_recruteur` (`mail_recruteur`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
