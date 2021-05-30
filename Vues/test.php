@@ -1,58 +1,116 @@
 <div class="main">
-    <table class="nouvTest">
-        <tr>
-            <td><h1>Nouveau test</h1></td>
-            <td><h1>Configuration session</h1></td>
+  <table>
+    <tr>
+      <td><h1>Nouveau test</h1></td>
+      <td><h1>Configuration session</h1></td>
+    </tr>
+    <tr>
+      <td>
+        <form method="post" action="index.php?cible=test.session&fonction=nouveau_test">
+          <input type="text" name="mail" placeholder="Adresse mail candidat" required pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"><br><br>
+          <input list="id_session" name="n_session" placeholder="Numéro de session" required pattern="/d+"><br>
+          <datalist id="id_session">
+            <?php foreach ($id_sessions as $id){?>
+              <option value="<?=$id?>">
+              <?php }?>
+            </datalist><br><br>
+          <input type="submit" class="button_session" value="Lancer la série de tests">
+        </form><br><br>
+      </td>
+      <td rowspan="5" class="config_session">
+        <form method="post" action="index.php?cible=test.session&fonction=configurer_session">
+          <h2>Numéro de session :</h2>
+          <input list="id_session" name="n_session" oninput="configurer(this.value)" required>
+          <datalist id="id_session">
+            <?php foreach ($id_sessions as $id){?>
+              <option value="<?=$id?>">
+              <?php }?>
+            </datalist>
+
+            <h2>Fréquence cardiaque (bpm) :</h2>
+            <h2>Homme :<input type="number" id="frequence_cardiaque_h" name="frequence_cardiaque_h" min="50" max="75" value="<?=$session[2]?>" required>
+              Femme :<input type="number" id="frequence_cardiaque_f" name="frequence_cardiaque_f" min="50" max="80" value="<?=$session[3]?>" required pattern="/d{2}"></h2><br>
+
+              <h2>Température de la peau (°C) :</h2>
+              <input type="number" id="temperature" name="temperature" min="24" max="35" value="<?=$session[4]?>" required pattern="/d{2}"><br><br>
+
+              <h2>Reconnaissance de la tonalité (%) : </h2>
+              <input type="number" id="tonalite" name="tonalite" min="70" max="100" value="<?=$session[5]?>" required pattern="/d{2,3}"><br><br>
+
+              <h2>Différence de fréquence cardiaque (bpm) : </h2>
+              <input type="number" id="dif_frequence_cardiaque" name="dif_frequence_cardiaque" min="0" max="20" value="<?=$session[6]?>" required pattern="/d{1,2}"><br><br>
+
+              <h2>Différence de température (%) : </h2>
+              <input type="number" id="dif_temperature" name="dif_temperature" min="0" max="10" value="<?=$session[7]?>" required pattern="/d{1,2}"><br><br>
+
+              <h2>Temps de réaction à un stimuli sonore (ms) :</h2>
+              <input type="number" name="stimulus_sonore" id="stimulus_sonore" min="0" max="225" value="<?=$session[8]?>" required pattern="/d{2,3}"><br><br>
+
+              <h2>Temps de réaction à un stimuli visuel (ms) : </h2>
+              <input type="number"  name="stimulus_visuel" id="stimulus_visuel" min="0" max="250" value="<?=$session[9]?>"  required pattern="/d{2,3}"><br><br>
+
+              <input type="submit" class="buttonForm" value="Confirmer">
+              <input type="submit" class="buttonForm" value="Clôturer la session">
+            </form>
+          </td>
         </tr>
         <tr>
-            <td class="lanceTest">
-                <form method="post" action="index.php?cible=test.session&fonction=nouveau_test">
-                    <input class="inputForm" type="text" name="mail" placeholder="Adresse mail candidat" required
-                           pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$">
-                    <br>
-                    <input class="inputForm" type="text" name="n_session" placeholder="Numéro de session" required
-                           pattern="/d+">
-                    <br>
-                    <input type="submit" class="buttonForm" value="Lancer la série de tests">
-                </form>
-            </td>
-            <td class="configSession">
-                <form method="post" action="index.php?cible=test.session&fonction=configurer_session">
-
-                    <input type="text" class="inputForm" name="n_session" placeholder="Numéro de session" required
-                           pattern="/d+"><br>
-                    Nouvelle session? <a class="underline" href>Générer un numéro de session.</a><br>
-                    <ul>
-                        <li><h2>Seuils</h2></li>
-                        <li>Fréquence cardiaque (bpm):</li>
-                        <li class="genre">Homme <input type="number" name="frequence_cardiaque_h" min="50" max="75" value="75" required>
-                            Femme <input type="number" name="frequence_cardiaque_f" min="50" max="80" value="80" required pattern="/d{2}"></li>
-
-                        <li>Température de la peau (°C):
-                            <input type="number" name="temperature" min="24" max="35" value="35" required pattern="/d{2}">
-                            </li>
-
-                        <li>Reconnaissance de la tonalité (%): <input type="number" name="tonalite" min="70"
-                                                                      max="100" value="70" required pattern="/d{2,3}"></li>
-
-                        <li>Différence de fréquence cardiaque (bpm): <input type="number" name="dif_frequence_cardiaque" min="0"
-                                                                          max="20" value="20" required pattern="/d{1,2}"></li>
-
-                        <li>Différence de température (%): <input type="number" name="dif_temperature" min="0" max="10"
-                                                                  value="10" required pattern="/d{1,2}"></li>
-
-                        <li>Temps de réaction à un stimuli sonore (ms): <input type="number" name="stimulus_sonore"
-                                                                               min="0" max="225" value="225" required pattern="/d{2,3}"></li>
-
-                        <li>Temps de réaction à un stimuli visuel (ms): <input type="number"  name="stimulus_visuel"
-                                                                               min="0" max="250" value="250"  required pattern="/d{2,3}"></li>
-
-                        <li><input class="buttonForm" type="submit" value="Confirmer"></li>
-                        <li><input type="submit" class="buttonForm" value="Clôturer la session"></li>
-                </form>
-
-                </ul>
-            </td>
+          <td></td>
         </tr>
-    </table>
-</div>
+        <tr>
+          <td><h1>Sessions</h1></td>
+        </tr>
+        <tr>
+          <td>
+            <table class="resultat">
+              <thead class="resultat">
+                <tr>
+                <td>Numéro</td>
+                <td>État de la session</td>
+                <td>Candidats</td>
+                <td>admissibles</td>
+              </tr>
+            </thead>
+            <tbody>
+              <?php foreach ($sessions as $session){?>
+                <tr>
+                  <td><?=$session['id_session']?></td>
+                  <td><?=$session['session_finie']?></td>
+                  <td><?=calcul_candidats_session($session['id_session'])?></td>
+                  <td><?=calcul_ratio_admissibles($session['id_session'])?>%</td>
+                  <td><a href="index.php?cible=test.session&fonction=afficher_resultats&id=<?=$session['id_session']?>" class="underline">Voir les resultats.</a></td>
+                </tr>
+              <?php }?></tbody>
+              </table>
+            </td>
+          </tr>
+          <tr>
+          <td><h2><button href="index.php?cible=test.session&fonction=nouvelle_session" class="buttonForm">Créer une session.</button></h2></td>
+        </tr>
+      </table>
+
+    </div>
+
+    <script>
+    function configurer(id){
+      confirm("salut");
+      window.location.href = "index.php?cible=test.session&fonction=remplir_seuils&id="+id.toString();
+      /*
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("frequence_cardiaque_h").getAttributeNode("value").value = $f_cardiaque_h;
+      document.getElementById("frequence_cardiaque_f").getAttributeNode("value").value = $f_cardiaque_f;
+      document.getElementById("temperature").getAttributeNode("value").value = ;
+      document.getElementById("tonalite").getAttributeNode("value").value = ;
+      document.getElementById("dif_frequence_cardiaque").getAttributeNode("value").value = ;
+      document.getElementById("dif_temperature").getAttributeNode("value").value = ;
+      document.getElementById("stimulus_sonore").getAttributeNode("value").value = ;
+      document.getElementById("stimulus_visuel").getAttributeNode("value").value = ;
+    }
+  };
+  xhttp.open("GET", "index.php?cible=test.session&fonction=remplir_seuils&id="+id, true);
+  xhttp.send();
+  */
+}
+</script>

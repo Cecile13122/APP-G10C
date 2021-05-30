@@ -7,19 +7,19 @@
 // on inclut le fichier modèle contenant les appels à la BDD
 include_once('./modele/requetes.test.php');
 session_start();
+
 // si la fonction n'est pas définie, on choisit d'afficher l'accueil
 if (!isset($_GET['fonction']) || empty($_GET['fonction'])) {
-    $function = "resultat";
+    $function = 'resultat';
 } else {
     $function = $_GET['fonction'];
 }
 
 switch ($function) {
 
-    case 'resultat':
-
-        $vue = "resultat";
-
+    case 'recuperation_candidats':
+        $candidats=recuperation_candidats_session($_REQUEST['id']);
+        $vue = "resultats";
         break;
 
 

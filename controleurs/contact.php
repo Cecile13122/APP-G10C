@@ -49,7 +49,11 @@ switch ($function) {
         $vue = "erreur404";
         $message = "Erreur 404 : la page recherchée n'existe pas.";
 }
-if(session_status()==1 || session_status()==0){session_start();}
+
+if(session_status()==1 || session_status()==0){
+  session_start();
+}
+
 if (isset($_SESSION['role'])){
     $role = $_SESSION['role'];
 }else {

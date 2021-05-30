@@ -49,8 +49,8 @@ switch ($function) {
                 $_SESSION['mail'] = $email;
                 $_SESSION['prenom'] = $prenom;
                 $_SESSION['nom'] = $nom;
-                $role =verification_role($email);
-                $_SESSION['role'] = $role;
+                //$role =verification_role($email);
+                //$_SESSION['role'] = $role;
                 $form = "";
                 $vue = "accueil"; //TODO ajouter message de confirmation
             } else {
@@ -91,7 +91,7 @@ switch ($function) {
                 modifier_mot_de_passe($nouveau_mot_de_passe, $_SESSION['mail'], $_SESSION['role']);
                 $form = "";
                 $vue = "accueil"; //ajouter message de confirmation
-                $role = $_SESSION['role'];
+                //$role = $_SESSION['role'];
             } else {
                 echo "Il y a une erreur dans le remplissage de votre formulaire.<br>";
                 echo $err_mdp;
@@ -158,8 +158,8 @@ switch ($function) {
             if (!$info_user['valider']) {
                 valider_candidat($mail, $key);
                 echo 'Vous avez bien validé votre compte';
-            } else {
-                echo 'Votre compte a déjà été valider';
+            }else {
+                echo 'Votre compte a déjà été validé';
             }
             $form = "";
             $vue = "connexion";
@@ -269,10 +269,10 @@ switch ($function) {
         break;
 
     case 'accueil':
-        session_start();
-        if (isset($_SESSION['role']) && !empty($_SESSION['role'])){
-            $role=$_SESSION['role'];
-        }
+       // session_start();
+        //if (isset($_SESSION['role']) && !empty($_SESSION['role'])){
+        //    $role=$_SESSION['role'];
+       // }
         $form = "";
         $vue = "accueil";
         break;
@@ -297,15 +297,6 @@ switch ($function) {
         $form = "";
         break;
 
-    case 'contact' :
-        $form = "";
-        $vue = "contact";
-        break;
-
-    case 'faq' :
-
-        break;
-
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET
         $vue = "erreur404";
@@ -313,22 +304,8 @@ switch ($function) {
         $message = "Erreur 404 : la page recherchée n'existe pas.";
 }
 
-if (session_status() == 1 || session_status() == 0) {
-    session_start();
-}
-
-if (!empty($form)) {
-    include('vues/header.form.php');
-} else {
-    if (!isset($role)) {
-        $role = "";
-    }
-    include('vues/header.' . $role . '.php');
-}
-
 if (!isset($erreur)) {
     $erreur = "";
 }
 
-include('vues/' . $vue . '.php' . $erreur);
-include('vues/footer.php');
+redirection($form, $vue, $erreur);

@@ -143,3 +143,41 @@ function mail_reinitialisation_mdp($mail, $jeton){
     return (mail($destinataire, $sujet, $message, $header));
 
 }
+
+
+function redirection($form, $vue, $erreur){
+  if (session_status() == 1 || session_status() == 0) {
+      session_start();
+  }
+
+  if (!empty($form)) {
+      include('vues/header.form.php');
+  } else {
+    if (isset($_SESSION['role'])){
+        $role = $_SESSION['role'];
+    }else {
+        $role="";
+    }
+      include('vues/header.' . $role . '.php');
+  }
+
+  include('vues/' . $vue . '.php' . $erreur);
+  include('vues/footer.php');
+}
+
+function recuperer_id_sessions($mail)
+{
+  $id = array();
+   foreach (recuperer_session_recruteur($mail) as $session):
+     array_push($id,$session['id_session']);
+   endforeach;
+   return $id;
+}
+
+function calcul_candidats_session($id){
+  return calcul_candidats($id);
+}
+
+function calcul_ratio_admissibles($id){
+  //faire fonction, modifier les db
+}
