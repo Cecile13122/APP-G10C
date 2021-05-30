@@ -198,6 +198,11 @@ switch ($function) {
             if ($userinfo['mail']){
                 $form="form";
                 $vue="nouveaumdp";
+            }else {
+                echo "Le lien n'est plus valide, il faut en redemander un";
+                $form='';
+                $vue='accueil';
+                $role='';
             }
         }}
             $mdp_pattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&\._-])[A-Za-z\d@$!%*?&\._-]{8,}$/";
@@ -265,6 +270,9 @@ switch ($function) {
 
     case 'accueil':
         session_start();
+        if (isset($_SESSION['role']) && !empty($_SESSION['role'])){
+            $role=$_SESSION['role'];
+        }
         $form = "";
         $vue = "accueil";
         break;

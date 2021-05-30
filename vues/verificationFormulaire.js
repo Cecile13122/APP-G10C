@@ -1,19 +1,14 @@
-//function verificationFormulaireInscription(){
-  //  let pattern=/^[a-zA-Z]+$/;
-
-    let nom=document.getElementById('firstname');
-    nom.addEventListener("input",messageErreur(nom));
-//}
-
-function messageErreur(){
-    if(nom.validity.typeMismatch) {
-        nom.setCustomValidity("J'attend un e-mail, mon cher !");
-        document.getElementById('err_nom').innerHTML=" Le nom ou  le prénom ne sont pas acceptés";
-        document.getElementById(this).style.backgroundColor='red';
-    } else {
-        nom.setCustomValidity("");
-        document.getElementById('err_nom').innerHTML="";
-        document.getElementById(this).style.backgroundColor='green';
+function verificationNom(val,id){
+    let pattern=/^[A-Za-zÜ-ü'-]+( *[A-Za-zÜ-ü'-]+)*$/;
+    //let valeur =val.values;
+    //let identite =val.id;
+    if (!val.match(pattern)){
+       document.getElementById('err_'.id).innerHTML= "Ne peut pas contenir de chiffres";
+        document.getElementById(id).style.boxShadow='0 0 5px 1px #4C5760';
+    }
+    else{
+        document.getElementById('err_'.id).innerHTML="";
+        document.getElementById(id).style.boxShadow='none';
     }
 
 }

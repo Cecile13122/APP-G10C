@@ -4,16 +4,18 @@
         <tr>
             <td class="critere"><label for="monsieur">Civilité :</label></td>
             <td colspan="2"><input name="genre" type="radio" id="monsieur" value="M" class="inputForm" required> <label
-                    for="monsieur">M.</label><input name="genre" type="radio" id="madame" value="F" class="inputForm"
-                                                    required> <label for="madame">Mme</label></td>
-        </tr>
-        <tr>
-            <span id="err_nom"></span>
+                        for="monsieur">M.</label><input name="genre" type="radio" id="madame" value="F"
+                                                        class="inputForm"
+                                                        required> <label for="madame">Mme</label></td>
         </tr>
         <tr>
             <td class="critere"><label for="firstname">Prénom :</label></td>
             <td><input id="firstname" type="text" name="prenom" placeholder="Prénom" class="inputForm" required
-                       pattern="^[A-Za-zÜ-ü'-]+( *[A-Za-zÜ-ü'-]+)*$"></td>
+                       onchange="verificationNom(this.value, this.id)"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><span id="err_firstname"></span></td>
         </tr>
         <tr>
             <td class="critere"><label for="name">Nom :</label></td>
@@ -21,9 +23,15 @@
                        pattern="^[A-Za-zÜ-ü'-]+( *[A-Za-zÜ-ü'-]+)*$"></td>
         </tr>
         <tr>
+            <span id="err_name"></span>
+        </tr>
+        <tr>
             <td class="critere"><label for="naissance">Né(e) le :</label></td>
             <td><input type="date" id="naissance" name="date_naissance" placeholder="Date de naissance"
                        class="inputForm" required></td>
+        </tr>
+        <tr>
+            <span id="err_naissance"></span>
         </tr>
         <tr>
             <td class="critere"><label for="tel"> Numéro de téléphone :</label></td>
@@ -31,9 +39,15 @@
                        required pattern="(0|\+33) *[1-9]( *[0-9]{2}){4}"></td>
         </tr>
         <tr>
+            <span id="err_tel"></span>
+        </tr>
+        <tr>
             <td class="critere"><label for="cp">Code postal :</label></td>
             <td><input type="text" id="cp" name="code_postal" placeholder="______" class="inputForm" required
                        pattern="\d{5,6}"></td>
+        </tr>
+        <tr>
+            <span id="err_cp"></span>
         </tr>
         <tr>
             <td class="critere"><label for="mail">Adresse mail :</label></td>
@@ -45,6 +59,9 @@
             <td class="critere"><label for="cmail">Confirmation d'adresse mail :</label></td>
             <td><input id="cmail" type="email" name="confemail" placeholder="exemple@mail.com" class="inputForm"
                        required pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"></td>
+        </tr>
+        <tr>
+            <span id="err_mail"></span>
         </tr>
         <tr>
             <td class="critere"><label for="mdp">Mot de passe :</label></td>
@@ -59,9 +76,32 @@
             </td>
         </tr>
         <tr>
+            <span id="err_mdp"></span>
+        </tr>
+        <tr>
             <td colspan="2"><label for="cgu"><input type="checkbox" id="cgu" name="CGU" value="oui" required> J'accepte
-                les conditions d'utilisation.</label></td>
+                    les conditions d'utilisation.</label></td>
     </table>
-    <p>Déjà un compte ? <a href="index.php?cible=utilisateurs&fonction=connexion" class="underline">Se connecter.</a></p>
+    <p>Déjà un compte ? <a href="index.php?cible=utilisateurs&fonction=connexion" class="underline">Se connecter.</a>
+    </p>
     <input type="submit" value="Envoyer" class="buttonForm">
 </form>
+<script>
+    function verificationNom(val, id) {
+        alert('jpp');
+        let pattern = /^[A-Za-zÜ-ü'-]+( *[A-Za-zÜ-ü'-]+)*$/;
+//let valeur =val.values;
+//let identite =val.id;
+        alert('mort');
+        if (!val.match(pattern)) {
+            document.getElementById('err_'.id).innerHTML = "Ne peut pas contenir de chiffres";
+            document.getElementById(id).style.boxShadow = '0 0 5px 1px #4C5760';
+            alert('if');
+        } else {
+            document.getElementById('err_'.id).innerHTML = "Merci";
+            document.getElementById(id).style.boxShadow = 'none';
+            alert('else');
+        }
+        alert('kill me');
+    }
+</script>

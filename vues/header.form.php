@@ -4,7 +4,7 @@
     <meta charset="utf-8" name="viewport"/>
     <link type="text/css" rel="stylesheet" href="./vues/styleForm.css"/>
     <link rel="shortcut icon" type="image/x-icon" href="./images/ATC_v200.png"/>
-    <script src="../vues/verificationFormulaire.js" type="text/javascript"></script>
+    <script src="./vues/verificationFormulaire.js" type="text/javascript"></script>
     <title>Helitest</title>
 </head>
 <body>
