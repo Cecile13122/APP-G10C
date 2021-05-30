@@ -1,3 +1,5 @@
+<script src="verificationFormulaire.js" type="text/javascript"></script>
+
 <h1>Inscription</h1>
 <form method="post" action="index.php?cible=utilisateurs&fonction=inscription">
     <table>
@@ -11,7 +13,7 @@
         <tr>
             <td class="critere"><label for="firstname">Prénom :</label></td>
             <td><input id="firstname" type="text" name="prenom" placeholder="Prénom" class="inputForm" required
-                       onchange="verificationNom(this.value, this.id)"></td>
+                       oninput='verificationNom(this.value, this.id)'></td>
         </tr>
         <tr>
             <td></td>
@@ -20,63 +22,71 @@
         <tr>
             <td class="critere"><label for="name">Nom :</label></td>
             <td><input id="name" type="text" name="nom" placeholder="Nom" class="inputForm" required
-                       pattern="^[A-Za-zÜ-ü'-]+( *[A-Za-zÜ-ü'-]+)*$"></td>
+                       oninput='verificationNom(this.value, this.id)'></td>
         </tr>
         <tr>
-            <span id="err_name"></span>
+            <td></td>
+           <td><span id="err_name"></span></td>
         </tr>
         <tr>
             <td class="critere"><label for="naissance">Né(e) le :</label></td>
             <td><input type="date" id="naissance" name="date_naissance" placeholder="Date de naissance"
-                       class="inputForm" required></td>
+                       class="inputForm" required onchange='verificationDate(this.value, this.id)'></td>
         </tr>
-        <tr>
-            <span id="err_naissance"></span>
+        <tr><td></td>
+            <td><span id="err_naissance"></span></td>
+
         </tr>
         <tr>
             <td class="critere"><label for="tel"> Numéro de téléphone :</label></td>
             <td><input type="text" id="tel" name="telephone" placeholder="+ 33 _ __ __ __ __" class="inputForm"
-                       required pattern="(0|\+33) *[1-9]( *[0-9]{2}){4}"></td>
+                       required pattern="(0|\+33) *[1-9]( *[0-9]{2}){4}" oninput='verificationNumero(this.value, this.id )'></td>
         </tr>
-        <tr>
-            <span id="err_tel"></span>
+        <tr><td></td>
+            <td><span id="err_tel"></span></td>
+
         </tr>
         <tr>
             <td class="critere"><label for="cp">Code postal :</label></td>
             <td><input type="text" id="cp" name="code_postal" placeholder="______" class="inputForm" required
-                       pattern="\d{5,6}"></td>
+                       oninput='verificationPostal(this.value, this.id)'></td>
         </tr>
         <tr>
-            <span id="err_cp"></span>
+            <td></td>
+            <td><span id="err_cp"></span></td>
+
         </tr>
         <tr>
             <td class="critere"><label for="mail">Adresse mail :</label></td>
             <td><input id="mail" type="email" name="email" placeholder="exemple@mail.com" class="inputForm" required
-                       pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$">
+                       oninput="verificationMail(this.value, this.id)" >
             </td>
         </tr>
         <tr>
             <td class="critere"><label for="cmail">Confirmation d'adresse mail :</label></td>
             <td><input id="cmail" type="email" name="confemail" placeholder="exemple@mail.com" class="inputForm"
-                       required pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"></td>
+                       required oninput="verificationConfirmationMail(this.value, this.id, document.getElementById('mail').value, 'mail')"></td>
         </tr>
         <tr>
-            <span id="err_mail"></span>
+            <td></td>
+            <td><span id="err_mail"></span></td>
+
         </tr>
         <tr>
             <td class="critere"><label for="mdp">Mot de passe :</label></td>
             <td><input type="password" id="mdp" name="mot_de_passe" placeholder="********" class="inputForm" required
-                       pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&\._-])[A-Za-z\d@$!%*?&\._-]{8,}$">
+                       oninput="verificationMdp(this.value, this.id)">
             </td>
         </tr>
         <tr>
             <td class="critere"><label for="cmdp">Confirmation de mot de passe :</label></td>
             <td><input type="password" id="cmdp" name="confirmation_mdp" placeholder="********" class="inputForm"
-                       required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&\._-])[A-Za-z\d@$!%*?&\._-]{8,}$">
+                       required oninput="verificationConfirmationMdp(this.value, this.id, document.getElementById('mdp').value, 'mdp')">
             </td>
         </tr>
-        <tr>
-            <span id="err_mdp"></span>
+        <tr><td></td>
+            <td><span id="err_mdp"></span></td>
+
         </tr>
         <tr>
             <td colspan="2"><label for="cgu"><input type="checkbox" id="cgu" name="CGU" value="oui" required> J'accepte
@@ -86,22 +96,3 @@
     </p>
     <input type="submit" value="Envoyer" class="buttonForm">
 </form>
-<script>
-    function verificationNom(val, id) {
-        alert('jpp');
-        let pattern = /^[A-Za-zÜ-ü'-]+( *[A-Za-zÜ-ü'-]+)*$/;
-//let valeur =val.values;
-//let identite =val.id;
-        alert('mort');
-        if (!val.match(pattern)) {
-            document.getElementById('err_'.id).innerHTML = "Ne peut pas contenir de chiffres";
-            document.getElementById(id).style.boxShadow = '0 0 5px 1px #4C5760';
-            alert('if');
-        } else {
-            document.getElementById('err_'.id).innerHTML = "Merci";
-            document.getElementById(id).style.boxShadow = 'none';
-            alert('else');
-        }
-        alert('kill me');
-    }
-</script>
