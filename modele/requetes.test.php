@@ -29,3 +29,12 @@
      }
      return $resultats;
  }
+
+ function recuperation_test($id_test){
+    $bdd=connect_bdd();
+   $requete=$bdd->prepare('SELECT * FROM test WHERE id_test =?');
+   $requete->execute(array($id_test));
+
+   return $requete->fetch();
+ }
+

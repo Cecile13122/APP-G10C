@@ -18,7 +18,7 @@ if (!isset($_GET['fonction']) || empty($_GET['fonction'])) {
 switch ($function) {
 
     case 'recuperation_candidats':
-        $candidats=recuperation_candidats_session($_REQUEST['id']);
+        $candidats = recuperation_candidats_session($_REQUEST['id']);
         $vue = "resultats";
         break;
 
@@ -26,7 +26,7 @@ switch ($function) {
         if (isset($_GET['mail']) || empty($_GET['mail'])) {
             $resultats_candidat = recuperation_resultat($_GET['mail']);
         }
-        $vue="resultat";
+        $vue = "resultat";
         break;
 
     default:
@@ -35,6 +35,6 @@ switch ($function) {
         $message = "Erreur 404 : la page recherchée n'existe pas.";
 }
 
-include ('vues/header.'.$_SESSION['role'].'.php');
-include ('vues/' . $vue . '.php');
-include ('vues/footer.php');
+include('vues/header.' . $_SESSION['role'] . '.php');
+include('vues/' . $vue . '.php');
+include('vues/footer.php');
