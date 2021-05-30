@@ -14,6 +14,7 @@
     }
 }?>
           </span>
+          <a href="index.php?cible=utilisateurs&fonction=mdp_oublie" class="underline">Mot de passe oublié ?</a>
         <p>Pas encore de compte ? <a href="index.php?cible=utilisateurs&fonction=inscription" class="underline">S'inscrire.</a></p>
         <input type="submit" value="Envoyer" class="buttonForm">
       </form>

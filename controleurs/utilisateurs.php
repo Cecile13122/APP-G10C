@@ -49,6 +49,8 @@ switch ($function) {
                 $_SESSION['mail'] = $email;
                 $_SESSION['prenom'] = $prenom;
                 $_SESSION['nom'] = $nom;
+                $role =verification_role($email);
+                $_SESSION['role'] = $role;
                 $form = "";
                 $vue = "accueil"; //TODO ajouter message de confirmation
             } else {
@@ -89,6 +91,7 @@ switch ($function) {
                 modifier_mot_de_passe($nouveau_mot_de_passe, $_SESSION['mail'], $_SESSION['role']);
                 $form = "";
                 $vue = "accueil"; //ajouter message de confirmation
+                $role = $_SESSION['role'];
             } else {
                 echo "Il y a une erreur dans le remplissage de votre formulaire.<br>";
                 echo $err_mdp;
@@ -127,9 +130,9 @@ switch ($function) {
 
             if (empty($err_mail) && empty($err_telephone) && empty($err_nom) && empty($err_mdp) && empty($err_code_postal) && empty($err_civilite) && empty($err_date_naissance)) {
                 $mot_de_passe = crypter_mdp($mot_de_passe);
-                $clef=confirmation_compte();
-                mail_confirmation_compte($email,$clef);
-                $values = array('mail_candidat' => $email, 'nom' => $nom, 'prenom' => $prenom, 'mdp' => $mot_de_passe, 'date_naissance' => $date_naissance, 'numero_tel' => $telephone, 'genre' => $civilite, 'code_postal' => $code_postal, 'valider'=>0, 'clef_confirmation'=> $clef );
+                $clef = confirmation_compte();
+                mail_confirmation_compte($email, $clef);
+                $values = array('mail_candidat' => $email, 'nom' => $nom, 'prenom' => $prenom, 'mdp' => $mot_de_passe, 'date_naissance' => $date_naissance, 'numero_tel' => $telephone, 'genre' => $civilite, 'code_postal' => $code_postal, 'valider' => 0, 'clef_confirmation' => $clef);
                 create_candidat($bdd, $values, $table);
                 session_start();
                 $role = "candidat";
@@ -138,7 +141,7 @@ switch ($function) {
                 $_SESSION['nom'] = $nom;
                 $_SESSION['role'] = $role;
                 $form = "";
-                $vue="accueil";
+                $vue = "accueil";
             } else {
                 echo "Il y a une erreur dans le remplissage de votre formulaire.<br>";
                 echo $err_civilite . "<br>" . $err_nom . "<br>" . $err_date_naissance . "<br>" . $err_telephone . "<br>" . $err_code_postal . "<br>" . $err_mail . "<br>" . $err_mdp;
@@ -147,26 +150,87 @@ switch ($function) {
         break;
 
     case 'confirmation':
-        if (isset($_GET['mail'], $_GET['key']) && !empty($_GET['mail']) && !empty($_GET['key'])){
+        if (isset($_GET['mail'], $_GET['key']) && !empty($_GET['mail']) && !empty($_GET['key'])) {
             $mail = test_input(urldecode($_GET['mail']));
             $key = intval($_GET['key']);
 
-            $info_user=recuperation_profil_clef($mail,$key);
-            if (!$info_user['valider']){
+            $info_user = recuperation_profil_clef($mail, $key);
+            if (!$info_user['valider']) {
                 valider_candidat($mail, $key);
                 echo 'Vous avez bien validé votre compte';
-            }else {
+            } else {
                 echo 'Votre compte a déjà été valider';
             }
-            $form="";
-            $vue="connexion";
+            $form = "";
+            $vue = "connexion";
         }
         break;
 
 
+    case 'mdp_oublie' :
+        $form ="form";
+        $vue="mdpoublie";
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $mail = test_input($_POST['email']);
+            $jeton =uniqid();
+            if (mail_reinitialisation_mdp($mail, $jeton)){
+                $role = verification_role($mail);
+                initialisation_jeton($mail, $jeton,$role);
+            }
+            $role='';
+            $form='';
+            $vue='accueil';
+        }
+        break;
+
+    case 'reinitialisation_mdp':
+        if (isset($_GET['mail'])&& !empty([$_GET['mail']])){
+            $mail=($_GET['mail']);
+            $role= verification_role($mail);
+        if (isset($_GET['jeton'])&& !empty([$_GET['jeton']])){
+            $userinfo =recuperation_profil_jeton($_GET['jeton'], $role);
+            session_start();
+            $_SESSION['mail'] = $userinfo['mail'];
+            $_SESSION['prenom'] = $userinfo['prenom'];
+            $_SESSION['nom'] = $userinfo['nom'];
+            $role = verification_role($userinfo['mail']);
+            $_SESSION['role'] = $role;
+            if ($userinfo['mail']){
+                $form="form";
+                $vue="nouveaumdp";
+            }
+        }}
+            $mdp_pattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&\._-])[A-Za-z\d@$!%*?&\._-]{8,}$/";
+            $err_mdp = "";
+
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                session_start();
+                $nouveau_mot_de_passe = test_input($_POST["nouveau_mdp"]);
+                $conf_mot_de_passe = test_input($_POST["conf_nouveau_mdp"]);
+                if (!preg_match($mdp_pattern, $nouveau_mot_de_passe)) {
+                    $err_mdp = "Mot de passe incorrect";
+                } elseif ($nouveau_mot_de_passe != $conf_mot_de_passe) {
+                    $err_mdp = "Le mot de passe de confirmation ne correspond pas";
+                } else {
+
+                    $nouveau_mot_de_passe = password_hash($nouveau_mot_de_passe, PASSWORD_DEFAULT);
+                }
+                if (empty($err_mdp)) {
+
+                modifier_mot_de_passe($nouveau_mot_de_passe, $_SESSION['mail'], $_SESSION['role']);
+                initialisation_jeton($_SESSION['mail'], 0, $_SESSION['role']);
+                $role=$_SESSION['role'];
+                $vue="accueil";
+                $form='';
+            }
+            }
+
+        break;
 
     case 'deconnexion':
         session_start();
+        session_unset();
+        session_destroy();
         $form = "form";
         $vue = "deconnexion";
         break;
@@ -200,6 +264,7 @@ switch ($function) {
         break;
 
     case 'accueil':
+        session_start();
         $form = "";
         $vue = "accueil";
         break;

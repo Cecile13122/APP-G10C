@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3307
--- Généré le :  sam. 29 mai 2021 à 15:04
+-- Généré le :  Dim 30 mai 2021 à 07:29
 -- Version du serveur :  10.3.14-MariaDB
 -- Version de PHP :  7.2.18
 
@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS `administrateur` (
   `prenom` varchar(255) NOT NULL,
   `nom` varchar(128) NOT NULL,
   `mdp` varchar(64) NOT NULL,
+  `jeton` varchar(255) NOT NULL,
   PRIMARY KEY (`mail_administrateur`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -41,8 +42,8 @@ CREATE TABLE IF NOT EXISTS `administrateur` (
 -- Déchargement des données de la table `administrateur`
 --
 
-INSERT INTO `administrateur` (`mail_administrateur`, `prenom`, `nom`, `mdp`) VALUES
-('cecile.meynieux@free.fr', 'Cecile', 'Meynieux', '$2y$10$tMvDpQMUfUdscJZ3U1VF9e838zyaKdXTkGT1Yp7il6EsaM41apjHu');
+INSERT INTO `administrateur` (`mail_administrateur`, `prenom`, `nom`, `mdp`, `jeton`) VALUES
+('cecile.meynieux@free.fr', 'Cecile', 'Meynieux', '$2y$10$tMvDpQMUfUdscJZ3U1VF9e838zyaKdXTkGT1Yp7il6EsaM41apjHu', '60b33a659f39a');
 
 -- --------------------------------------------------------
 
@@ -62,6 +63,7 @@ CREATE TABLE IF NOT EXISTS `candidat` (
   `code_postal` int(11) NOT NULL,
   `valider` tinyint(1) NOT NULL DEFAULT 0,
   `clef_confirmation` varchar(255) NOT NULL,
+  `jeton` varchar(255) NOT NULL,
   PRIMARY KEY (`mail_candidat`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -69,11 +71,11 @@ CREATE TABLE IF NOT EXISTS `candidat` (
 -- Déchargement des données de la table `candidat`
 --
 
-INSERT INTO `candidat` (`mail_candidat`, `nom`, `prenom`, `mdp`, `date_naissance`, `numero_tel`, `genre`, `code_postal`, `valider`, `clef_confirmation`) VALUES
-('cecile.meynieux@eleve.isep.fr', 'Meynieux', 'Cécile', '$2y$10$BEJMiosCMzdSaaDYlxgFYOHjdk00s1jwTNSPqwESpYh8vKq/HOy3u', '1998-03-28', '0633100256', 'F', 13122, 1, '90945295826925'),
-('pconde@isep.fr', 'Conde-CESPESDES', 'Patricia', '$2y$10$CbZF.PyXgQ5EGcfRUQ0IL.e1rTjqY6pTTAOTVEXXDivAWYylAwYvi', '2000-10-11', '0633100256', 'F', 75006, 0, ''),
-('pv@gmail.com', 'Vidor', 'Paul', '$2y$10$cMwmP0ExShef7yMkG1nP8u/CfaZAiluqvjN.IRv6fL83WXv/uU0Yy', '1997-06-27', '0633100256', 'M', 75467, 0, ''),
-('R.h@free.fr', 'Henry', 'Robin', '$2y$10$ou2LJ/qekAy.0002WnKa9.9wjQFrYRK.MJmIl3v2cN2h8lEf49.bK', '1999-02-28', '0834543212', 'M', 13122, 0, '');
+INSERT INTO `candidat` (`mail_candidat`, `nom`, `prenom`, `mdp`, `date_naissance`, `numero_tel`, `genre`, `code_postal`, `valider`, `clef_confirmation`, `jeton`) VALUES
+('cecile.meynieux@eleve.isep.fr', 'Meynieux', 'Cécile', '$2y$10$RMjG6k6yKE8QGTZMoL8wq.4utExUECv4ijj6kFtzAfBTsDkFpogMa', '1998-03-28', '0633100256', 'F', 13122, 1, '90945295826925', '0'),
+('pconde@isep.fr', 'Conde-CESPESDES', 'Patricia', '$2y$10$CbZF.PyXgQ5EGcfRUQ0IL.e1rTjqY6pTTAOTVEXXDivAWYylAwYvi', '2000-10-11', '0633100256', 'F', 75006, 0, '', '0'),
+('pv@gmail.com', 'Vidor', 'Paul', '$2y$10$cMwmP0ExShef7yMkG1nP8u/CfaZAiluqvjN.IRv6fL83WXv/uU0Yy', '1997-06-27', '0633100256', 'M', 75006, 0, '', '0'),
+('R.h@free.fr', 'Henry', 'Robin', '$2y$10$ou2LJ/qekAy.0002WnKa9.9wjQFrYRK.MJmIl3v2cN2h8lEf49.bK', '1999-02-28', '0834543212', 'M', 13122, 0, '', '0');
 
 -- --------------------------------------------------------
 
@@ -117,6 +119,7 @@ CREATE TABLE IF NOT EXISTS `recruteur` (
   `nom` varchar(255) NOT NULL,
   `prenom` varchar(255) NOT NULL,
   `mdp` varchar(255) NOT NULL,
+  `jeton` varchar(255) NOT NULL,
   PRIMARY KEY (`mail_recruteur`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -124,8 +127,9 @@ CREATE TABLE IF NOT EXISTS `recruteur` (
 -- Déchargement des données de la table `recruteur`
 --
 
-INSERT INTO `recruteur` (`mail_recruteur`, `nom`, `prenom`, `mdp`) VALUES
-('marie.mottier@gmail.com', 'Mottier', 'Marie', '$2y$10$InE6xQzHXPcCuVP60vIIYe1Be.5vtv36NcK.zskE7a3FVGf8smsB6');
+INSERT INTO `recruteur` (`mail_recruteur`, `nom`, `prenom`, `mdp`, `jeton`) VALUES
+('marie.mottier@gmail.com', 'Mottier', 'Marie', '$2y$10$InE6xQzHXPcCuVP60vIIYe1Be.5vtv36NcK.zskE7a3FVGf8smsB6', ''),
+('meynieux.cecile@gmail.com', 'Meynieux', 'Cécile', '$2y$10$mhA9gqB0shzpD2IWkNtfteECGzAxoM9AhElOB9OF.ORqHLS7FyxF6', '0');
 
 -- --------------------------------------------------------
 

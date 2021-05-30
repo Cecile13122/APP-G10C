@@ -109,7 +109,7 @@ function mail_confirmation_compte($mail, $key){
     $header.='From:"Helitest"<appg10c@mail.com>'."\n";
     $header.='Content-Type:text/html; charset="uft-8"'."\n";
     $header.='Content-Transfer-Encoding: 8bit';
-    $sujet ='Confirmation de votre compte Hélitest';
+    $sujet ='Confirmation de votre compte Helitest';
 
     $message= ' <html>
                         <body>
@@ -120,5 +120,26 @@ function mail_confirmation_compte($mail, $key){
                      </html>
     ';
         return (mail($destinataire, $sujet, $message, $header));
+
+}
+
+function mail_reinitialisation_mdp($mail, $jeton){
+    $destinataire = $mail;
+    $header="MIME-Version: 1.0\r\n";
+    $header.='From:"Helitest"<appg10c@mail.com>'."\n";
+    $header.='Content-Type:text/html; charset="uft-8"'."\n";
+    $header.='Content-Transfer-Encoding: 8bit';
+    $sujet ='Reinitialisation mot de passe Helitest';
+
+    $message= ' <html>
+                        <body>
+                           <div align="center">
+                           <p>Bonjour, <br> Voici le lien pour réinitialiser votre mot de passe : </p>
+                              <a href="http://localhost/APP-G10C/index?cible=utilisateurs&fonction=reinitialisation_mdp&mail='.urlencode($mail).'&jeton='.$jeton.'">Nouveau mot de passe</a>
+                           </div>
+                        </body>
+                     </html>
+    ';
+    return (mail($destinataire, $sujet, $message, $header));
 
 }

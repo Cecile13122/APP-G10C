@@ -61,3 +61,16 @@ function modifier_mot_de_passe($mot_de_passe, $mail, $role){
             'mail' => $mail));
 }
 
+function initialisation_jeton($mail, $jeton, $role){
+    $bdd=connect_bdd();
+    $requete=$bdd->prepare('UPDATE '.$role.' SET jeton =? WHERE mail_'.$role.' = ?');
+    $requete->execute(array($jeton, $mail));
+}
+
+function recuperation_profil_jeton($jeton, $role){
+    $bdd=connect_bdd();
+    $requete=$bdd->prepare('SELECT mail_'.$role.' AS mail, nom, prenom FROM '.$role.' WHERE jeton = ?');
+    $requete->execute(array($jeton));
+    return $requete->fetch();
+}
+
