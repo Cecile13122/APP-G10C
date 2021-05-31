@@ -15,7 +15,7 @@
           </td>
           <td>
             <form method="post" action="./index.php?cible=utilisateurs&fonction=contact">
-
+                <h2><?php if(isset($erreur)&&!empty($erreur)){echo $erreur;} ?></h2>
                 <input type="text" name="nom" placeholder="Nom Prénom" class="inputForm" required><br>
 
                 <input type="email" name="email" placeholder="exemple@mail.com" class="inputForm" required><br>

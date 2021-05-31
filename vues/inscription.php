@@ -1,6 +1,7 @@
 <script src="verificationFormulaire.js" type="text/javascript"></script>
 
 <h1>Inscription</h1>
+<h2><?php if(isset($erreur)&&!empty($erreur)){echo $erreur;} ?></h2>
 <form method="post" action="index.php?cible=utilisateurs&fonction=inscription">
     <table>
         <tr>

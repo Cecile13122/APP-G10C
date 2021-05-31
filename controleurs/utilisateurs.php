@@ -28,12 +28,11 @@ if (!empty($_GET['page'])) {
     $page = $_GET['page'];
 }
 
-$erreur = "";
 
 switch ($function) {
     case 'modifier_utilisateur':
-      // code...
-      break;
+        // code...
+        break;
 
     case 'modification_profil':
         $form = "form";
@@ -68,13 +67,11 @@ switch ($function) {
                 $_SESSION['mail'] = $email;
                 $_SESSION['prenom'] = $prenom;
                 $_SESSION['nom'] = $nom;
-                //$role =verification_role($email);
-                //$_SESSION['role'] = $role;
                 $form = "";
-                $vue = "accueil"; //TODO ajouter message de confirmation
+                $vue = "accueil";
+                $erreur = "Vos modifications ont bien été enregistrées";
             } else {
-                echo "Il y a une erreur dans le remplissage de votre formulaire.<br>";
-                echo $err_nom . "<br>" . $err_telephone . "<br>" . $err_code_postal . "<br>" . $err_mail . "<br>" . $err_mdp;
+                $erreur = "Une erreur a eu lien lors de l'enregistrement de vos données,\r\n Merci de réessayer";
             }
         }
         break;
@@ -109,11 +106,11 @@ switch ($function) {
             if (empty($err_mdp)) {
                 modifier_mot_de_passe($nouveau_mot_de_passe, $_SESSION['mail'], $_SESSION['role']);
                 $form = "";
-                $vue = "accueil"; //ajouter message de confirmation
-                //$role = $_SESSION['role'];
+                $vue = "accueil";
+                $erreur = "Votre modification a bien été enregistré";
             } else {
-                echo "Il y a une erreur dans le remplissage de votre formulaire.<br>";
-                echo $err_mdp;
+                $erreur = "Une erreur a eu lien lors de l'enregistrement de vos données,\r\n Merci de réessayer";
+
             }
         }
         break;
@@ -165,7 +162,7 @@ switch ($function) {
                 $form = "";
                 $vue = "accueil";
             } else {
-                $message = "Il y a une erreur dans le remplissage de votre formulaire.<br>".$err_civilite . $err_nom . $err_date_naissance . $err_telephone . $err_code_postal . $err_mail . $err_mdp;
+                $erreur = "Une erreur a eu lien lors de l'enregistrement de vos données,\r\n Merci de réessayer";
             }
         }
         break;
@@ -178,9 +175,9 @@ switch ($function) {
             $info_user = recuperation_profil_clef($mail, $key);
             if (!$info_user['valider']) {
                 valider_candidat($mail, $key);
-                echo 'Vous avez bien validé votre compte';
-            }else {
-                echo 'Votre compte a déjà été validé';
+                $erreur = 'Vous avez bien validé votre compte';
+            } else {
+                $erreur = 'Votre compte a déjà été validé';
             }
             $form = "";
             $vue = "connexion";
@@ -188,67 +185,70 @@ switch ($function) {
         break;
 
     case 'mdp_oublie' :
-        $form ="form";
-        $vue="mdpoublie";
+        $form = "form";
+        $vue = "mdpoublie";
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail = test_input($_POST['email']);
-            $jeton =uniqid();
-            if (mail_reinitialisation_mdp($mail, $jeton)){
+            $jeton = uniqid();
+            if (mail_reinitialisation_mdp($mail, $jeton)) {
                 $role = verification_role($mail);
-                initialisation_jeton($mail, $jeton,$role);
+                initialisation_jeton($mail, $jeton, $role);
             }
-            $role='';
-            $form='';
-            $vue='accueil';
+            $role = '';
+            $form = '';
+            $vue = 'accueil';
         }
         break;
 
     case 'reinitialisation_mdp':
-        if (isset($_GET['mail'])&& !empty([$_GET['mail']])){
-            $mail=($_GET['mail']);
-            $role= verification_role($mail);
-        if (isset($_GET['jeton'])&& !empty([$_GET['jeton']])){
-            $userinfo =recuperation_profil_jeton($_GET['jeton'], $role);
-            session_start();
-            $_SESSION['mail'] = $userinfo['mail'];
-            $_SESSION['prenom'] = $userinfo['prenom'];
-            $_SESSION['nom'] = $userinfo['nom'];
-            $role = verification_role($userinfo['mail']);
-            $_SESSION['role'] = $role;
-            if ($userinfo['mail']){
-                $form="form";
-                $vue="nouveaumdp";
-            }else {
-                echo "Le lien n'est plus valide, il faut en redemander un";
-                $form='';
-                $vue='accueil';
-                $role='';
-            }
-        }}
-            $mdp_pattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&\._-])[A-Za-z\d@$!%*?&\._-]{8,}$/";
-            $err_mdp = "";
-
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (isset($_GET['mail']) && !empty([$_GET['mail']])) {
+            $mail = ($_GET['mail']);
+            $role = verification_role($mail);
+            if (isset($_GET['jeton']) && !empty([$_GET['jeton']])) {
+                $userinfo = recuperation_profil_jeton($_GET['jeton'], $role);
                 session_start();
-                $nouveau_mot_de_passe = test_input($_POST["nouveau_mdp"]);
-                $conf_mot_de_passe = test_input($_POST["conf_nouveau_mdp"]);
-                if (!preg_match($mdp_pattern, $nouveau_mot_de_passe)) {
-                    $err_mdp = "Mot de passe incorrect";
-                } elseif ($nouveau_mot_de_passe != $conf_mot_de_passe) {
-                    $err_mdp = "Le mot de passe de confirmation ne correspond pas";
+                $_SESSION['mail'] = $userinfo['mail'];
+                $_SESSION['prenom'] = $userinfo['prenom'];
+                $_SESSION['nom'] = $userinfo['nom'];
+                $role = verification_role($userinfo['mail']);
+                $_SESSION['role'] = $role;
+                if ($userinfo['mail']) {
+                    $form = "form";
+                    $vue = "nouveaumdp";
                 } else {
-
-                    $nouveau_mot_de_passe = password_hash($nouveau_mot_de_passe, PASSWORD_DEFAULT);
+                    $erreur = "Le lien n'est plus valide, recommencez la démarche";
+                    $form = '';
+                    $vue = 'accueil';
+                    $role = '';
                 }
-                if (empty($err_mdp)) {
+            }
+        }
+        $mdp_pattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&\._-])[A-Za-z\d@$!%*?&\._-]{8,}$/";
+        $err_mdp = "";
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            session_start();
+            $nouveau_mot_de_passe = test_input($_POST["nouveau_mdp"]);
+            $conf_mot_de_passe = test_input($_POST["conf_nouveau_mdp"]);
+            if (!preg_match($mdp_pattern, $nouveau_mot_de_passe)) {
+                $err_mdp = "Mot de passe incorrect";
+            } elseif ($nouveau_mot_de_passe != $conf_mot_de_passe) {
+                $err_mdp = "Le mot de passe de confirmation ne correspond pas";
+            } else {
+
+                $nouveau_mot_de_passe = password_hash($nouveau_mot_de_passe, PASSWORD_DEFAULT);
+            }
+            if (empty($err_mdp)) {
 
                 modifier_mot_de_passe($nouveau_mot_de_passe, $_SESSION['mail'], $_SESSION['role']);
                 initialisation_jeton($_SESSION['mail'], 0, $_SESSION['role']);
-                $role=$_SESSION['role'];
-                $vue="accueil";
-                $form='';
+                $role = $_SESSION['role'];
+                $vue = "accueil";
+                $form = '';
+            } else {
+                $erreur = "Une erreur a eu lien lors de l'enregistrement de vos données,\r\n Merci de réessayer";
             }
-            }
+        }
 
         break;
 
@@ -273,19 +273,34 @@ switch ($function) {
             if ($userinfo != null) {
                 $is_mdp_correct = password_verify($mot_de_passe, $userinfo['mdp']);
                 if ($is_mdp_correct) {
-                    session_start();
-                    $_SESSION['mail'] = $userinfo['mail'];
-                    $_SESSION['prenom'] = $userinfo['prenom'];
-                    $_SESSION['nom'] = $userinfo['nom'];
                     $role = verification_role($userinfo['mail']);
-                    $_SESSION['role'] = $role;
-                    $vue = "accueil";
-                    $form = "";
+                    if ($role === "candidat") {
+                        if (is_candidat_valide($mail)) {
+                            session_start();
+                            $_SESSION['mail'] = $userinfo['mail'];
+                            $_SESSION['prenom'] = $userinfo['prenom'];
+                            $_SESSION['nom'] = $userinfo['nom'];
+                            $_SESSION['role'] = $role;
+                            $vue = "accueil";
+                            $form = "";
+                        } else {
+                            $erreur = "Vous n'avez pas validé votre adresse mail. Vous devez le faire pour vous connecter.";
+                        }
+                    } else {
+                        session_start();
+                        $_SESSION['mail'] = $userinfo['mail'];
+                        $_SESSION['prenom'] = $userinfo['prenom'];
+                        $_SESSION['nom'] = $userinfo['nom'];
+                        $_SESSION['role'] = $role;
+                        $vue = "accueil";
+                        $form = "";
+                    }
+                } else {
+                    $erreur = "L'identifiant et/ou le mot de passe sont incorrects ";
                 }
-            } else {
-                $erreur = "?err=1";
-            }
-        }
+            }else{
+            $erreur = "L'identifiant et/ou le mot de passe sont incorrects §§§§§§§§§§";
+        }}
         break;
 
     case 'afficher_page':
@@ -293,43 +308,48 @@ switch ($function) {
         break;
 
     case 'contact':
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $mail = test_input($_POST['email']);
-    $sujet = test_input($_POST['sujet']);
-    $message = test_input($_POST['message']);
-    $nom = test_input($_POST['nom']);
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $mail = test_input($_POST['email']);
+            $sujet = test_input($_POST['sujet']);
+            $message = test_input($_POST['message']);
+            $nom = test_input($_POST['nom']);
 
-    $destinataire = 'appg10c@gmail.com';
-    $headers = 'From: ' . $mail . "\r\n" .
-        'Reply-To: ' . $mail . "\r\n" .
-        'X-Mailer: PHP/' . phpversion();
-    $err = '';
+            $destinataire = 'appg10c@gmail.com';
+            $headers = 'From: ' . $mail . "\r\n" .
+                'Reply-To: ' . $mail . "\r\n" .
+                'X-Mailer: PHP/' . phpversion();
+            $err = '';
 
-    if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-        $err = "Le mail n'est pas valide";
-    }
+            if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+                $err = "Le mail n'est pas valide";
+            }
 
-    if (empty($err)) {
-        if (mail($destinataire, $sujet, $message."\r\n".$nom, $headers)) {
-            echo 'Mail envoyé';
-        } else {
-            echo 'il y a encore du boulot';
+            if (empty($err)) {
+                if (mail($destinataire, $sujet, $message . "\r\n" . $nom, $headers)) {
+                    $erreur = 'Mail envoyé !';
+                } else {
+                    $erreur = "Une erreur s'est produite, veuillez réessayer";
+                }
+            } else {
+                $erreur = "L'adresse mail n'est pas valide";
+            }
+
         }
-    }
+        $vue="contact";
+        $form="";
 
-}
-      break;
+        break;
 
     case 'afficher_utilisateurs':
-      $utilisateurs=recupereTous(connect_bdd(),$role_utilisateur);
-      $attributs_utilisateurs=recuperer_attributs($role_utilisateur);
-      $vue = "utilisateurs";
-      break;
+        $utilisateurs = recupereTous(connect_bdd(), $role_utilisateur);
+        $attributs_utilisateurs = recuperer_attributs($role_utilisateur);
+        $vue = "utilisateurs";
+        break;
 
     case 'supprimer_utilisateur':
-      $role_utilisateur=supprimer_utilisateur($_GET['mail']);
-      include("index.php?cible=utilisateurs&fonction=afficher_utilisateurs&role_utilisateur=".$role_utilisateur);
-      break;
+        $role_utilisateur = supprimer_utilisateur($_GET['mail']);
+        include("index.php?cible=utilisateurs&fonction=afficher_utilisateurs&role_utilisateur=" . $role_utilisateur);
+        break;
 
     case 'candidat':
         $vue = "utilisateurs";
@@ -337,36 +357,52 @@ switch ($function) {
 
     case 'recherche':
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            if (isset($_POST['recherche'])&& !empty($_POST['recherche'])){
-                $recherche =test_input($_POST['recherche']);
-                $recherche = explode(' ',$recherche);
-                $resultat_recherche= recuperation_candidats_recherche($recherche);
-                $vue ="recherche";
+            if (isset($_POST['recherche']) && !empty($_POST['recherche'])) {
+                $recherche = test_input($_POST['recherche']);
+                $recherche = explode(' ', $recherche);
+                $resultat_recherche = recuperation_candidats_recherche($recherche);
+                $vue = "recherche";
             }
         }
         break;
 
     case 'ajout_utilisateur':
-    if ($_SERVER["REQUEST_METHOD"] == "POST"){
-      $values=array();
-      $keys=recuperer_attributs($role_utilisateur);
-      $message="";
-      foreach ($keys as $key) {
-        array_push($values,test_input($_POST[$key]));
-        //ajouter validation formulaire
-      }
-      //$message = verification_civilite($civilite).verification_nom($nom, $prenom).verification_numero($telephone).verification_postal($code_postal).verification_mail($email, $email).verification_age($date_naissance);
-      if (empty($message)){
-        $mot_de_passe = crypter_mdp($mot_de_passe);
-        $clef = confirmation_compte();
-        mail_confirmation_compte($email, $clef);
-        insertion(connect_bdd(), array_combine($keys,$values),$role_utilisateur);
-      }
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $values = array();
+            $keys = recuperer_attributs($role_utilisateur);
+            $message = "";
+            foreach ($keys as $key) {
+                array_push($values, test_input($_POST[$key]));
+                //ajouter validation formulaire
+            }
+            //$message = verification_civilite($civilite).verification_nom($nom, $prenom).verification_numero($telephone).verification_postal($code_postal).verification_mail($email, $email).verification_age($date_naissance);
+            if (empty($message)) {
+                $mot_de_passe = crypter_mdp($mot_de_passe);
+                $clef = confirmation_compte();
+                mail_confirmation_compte($email, $clef);
+                insertion(connect_bdd(), array_combine($keys, $values), $role_utilisateur);
+            }
 
-    }
+        }
 
-    $values = array('mail_candidat' => $email, 'nom' => $nom, 'prenom' => $prenom, 'mdp' => $mot_de_passe, 'date_naissance' => $date_naissance, 'numero_tel' => $telephone, 'genre' => $civilite, 'code_postal' => $code_postal, 'valider' => 0, 'clef_confirmation' => $clef);
-    break;
+        $values = array('mail_candidat' => $email, 'nom' => $nom, 'prenom' => $prenom, 'mdp' => $mot_de_passe, 'date_naissance' => $date_naissance, 'numero_tel' => $telephone, 'genre' => $civilite, 'code_postal' => $code_postal, 'valider' => 0, 'clef_confirmation' => $clef);
+        break;
+    case 'accueil':
+        $vue='accueil';
+        $form='';
+        break;
+
+
+    case 'plan_site':
+        session_start();
+        if (isset($_SESSION['role'])) {
+            $role = $_SESSION['role'];
+        } else {
+            $role = "";
+        }
+        $form='';
+        $vue= 'plan.site.'.$role;
+        break;
 
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET
@@ -381,15 +417,15 @@ if (session_status() == 1 || session_status() == 0) {
 
 if (!empty($form)) {
     include('vues/header.form.php');
-}
-else {
-    if (isset($_SESSION['role'])){
+} else {
+    if (isset($_SESSION['role'])) {
         $role = $_SESSION['role'];
-    }else {
-        $role="";
+    } else {
+        $role = "";
     }
     include('vues/header.' . $role . '.php');
 }
 
-include('vues/' . $vue . '.php' . $erreur);
+include('vues/' . $vue . '.php');
 include('vues/footer.php');
+

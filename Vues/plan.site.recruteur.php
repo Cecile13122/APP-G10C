@@ -1,8 +1,6 @@
     <div class="main">
       <a href="index.php?cible=utilisateurs&fonction=accueil" class="link">Accueil</a><br>
-      <a href="index.php?cible=utilisateurs&fonction=connexion" class="link">Connexion</a><br>
-      <a href="index.php?cible=utilisateurs&fonction=inscription" class="link">Inscription</a><br>
-      <a href="index.php?cible=utilisateurs&fonction=modification_profil" class="link">Modification du profil</a><br>
+      <a href="index.php?cible=utilisateurs&fonction=deconnexion" class="link">Déconnexion</a><br>
       <a href="index.php?cible=utilisateurs&fonction=modification_mdp" class="link">Modification du mot de passe</a><br>
       <a href="index.php?cible=test&fonction=resultat" class="link">Résultats</a><br>
       <a href="index.php?cible=test.session&fonction=afficher_vierge" class="link">Tests</a><br>

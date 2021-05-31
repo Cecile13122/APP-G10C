@@ -1,6 +1,7 @@
 <script src="verificationFormulaire.js" type="text/javascript"></script>
 
 <h1>Connexion</h1>
+<h2><?php if(isset($erreur)&&!empty($erreur)){echo $erreur;} ?></h2>
       <form method="post" action="index.php?cible=utilisateurs&fonction=connexion">
         <label>Adresse mail :<br>
             <input type="email" id="mail" name="email" placeholder="exemple@mail.com" class="inputForm" required oninput="verificationMail(this.value, this.id)">
