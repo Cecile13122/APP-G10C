@@ -351,7 +351,7 @@ switch ($function) {
 
     case 'ajout_utilisateur':
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
-      array('mail_candidat' => $email, 'nom' => $nom, 'prenom' => $prenom, 'mdp' => $mot_de_passe, 'date_naissance' => $date_naissance, 'numero_tel' => $telephone, 'genre' => $civilite, 'code_postal' => $code_postal, 'valider' => 0, 'clef_confirmation' => $clef);
+
     }
     $mot_de_passe = crypter_mdp($mot_de_passe);
     $clef = confirmation_compte();
