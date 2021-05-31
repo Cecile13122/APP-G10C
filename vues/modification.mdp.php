@@ -24,7 +24,7 @@
 
         </tr>
     </table>
-    <input type="submit" value="Envoyer" class="buttonForm">
+    <button id="btn" type="submit" value="Envoyer" class="buttonForm">Envoyer</button>
 </form>
 
 <!-- faire bouton retour-->

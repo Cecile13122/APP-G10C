@@ -63,5 +63,5 @@ $info_candidat = recuperation_profil($_SESSION['mail']);
                        ></td>
         </tr>
     </table>
-    <input type="submit" value="Envoyer" class="buttonForm">
+    <button id="btn" type="submit" value="Envoyer" class="buttonForm">Envoyer</button>
 </form>

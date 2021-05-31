@@ -95,5 +95,5 @@
     </table>
     <p>Déjà un compte ? <a href="index.php?cible=utilisateurs&fonction=connexion" class="underline">Se connecter.</a>
     </p>
-    <input type="submit" value="Envoyer" class="buttonForm">
+    <button type="submit" id='btn' value="Envoyer" class="buttonForm">Envoyer</button>
 </form>
