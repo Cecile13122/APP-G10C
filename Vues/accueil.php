@@ -1,6 +1,6 @@
 <div class="main">
   <h1>Bienvenue</h1>
-  <p class="milieu">Sur ce site vous trouverez vos résultats aux différents tests de sélection pour devenir pilote d'hélicoptère dans l'Armée. Une fois que tous les candidats de votre session auront passé les tests vous saurez si vous êtes admis pour la prochaine phase de recrutement.</p>
+  <p class="milieu">Sur ce site vous trouverez vos résultats aux différents tests de sélection pour devenir pilote d'hélicoptère dans l'Armée. <br>Une fois que tous les candidats de votre session auront passé les tests vous saurez si vous êtes admis pour la prochaine phase de recrutement.</p>
     <h2>Pourquoi s'engager ?</h2><br>
     <div class="slideshow">
       <div class="slide">
