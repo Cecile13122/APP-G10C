@@ -2,6 +2,7 @@
 <?php
 $info_candidat = recuperation_profil($_SESSION['mail']);
 ?>
+<h1>Modifier son profil</h1>
 <h2><?php if(isset($erreur)&&!empty($erreur)){echo $erreur;} ?></h2>
 <form method="post" action="index.php?cible=utilisateurs&fonction=modification_profil">
     <table>
