@@ -21,7 +21,7 @@ if (!empty($_GET['role_utilisateur'])) {
 }
 
 if (!empty($_GET['utilisateur'])) {
-    $utilisateur = $_GET['utilisateur'];
+    $utilisateur = $_GET['utilisate+%nb vEt eur'];
 }
 
 if (!empty($_GET['page'])) {
@@ -322,14 +322,16 @@ switch ($function) {
 
     case 'afficher_utilisateurs':
       $utilisateurs=recupereTous(connect_bdd(),$role_utilisateur);
-      $attributs_utilisateurs=array('prenom','nom','mail_'.$role_utilisateur);
+      $attributs_utilisateurs=recuperer_attributs($role_utilisateur);
       $vue = "utilisateurs";
       break;
 
+    case 'supprimer_utilisateur':
+      $role_utilisateur=supprimer_utilisateur($_GET['mail']);
+      include("index.php?cible=utilisateurs&fonction=afficher_utilisateurs&role_utilisateur=".$role_utilisateur);
+      break;
+
     case 'candidat':
-        $form = "";
-        $utilisateurs=recupereTous(connect_bdd(),'candidat');
-        $attributs_utilisateurs=array('prenom','nom','mail_candidat','date_naissance','numero_tel','genre','code_postal','valider','clef_confirmation');
         $vue = "utilisateurs";
         break;
 
@@ -344,20 +346,26 @@ switch ($function) {
         }
         break;
 
-    case 'supprimer_utilisateur':
-      supprimer_utilisateur($_GET['mail']);
-      $vue = $_GET['retour'];
-    break;
-
     case 'ajout_utilisateur':
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
+      $values=array();
+      $keys=recuperer_attributs($role_utilisateur);
+      $message="";
+      foreach ($keys as $key) {
+        array_push($values,test_input($_POST[$key]));
+        //ajouter validation formulaire
+      }
+      //$message = verification_civilite($civilite).verification_nom($nom, $prenom).verification_numero($telephone).verification_postal($code_postal).verification_mail($email, $email).verification_age($date_naissance);
+      if (empty($message)){
+        $mot_de_passe = crypter_mdp($mot_de_passe);
+        $clef = confirmation_compte();
+        mail_confirmation_compte($email, $clef);
+        insertion(connect_bdd(), array_combine($keys,$values),$role_utilisateur);
+      }
 
     }
-    $mot_de_passe = crypter_mdp($mot_de_passe);
-    $clef = confirmation_compte();
-    mail_confirmation_compte($email, $clef);
+
     $values = array('mail_candidat' => $email, 'nom' => $nom, 'prenom' => $prenom, 'mdp' => $mot_de_passe, 'date_naissance' => $date_naissance, 'numero_tel' => $telephone, 'genre' => $civilite, 'code_postal' => $code_postal, 'valider' => 0, 'clef_confirmation' => $clef);
-    create_candidat($bdd, $values, $table);
     break;
 
     default:

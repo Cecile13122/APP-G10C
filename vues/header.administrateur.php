@@ -10,15 +10,15 @@
       <a href="index.php?cible=utilisateurs&fonction=afficher_page&page=accueil"><img src="./images/ATC_v200.png" alt="Logo ATC"></a>
       <div class="navbar">
         <a href="index.php?cible=faq&fonction=afficher_faq">FAQ</a>
-        <!--<div class="profil">
-          <a class="modif_profil">Utilisateurs</a>
-          <div class="sous_profil">-->
+        <div class="header_utilisateurs">
+          <a class="modif_header_utilisateurs">Utilisateurs</a>
+          <div class="sous_header_utilisateurs">
             <a href="index.php?cible=utilisateurs&fonction=afficher_utilisateurs&role_utilisateur=candidat">Candidats</a>
             <a href="index.php?cible=utilisateurs&fonction=afficher_utilisateurs&role_utilisateur=recruteur">Recruteurs</a>
             <a href="index.php?cible=utilisateurs&fonction=afficher_utilisateurs&role_utilisateur=administrateur">Administrateurs</a>
-        <!--  </div>
-        </div>-->
-        <a href="index.php?cible=contact&fonction=afficher_page&page=contact">Contact</a>
+          </div>
+        </div>
+        <a href="index.php?cible=utilisateurs&fonction=afficher_page&page=contact">Contact</a>
         <div class="recherche">
           <input type="text" name="recherche" placeholder="Recherche">
           <button type="submit"><img src="./images/loupe.png" alt="Loupe"></button>

@@ -110,14 +110,14 @@ h1{
 
 }
 
-.modif_profil{
+.modif_profil,.modif_header_utilisateurs{
     font-size: 14px;
     text-align: right;
     color: #93A8AC;
     float: right;
 }
 
-.profil{
+.profil,.header_utilisateurs{
     font-size: 16px;
     text-align: right;
     color: #93A8AC;
@@ -137,25 +137,35 @@ h1{
     margin: 20px -6px 1px 2px;
 }
 
-.sous_profil a{
+.sous_header_utilisateurs{
+  display:none;
+  box-shadow: 0 2px 3px 0px #93A8AC;
+  background-color: #DEE3E2;
+  z-index: 1;
+  border-radius: 10px;
+  padding: 10px 10px 10px 10px;
+  margin: 20px -6px 1px 2px;
+  position: absolute;
+}
+
+.sous_profil a,.sous_header_utilisateurs a{
     color: #93A8AC;
     text-align: center;
     display: block;
 }
 
-.sous_profil a:hover{
+.sous_profil a:hover,.sous_header_utilisateurs a:hover{
   color: white;
     background-color: #93A8AC;
     margin:  1px 1px 1px 1px;
     border-radius: 3px;
-
 }
 
-.profil:hover .sous_profil{
+.profil:hover .sous_profil,.header_utilisateurs:hover .sous_header_utilisateurs{
     display: block;
 }
 
-.profil:hover .modif_profil{
+.profil:hover .modif_profil,.header_utilisateurs:hover .modif_header_utilisateurs{
     background-color: #FAF6F0;
 }
 

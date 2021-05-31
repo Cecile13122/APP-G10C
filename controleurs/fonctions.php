@@ -1,14 +1,32 @@
 <?php
 include_once('modele/requetes.candidats.php');
 include_once('modele/requetes.session.php');
-
-function calcul_age($date)
-{
-    $aujourdhui = date("Y-m-d");
-    $diff = date_diff(date_create($date), date_create($aujourdhui));
-    return intval($diff->format('%y'));
+/*
+function verification_form($form){
+  $message="";
+  foreach ($form as $key => $value) {
+    $message.= verifications_pattern($key,$value);
+  }
+  return $message;
 }
 
+function verifications_pattern($key,$value){
+  $pattern = array('nom' => "/^[A-Za-zÜ-ü'-]+( *[A-Za-zÜ-ü'-]+)*$/",'prenom'=>"/^[A-Za-zÜ-ü'-]+( *[A-Za-zÜ-ü'-]+)*$/", 'genre'=>"/FOUM/",'date_naissance'=>"#\d{4}(-\d{2}){2}#",'numero_tel'=>"/(0|\+ ?33) *[1-9](*[0-9]{2}){4}/",'code_postal'=> "/\d{5,6}/",'mail_'=>"/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/",'mdp'=>"/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&\._-]{8,}$/");
+
+  switch ($key){
+    case 'date_naissance':
+      if (!preg_match($date_pattern, $value)) {
+          return " La date de naissance est incorecte <br>";
+      } else {
+          if (calcul_age($value) > 32) {
+              return "Malheureusement vous avez dépassé l'âge maximal requis <br>";
+          } elseif (calcul_age($value) < 18) {
+              return "Malheureusement vous n'avez pas l'âge minimum requis. Revenez dans " . (18 - calcul_age($value)) . " ans. <br>";
+          }
+      }
+      break;
+  }
+}*/
 function verification_nom($nom, $prenom)
 {
     $nom_pattern = "/^[A-Za-zÜ-ü'-]+( *[A-Za-zÜ-ü'-]+)*$/";
@@ -82,6 +100,13 @@ function verification_mdp($mot_de_passe, $confirmation_mdp)
     }
 }
 
+function calcul_age($date)
+{
+    $aujourdhui = date("Y-m-d");
+    $diff = date_diff(date_create($date), date_create($aujourdhui));
+    return intval($diff->format('%y'));
+}
+
 function crypter_mdp($mot_de_passe)
 {
     return password_hash($mot_de_passe, PASSWORD_BCRYPT);
@@ -94,7 +119,9 @@ function test_input($donnee)
     $donnee = htmlspecialchars($donnee);
     return $donnee;
 }
-
+function recuperer_attributs($role_utilisateur){
+    return $role_utilisateur=="candidat"?array('prenom','nom','mail_candidat','mdp','date_naissance','numero_tel','genre','code_postal','valider','clef_confirmation'):array('prenom','nom','mail_'.$role_utilisateur,'mdp');
+}
 function confirmation_compte()
 {
     $longeurclef = 15;
@@ -254,9 +281,9 @@ function calcul_resultat($id_test)
 
         if ($score < 7) {
 
-            return 'Refusé';
+            return 'Refusé(e)';
         } else {
-            return 'Accepté';
+            return 'Accepté(e)';
         }
     }
 
