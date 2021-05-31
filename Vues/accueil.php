@@ -1,38 +1,29 @@
 <div class="main">
   <h1>Bienvenue</h1>
-  <p class="milieu">Sur ce site vous trouverez vos résultats aux différents tests. Une fois que tous les candidats de votre session auront passé les tests vous saurez si vous êtes admis pour la prochaine phase de recrutement.</p>
-    <h2>Voici notre équipe :</h2><br>
+  <p class="milieu">Sur ce site vous trouverez vos résultats aux différents tests de sélection pour devenir pilote d'hélicoptère dans l'Armée. Une fois que tous les candidats de votre session auront passé les tests vous saurez si vous êtes admis pour la prochaine phase de recrutement.</p>
+    <h2>Pourquoi s'engager ?</h2><br>
     <div class="slideshow">
       <div class="slide">
-        <img src="../images/add.png">
-        <h3>Adam ASMAHARI</h3>
-        <p class="milieu">Respo jsp</p>
+        <img src="./images/helicoptere2.jpg">
+        <h3>Servir son pays</h3>
+        <p class="milieu">Servir son pays en France mais aussi dans le monde pour assurer la défense de la France.</p>
       </div>
         <div class="slide">
-          <img src="../images/add.png">
-          <h3>Cécile MEYNIEUX</h3>
-          <p class="milieu">Respo jsp</p>
+          <img src="./images/formation.jpg">
+          <h3>Se former</h3>
+          <p class="milieu">L'Arméee vous formera et vous donnera accès à des diplômes reconnus dans le civil</p>
         </div>
           <div class="slide">
-            <img src="../images/add.png">
-            <h3>Elarig RAULT</h3>
-            <p class="milieu">Respo jsp</p>
+            <img src="./images/helicoptère.jpg">
+            <h3>Accèder a des technologies de pointe</h3>
+            <p class="milieu">L'Armée travaille sans relache pour développer des nouvelles technologies pour améliorer la vie des soldats.</p>
           </div>
             <div class="slide">
-              <img src="../images/add.png">
-              <h3>Marie MOTTIER</h3>
-              <p class="milieu">Respo jsp</p>
+              <img src="./images/soldat.jpg">
+              <h3>Se développer personnellement</h3>
+              <p class="milieu">Vous découverez des ressources insoupçonnées. Vous developperez rapidement confiance et sens de la discipline</p>
             </div>
-              <div class="slide">
-                <img src="../images/add.png">
-                <h3>Paul VIDOR</h3>
-                <p class="milieu">Respo jsp</p>
-              </div>
-                <div class="slide">
-                  <img src="../images/add.png">
-                  <h3>Robin HENRY</h3>
-                  <p class="milieu">Respo jsp</p>
-                </div>
+
   <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
   <a class="next" onclick="plusSlides(1)">&#10095;</a>
 </div>
@@ -41,8 +32,7 @@
   <span class="dot" onclick="currentSlide(2)"></span>
   <span class="dot" onclick="currentSlide(3)"></span>
   <span class="dot" onclick="currentSlide(4)"></span>
-  <span class="dot" onclick="currentSlide(5)"></span>
-  <span class="dot" onclick="currentSlide(6)"></span>
+
 </div>
 <script>
 var slideIndex = 1;
