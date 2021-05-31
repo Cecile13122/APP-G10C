@@ -15,5 +15,5 @@
         <tr><td></td>
         <td><span id="err_nmdp"></span></td></tr>
     </table>
-    <input type="submit" value="Envoyer" class="buttonForm">
+    <button id="btn" type="submit" value="Envoyer" class="buttonForm">Envoyer</button>
 </form>

@@ -6,5 +6,5 @@
     </label>
     <span id="err_mail"></span>
     <br>
-    <input type="submit" value="Envoyer un lien de réinitialisation" class="buttonForm">
+    <button id="btn" type="submit" value="Envoyer un lien de réinitialisation" class="buttonForm">Envoyer un lien de réinitialisation</button>
 </form>
