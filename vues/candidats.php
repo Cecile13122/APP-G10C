@@ -1,9 +1,6 @@
-<?php
-include_once('./modele/requetes.candidats.php');
-$candidats=recuperation_candidats();
-?>
+
 <div id="afficher_candidat">
-    <h3>Candidats inscrits</h3>
+    <h3>Utilisateurs</h3>
     <table>
         <thead>
         <tr>

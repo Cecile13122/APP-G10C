@@ -24,26 +24,24 @@ function connexion_personne($mail){
     }
 }
 
+function supprimer_utilisateur($mail){
+  $bdd=connect_bdd();
+  $role_utilisateur = verification_role($mail);
+  $requete=$bdd->prepare('DELETE FROM '.$role_utilisateur.' WHERE mail_'.$role_utilisateur.'=?');
+  $requete->execute(array($mail));
+}
 
-function verification_role($email){
+
+function verification_role($mail){
     $bdd= connect_bdd();
-    //faire un bail d'itérations
-    $requete_candidat = $bdd->prepare('SELECT mail_candidat FROM candidat WHERE mail_candidat=?');
-    $requete_candidat->execute(array($email));
-    if ($requete_candidat->rowCount()==1){
-        return "candidat";
+    $roles = array("candidat","recruteur","administrateur");
+    foreach ($roles as $role_utilisateur) {
+      $requete = $bdd->prepare('SELECT mail_'.$role_utilisateur.' FROM '.$role_utilisateur.' WHERE mail_'.$role_utilisateur.'=?');
+      $requete->execute(array($mail));
+      if ($requete->rowCount()==1){
+          return $role_utilisateur;
+      }
     }
-    $requete_recruteur= $bdd->prepare('SELECT mail_recruteur FROM recruteur WHERE mail_recruteur=?');
-    $requete_recruteur->execute(array($email));
-    if ($requete_recruteur->rowCount()==1){
-        return "recruteur";
-    }
-    $requete_admin= $bdd->prepare('SELECT mail_administrateur FROM administrateur WHERE mail_administrateur=?');
-    $requete_admin->execute(array($email));
-    if ($requete_admin->rowCount()==1){
-        return "administrateur";
-    }
-
 }
 
 function recuperation_mdp($email){
@@ -53,23 +51,23 @@ function recuperation_mdp($email){
     return $requete->fetch();
 }
 
-function modifier_mot_de_passe($mot_de_passe, $mail, $role){
+function modifier_mot_de_passe($mot_de_passe, $mail, $role_utilisateur){
     $bdd = connect_bdd();
-    $requete = $bdd ->prepare('UPDATE '.$role.' SET mdp=:mdp WHERE mail_'.$role.' = :mail ');
+    $requete = $bdd ->prepare('UPDATE '.$role_utilisateur.' SET mdp=:mdp WHERE mail_'.$role_utilisateur.' = :mail ');
         $requete ->execute(array(
             'mdp'=> $mot_de_passe,
             'mail' => $mail));
 }
 
-function initialisation_jeton($mail, $jeton, $role){
+function initialisation_jeton($mail, $jeton, $role_utilisateur){
     $bdd=connect_bdd();
-    $requete=$bdd->prepare('UPDATE '.$role.' SET jeton =? WHERE mail_'.$role.' = ?');
+    $requete=$bdd->prepare('UPDATE '.$role_utilisateur.' SET jeton =? WHERE mail_'.$role_utilisateur.' = ?');
     $requete->execute(array($jeton, $mail));
 }
 
-function recuperation_profil_jeton($jeton, $role){
+function recuperation_profil_jeton($jeton, $role_utilisateur){
     $bdd=connect_bdd();
-    $requete=$bdd->prepare('SELECT mail_'.$role.' AS mail, nom, prenom FROM '.$role.' WHERE jeton = ?');
+    $requete=$bdd->prepare('SELECT mail_'.$role_utilisateur.' AS mail, nom, prenom FROM '.$role_utilisateur.' WHERE jeton = ?');
     $requete->execute(array($jeton));
     return $requete->fetch();
 }

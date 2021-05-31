@@ -6,15 +6,34 @@
 
 // on inclut le fichier modèle contenant les appels à la BDD
 include_once('./modele/requetes.utilisateurs.php');
+include_once('./modele/requetes.recruteur.php');
 
 // si la fonction n'est pas définie, on choisit d'afficher l'accueil
 if (!isset($_GET['fonction']) || empty($_GET['fonction'])) {
-    $function = 'accueil';
+    $function = 'afficher_page';
+    $page = "accueil";
 } else {
     $function = $_GET['fonction'];
 }
 
+if (!empty($_GET['role_utilisateur'])) {
+    $role_utilisateur = $_GET['role_utilisateur'];
+}
+
+if (!empty($_GET['utilisateur'])) {
+    $utilisateur = $_GET['utilisateur'];
+}
+
+if (!empty($_GET['page'])) {
+    $page = $_GET['page'];
+}
+
+$erreur = "";
+
 switch ($function) {
+    case 'modifier_utilisateur':
+      // code...
+      break;
 
     case 'modification_profil':
         $form = "form";
@@ -118,6 +137,9 @@ switch ($function) {
             $mot_de_passe = test_input($_POST["mot_de_passe"]);
             $confirmation_mdp = test_input($_POST["confirmation_mdp"]);
 
+            /*erreurs = array();
+            verification_civilite($civilite),verification_nom($nom, $prenom),verification_numero($telephone),erification_postal($code_postal),verification_mail($email, $confirmation_mail),verification_age($date_naissance),verification_mdp($mot_de_passe, $confirmation_mdp)
+*/
 
             $err_civilite = verification_civilite($civilite);
             $err_nom = verification_nom($nom, $prenom);
@@ -143,8 +165,7 @@ switch ($function) {
                 $form = "";
                 $vue = "accueil";
             } else {
-                echo "Il y a une erreur dans le remplissage de votre formulaire.<br>";
-                echo $err_civilite . "<br>" . $err_nom . "<br>" . $err_date_naissance . "<br>" . $err_telephone . "<br>" . $err_code_postal . "<br>" . $err_mail . "<br>" . $err_mdp;
+                $message = "Il y a une erreur dans le remplissage de votre formulaire.<br>".$err_civilite . $err_nom . $err_date_naissance . $err_telephone . $err_code_postal . $err_mail . $err_mdp;
             }
         }
         break;
@@ -165,7 +186,6 @@ switch ($function) {
             $vue = "connexion";
         }
         break;
-
 
     case 'mdp_oublie' :
         $form ="form";
@@ -268,33 +288,49 @@ switch ($function) {
         }
         break;
 
-    case 'accueil':
-       // session_start();
-        //if (isset($_SESSION['role']) && !empty($_SESSION['role'])){
-        //    $role=$_SESSION['role'];
-       // }
-        $form = "";
-        $vue = "accueil";
+    case 'afficher_page':
+        $vue = $page;
         break;
 
-    case 'cgu':
-        $form = "";
-        $vue = "cgu";
-        break;
+    case 'contact':
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $mail = test_input($_POST['email']);
+    $sujet = test_input($_POST['sujet']);
+    $message = test_input($_POST['message']);
+    $nom = test_input($_POST['nom']);
 
-    case 'mentions_legales':
-        $form = "";
-        $vue = "mentions.legales";
-        break;
+    $destinataire = 'appg10c@gmail.com';
+    $headers = 'From: ' . $mail . "\r\n" .
+        'Reply-To: ' . $mail . "\r\n" .
+        'X-Mailer: PHP/' . phpversion();
+    $err = '';
 
-    case 'plan_site':
-        $form = "";
-        $vue = "plan.site";
-        break;
+    if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+        $err = "Le mail n'est pas valide";
+    }
 
-    case 'candidats':
-        $vue = "candidats";
+    if (empty($err)) {
+        if (mail($destinataire, $sujet, $message."\r\n".$nom, $headers)) {
+            echo 'Mail envoyé';
+        } else {
+            echo 'il y a encore du boulot';
+        }
+    }
+
+}
+      break;
+
+    case 'afficher_utilisateurs':
+      $utilisateurs=recupereTous(connect_bdd(),$role_utilisateur);
+      $attributs_utilisateurs=array('prenom','nom','mail_'.$role_utilisateur);
+      $vue = "utilisateurs";
+      break;
+
+    case 'candidat':
         $form = "";
+        $utilisateurs=recupereTous(connect_bdd(),'candidat');
+        $attributs_utilisateurs=array('prenom','nom','mail_candidat','date_naissance','numero_tel','genre','code_postal','valider','clef_confirmation');
+        $vue = "utilisateurs";
         break;
 
     case 'recherche':
@@ -304,20 +340,19 @@ switch ($function) {
                 $recherche = explode(' ',$recherche);
                 $resultat_recherche= recuperation_candidats_recherche($recherche);
                 $vue ="recherche";
-                $form="";
             }
         }
         break;
 
+    case 'supprimer_utilisateur':
+      supprimer_utilisateur($_GET['mail']);
+      $vue = $_GET['retour'];
+    break;
+
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET
         $vue = "erreur404";
-        $form = "";
         $message = "Erreur 404 : la page recherchée n'existe pas.";
-}
-
-if (!isset($erreur)) {
-    $erreur = "";
 }
 
 //redirection($form, $vue, $erreur);
@@ -327,7 +362,8 @@ if (session_status() == 1 || session_status() == 0) {
 
 if (!empty($form)) {
     include('vues/header.form.php');
-} else {
+}
+else {
     if (isset($_SESSION['role'])){
         $role = $_SESSION['role'];
     }else {

@@ -69,7 +69,7 @@ function modifier_profil($prenom, $nom, $telephone, $code_postal, $email, $ancie
 
 function supprimer_candidat($mail){
     $bdd=connect_bdd();
-    $requete=$bdd->prepare('DELETE candidat FROM candidat WHERE mail_candidat=?');
+    $requete=$bdd->prepare('DELETE FROM candidat WHERE mail_candidat=?');
     $requete->execute(array($mail));
 }
 
@@ -91,6 +91,7 @@ function valider_candidat($mail, $key){
     $requete=$bdd->prepare('UPDATE candidat SET valider=1 WHERE mail_candidat=? AND clef_confirmation=?');
     $requete->execute(array($mail, $key));
 }
+
 function recuperation_profil_clef($mail, $key){
     $bdd =connect_bdd();
     $requete = $bdd->prepare('SELECT * FROM candidat WHERE mail_candidat = ? AND clef_confirmation=?');
@@ -98,6 +99,7 @@ function recuperation_profil_clef($mail, $key){
     $info_candidat= $requete->fetch();
     return $info_candidat;
 }
+
 function recuperation_candidats(){
         $bdd=connect_bdd();
         $requete=$bdd->prepare('SELECT * FROM candidat ORDER BY nom');
@@ -107,7 +109,6 @@ function recuperation_candidats(){
             $candidats[]=$candidat;
         }
         return $candidats;
-
 }
 
 

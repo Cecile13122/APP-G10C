@@ -26,3 +26,7 @@ function supprimer_recruteur($mail){
     $requete=$bdd->prepare('DELETE recruteur FROM recruteur WHERE mail_recruteur=?');
     $requete->execute(array($mail));
 }
+
+function recuperation_recruteurs(){
+  return recupereTous(connect_bdd(),'recruteur');
+}

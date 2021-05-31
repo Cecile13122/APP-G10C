@@ -11,39 +11,32 @@ $faq=recuperation_faq();
                     <form method="post" action="index.php?cible=faq&fonction=modifier_question">
                         <input type="hidden" name="id_faq" value="<?=$donnee['id_faq'] ?>" required>
                         <input type="hidden" name="theme" value="<?=$donnee['theme'] ?>" required>
-                        <h3><input type="text" name="question" value="<?=$donnee['question'] ?>" required></h3>
-                        <br>
-                        <p><input type="text" name="reponse" value="<?=$donnee['reponse'] ?>" required></p>
-                        <br>
-                        <input type="submit" value="Modifier">
-                        <button value="<?=$donnee['id_faq'] ?>" onclick="supprimer(this.value)">Supprimer</button>
-                    </form>
+                        <textarea type="text" name="question" class="question_faq" required><?=$donnee['question']?></textarea><br>
+                        <textarea type="text" name="reponse" class="reponse_faq" required><?=$donnee['reponse'] ?></textarea>
+                        <input type="submit" value="Modifier" class="buttonFaq">
+                    </form> <button value="<?=$donnee['id_faq'] ?>" onclick="supprimer(this.value)" class="buttonFaqRed">Supprimer</button>
                 <?php }
             endforeach;?>
           </div>
     <?php endforeach;?>
-    <a onclick="openForm()"><img src="./images/add.png"></a><br>
-<div class="form-popup" id="myForm">
-    <p><form method="post" action="index.php?cible=faq&fonction=ajout_question" class="form-container">
+    <a onclick="openForm()"><img src="./images/add.png"></a><br><br>
+    <form method="post" action="index.php?cible=faq&fonction=ajout_question" id="myForm">
         <input type="text" name="theme" placeholder="Thème" required>
-        <br>
+        <br><br>
         <input type="text" name="question" placeholder="Question" required>
-        <br>
+        <br><br>
         <input type="text" name="reponse" placeholder="Réponse" required>
-        <br>
-        <input type="submit" value="Ajouter">
-       <button type="submit" onclick="closeForm()">Close</button>
-    </form></p>
-  </div>
-
+        <br><br>
+        <input type="submit" value="Ajouter" class="buttonForm">
+        <input type="reset" value="Close" class="buttonFaqRed" onclick="closeForm()">
+    </form>
 </div>
 
 <script>
 function supprimer(id){
   if (confirm("Êtes-vous sur de vouloir supprimer ?")){
-    window.location.href = "index.php?cible=faq&fonction=supprimer&id="+id;
+    window.location.href = "index.php?cible=faq&fonction=supprimer_question&id="+id;
   }
-    alert("La question a été supprimée");
 }
 
 function openForm() {

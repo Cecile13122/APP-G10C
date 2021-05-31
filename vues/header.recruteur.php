@@ -8,12 +8,12 @@
   </head>
   <body>
     <div class="header">
-      <a href="index.php?cible=utilisateurs&fonction=accueil"><img src="./images/ATC_v200.png" alt="Logo ATC"></a>
+      <a href="index.php?cible=utilisateurs&fonction=afficher_page&page=accueil"><img src="./images/ATC_v200.png" alt="Logo ATC"></a>
         <div class="navbar">
             <a href="index.php?cible=test.session&fonction=afficher_resultats">Résultats</a>
             <a href="index.php?cible=test.session&fonction=afficher_sessions">Tests</a>
             <a href="index.php?cible=faq&fonction=afficher_faq">FAQ</a>
-            <a href="index.php?cible=contact&fonction=contact">Contact</a>
+            <a href="index.php?cible=utilisateurs&fonction=afficher_page&page=contact">Contact</a>
             <form class="recherche" method="post" action ="index.php?cible=utilisateurs&fonction=recherche">
                 <input type="text" name="recherche" placeholder="Recherche" required onchange="verificationNom(this.value, this.id)">
                 <button type="submit" ><img src="./images/loupe.png" alt="Loupe"></button>

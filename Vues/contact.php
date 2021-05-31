@@ -14,7 +14,7 @@
             </ul>
           </td>
           <td>
-            <form method="post" action="./index.php?cible=contact&fonction=message">
+            <form method="post" action="./index.php?cible=utilisateurs&fonction=contact">
 
                 <input type="text" name="nom" placeholder="Nom Prénom" class="inputForm" required><br>
 

@@ -28,25 +28,16 @@ switch ($function) {
       }
       break;
 
-    case 'supprimer':
-    echo "lol";
+    case 'supprimer_question':
       echo $_GET['id'];
-      echo test_input($_GET['id']);
       $vue = "faq";
-      supprimer(test_input($_GET['id']));
+      supprimer_question($_GET['id']);
       break;
 
     case 'modifier_question':
       $vue = "faq";
       if ($_SERVER["REQUEST_METHOD"]=="POST"){
         modifier_question(test_input($_POST["id_faq"]),test_input($_POST["theme"]),test_input($_POST["question"]),test_input($_POST["reponse"]));
-      }
-      break;
-
-    case 'ajout_theme':
-      $vue = "faq";
-      if ($_SERVER["REQUEST_METHOD"]=="POST"){
-        ajout_question(test_input($_POST["theme"]),test_input($_POST["question"]),test_input($_POST["reponse"]));
       }
       break;
 

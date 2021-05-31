@@ -12,14 +12,14 @@ function verification_nom($nom, $prenom)
 {
     $nom_pattern = "/^[A-Za-zÜ-ü'-]+( *[A-Za-zÜ-ü'-]+)*$/";
     if (!preg_match($nom_pattern, $nom) && !preg_match($nom_pattern, $prenom)) {
-        return "Nom ou prenom incorrect";
+        return "Nom ou prenom incorrect <br>";
     }
 }
 
 function verification_civilite($civilite)
 {
     if (strlen($civilite) != 1) {
-        return "Civilité incorrect";
+        return "Civilité incorrect <br>";
     }
 }
 
@@ -27,12 +27,12 @@ function verification_age($date_naissance)
 {
     $date_pattern = "#\d{4}(-\d{2}){2}#";
     if (!preg_match($date_pattern, $date_naissance)) {
-        return " La date de naissance est incorecte";
+        return " La date de naissance est incorecte <br>";
     } else {
         if (calcul_age($date_naissance) > 32) {
-            return "Malheureusement vous avez dépassé l'âge maximal requis";
+            return "Malheureusement vous avez dépassé l'âge maximal requis <br>";
         } elseif (calcul_age($date_naissance) < 18) {
-            return "Malheureusement vous n'avez pas l'âge minimum requis. Revenez dans " . (18 - calcul_age($date_naissance)) . " ans.";
+            return "Malheureusement vous n'avez pas l'âge minimum requis. Revenez dans " . (18 - calcul_age($date_naissance)) . " ans. <br>";
         }
 
     }
@@ -42,7 +42,7 @@ function verification_numero($telephone)
 {
     $telephone_pattern = "/(0|\+ ?33) *[1-9]( *[0-9]{2}){4}/";
     if (!preg_match($telephone_pattern, $telephone)) {
-        return "Telephone incorrect";
+        return "Telephone incorrect <br>";
     }
 }
 
@@ -50,7 +50,7 @@ function verification_postal($code_postal)
 {
     $postal_pattern = "/\d{5,6}/";
     if (!preg_match($postal_pattern, $code_postal)) {
-        return "Le code postal est incorrect";
+        return "Le code postal est incorrect <br>";
     }
 }
 
@@ -58,15 +58,15 @@ function verification_mail($email, $confirmation_mail, $mail_actuel = NULL)
 {
     $mail_pattern = "/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/";
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        return "Le mail n'est pas valide";
+        return "Le mail n'est pas valide <br>";
     }
 
     if ($email != $confirmation_mail) {
-        return "Le mail de confirmation ne correspond pas";
+        return "Le mail de confirmation ne correspond pas <br>";
     }
     if ($mail_actuel != NULL && $email != $mail_actuel) {
         if (!verification_utilisation_mail($email)) {
-            return "L'adresse mail que vous avez rentré est déjà utilisée";
+            return "L'adresse mail que vous avez rentré est déjà utilisée <br>";
         }
     }
 }
@@ -75,9 +75,9 @@ function verification_mdp($mot_de_passe, $confirmation_mdp)
 {
     $mdp_pattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&\._-]{8,}$/";
     if (!preg_match($mdp_pattern, $mot_de_passe)) {
-        return "Mot de passe incorrect";
+        return "Mot de passe incorrect <br>";
     } elseif ($mot_de_passe != $confirmation_mdp) {
-        return "Le mot de passe de confirmation ne correspond pas";
+        return "Le mot de passe de confirmation ne correspond pas <br>";
     }
 }
 
@@ -165,8 +165,7 @@ function redirection($form, $vue, $erreur){
   include('vues/footer.php');
 }
 
-function recuperer_id_sessions($mail)
-{
+function recuperer_id_sessions($mail){
   $id = array();
    foreach (recuperer_session_recruteur($mail) as $session):
      array_push($id,$session['id_session']);
