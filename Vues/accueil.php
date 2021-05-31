@@ -11,17 +11,17 @@
         <div class="slide">
           <img src="./images/formation.jpg">
           <h3>Se former</h3>
-          <p class="milieu">L'Arméee vous formera et vous donnera accès à des diplômes reconnus dans le civil</p>
+          <p class="milieu">L'Armée vous formera et vous donnera accès à des diplômes reconnus dans le civil.</p>
         </div>
           <div class="slide">
             <img src="./images/helicoptère.jpg">
-            <h3>Accèder a des technologies de pointe</h3>
-            <p class="milieu">L'Armée travaille sans relache pour développer des nouvelles technologies pour améliorer la vie des soldats.</p>
+            <h3>Accéder à des technologies de pointe</h3>
+            <p class="milieu">L'Armée travaille sans relâche pour développer des nouvelles technologies pour améliorer la vie des soldats.</p>
           </div>
             <div class="slide">
               <img src="./images/soldat.jpg">
               <h3>Se développer personnellement</h3>
-              <p class="milieu">Vous découverez des ressources insoupçonnées. Vous developperez rapidement confiance et sens de la discipline</p>
+              <p class="milieu">Vous découverez des ressources insoupçonnées. Vous developperez rapidement confiance et sens de la discipline.</p>
             </div>
 
   <a class="prev" onclick="plusSlides(-1)">&#10094;</a>

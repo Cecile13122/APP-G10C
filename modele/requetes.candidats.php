@@ -78,7 +78,7 @@ function is_candidat_valide($mail){
     $requete=$bdd->prepare('SELECT valider FROM candidat WHERE mail_candidat=?');
     $requete->execute(array($mail));
     $valider = $requete->fetch();
-    if($valider){
+    if($valider['valider']==1){
      return true;
     }
     else {

@@ -278,13 +278,18 @@ function calcul_resultat($id_test)
         if (calcul_modif_temperature($test['temperature'], $test['temperature_bis']) < $session['seuil_dif_temperature']) {
             $score++;
         }
-
+        if ($profil['genre'] == 'F'){
         if ($score < 7) {
 
-            return 'Refusé(e)';
+            return 'Refusée';
         } else {
-            return 'Accepté(e)';
+            return 'Acceptée';
+        }}else{
+            if ($score < 7) {
+            return 'Refusé';
+        } else {
+            return 'Accepté';
         }
-    }
+    }}
 
 }

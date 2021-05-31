@@ -1,7 +1,10 @@
 <h1>Mot de passe oublié</h1>
+<h2><?php if(isset($erreur)&&!empty($erreur)){echo $erreur;} ?></h2>
 <form method="post" action="index.php?cible=utilisateurs&fonction=mdp_oublie">
     <label>Adresse mail :<br>
-        <input type="email" name="email" placeholder="exemple@mail.com" class="inputForm" required pattern ="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$">
+        <input type="email" id="mail" name="email" placeholder="exemple@mail.com" class="inputForm" required oninput="verificationMail(this.value, this.id)">
     </label>
-    <input type="submit" value="Envoyer un lien de réinitialisation" class="buttonForm">
+    <span id="err_mail"></span>
+    <br>
+    <button id="btn" type="submit" value="Envoyer un lien de réinitialisation" class="buttonForm">Envoyer un lien de réinitialisation</button>
 </form>

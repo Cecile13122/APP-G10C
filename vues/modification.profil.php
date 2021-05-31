@@ -2,6 +2,7 @@
 <?php
 $info_candidat = recuperation_profil($_SESSION['mail']);
 ?>
+<h2><?php if(isset($erreur)&&!empty($erreur)){echo $erreur;} ?></h2>
 <form method="post" action="index.php?cible=utilisateurs&fonction=modification_profil">
     <table>
         <tr>
@@ -62,5 +63,5 @@ $info_candidat = recuperation_profil($_SESSION['mail']);
                        ></td>
         </tr>
     </table>
-    <input type="submit" value="Envoyer" class="buttonForm">
+    <button id="btn" type="submit" value="Envoyer" class="buttonForm">Envoyer</button>
 </form>

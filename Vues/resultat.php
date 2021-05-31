@@ -59,7 +59,7 @@ if (isset($resultats_candidat) && !empty($resultats_candidat)) {
         </tr>
         <tr>
             <td class="test">
-                <h3>Reflex</h3>
+                <h3>Réflexe</h3>
                 <ul>
                     <li class="left">Réaction à un stimuli sonore :</li>
                     <li class="result"><?= $resultats_candidat['stimulus_audio'] ?> ms</li>
