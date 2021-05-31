@@ -547,6 +547,7 @@ p.milieu{
 .slide img{
   height: auto;
   max-height: 400px;
+  border-radius: 10px;
 }
 
 /* Next & previous buttons */
@@ -668,3 +669,5 @@ datalist {
 .underline{
   text-decoration: underline;
 }
+
+
