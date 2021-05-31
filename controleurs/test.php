@@ -23,8 +23,19 @@ switch ($function) {
         break;
 
     case 'resultat':
-        if (isset($_GET['mail']) || empty($_GET['mail'])) {
-            $resultats_candidat = recuperation_resultat($_GET['mail']);
+        if (isset($_SESSION['mail']) && !empty($_SESSION['mail'])) {
+            if (isset($_SESSION['role']) && !empty($_SESSION['role'])) {
+                if ($_SESSION['role']=='candidat'){
+                    $resultats_candidat = recuperation_resultat($_SESSION['mail']);
+                    $profil= recuperation_profil($_SESSION['mail']);
+                }
+                else {
+                    if (isset($_GET['mail']) || empty($_GET['mail'])) {
+                        $resultats_candidat = recuperation_resultat($_GET['mail']);
+                        $profil= recuperation_profil($_GET['mail']);
+                    }
+                }
+            }
         }
         $vue = "resultat";
         break;
