@@ -130,5 +130,9 @@ display: block!important;
 }
 
 span {
-  color: red;
+  color: rgb(184,122,116);
+}
+
+button:disabled {
+  color:#DEE3E2;
 }
