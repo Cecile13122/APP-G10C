@@ -14,7 +14,8 @@ $faq=recuperation_faq();
                         <textarea type="text" name="question" class="question_faq" required><?=$donnee['question']?></textarea><br>
                         <textarea type="text" name="reponse" class="reponse_faq" required><?=$donnee['reponse'] ?></textarea>
                         <input type="submit" value="Modifier" class="buttonFaq">
-                    </form> <button value="<?=$donnee['id_faq'] ?>" onclick="supprimer(this.value)" class="buttonFaqRed">Supprimer</button>
+                        <button value="<?=$donnee['id_faq'] ?>" onclick="supprimer(this.value)" class="buttonFaqRed">Supprimer</button>
+                    </form>
                 <?php }
             endforeach;?>
           </div>

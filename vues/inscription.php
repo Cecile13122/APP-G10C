@@ -1,5 +1,3 @@
-<script src="verificationFormulaire.js" type="text/javascript"></script>
-
 <h1>Inscription</h1>
 <h2><?php if(isset($erreur)&&!empty($erreur)){echo $erreur;} ?></h2>
 <form method="post" action="index.php?cible=utilisateurs&fonction=inscription">
@@ -17,8 +15,7 @@
                        oninput='verificationNom(this.value, this.id)'></td>
         </tr>
         <tr>
-            <td></td>
-            <td><span id="err_firstname"></span></td>
+            <td colspan="2"><span id="err_firstname"></span></td>
         </tr>
         <tr>
             <td class="critere"><label for="name">Nom :</label></td>
@@ -26,16 +23,14 @@
                        oninput='verificationNom(this.value, this.id)'></td>
         </tr>
         <tr>
-            <td></td>
-           <td><span id="err_name"></span></td>
+            <td colspan="2"><span id="err_name"></span></td>
         </tr>
         <tr>
             <td class="critere"><label for="naissance">Né(e) le :</label></td>
             <td><input type="date" id="naissance" name="date_naissance" placeholder="Date de naissance"
                        class="inputForm" required onchange='verificationDate(this.value, this.id)'></td>
         </tr>
-        <tr><td></td>
-            <td><span id="err_naissance"></span></td>
+        <tr><td colspan="2"><span id="err_naissance"></span></td>
 
         </tr>
         <tr>
@@ -43,8 +38,7 @@
             <td><input type="text" id="tel" name="telephone" placeholder="+ 33 _ __ __ __ __" class="inputForm"
                        required pattern="(0|\+33) *[1-9]( *[0-9]{2}){4}" oninput='verificationNumero(this.value, this.id )'></td>
         </tr>
-        <tr><td></td>
-            <td><span id="err_tel"></span></td>
+        <tr><td colspan="2"><span id="err_tel"></span></td>
 
         </tr>
         <tr>
@@ -53,8 +47,7 @@
                        oninput='verificationPostal(this.value, this.id)'></td>
         </tr>
         <tr>
-            <td></td>
-            <td><span id="err_cp"></span></td>
+            <td colspan="2"><span id="err_cp"></span></td>
 
         </tr>
         <tr>
@@ -69,8 +62,7 @@
                        required oninput="verificationConfirmationMail(this.value, this.id, document.getElementById('mail').value, 'mail')"></td>
         </tr>
         <tr>
-            <td></td>
-            <td><span id="err_mail"></span></td>
+            <td colspan="2"><span id="err_mail"></span></td>
 
         </tr>
         <tr>
@@ -85,15 +77,17 @@
                        required oninput="verificationConfirmationMdp(this.value, this.id, document.getElementById('mdp').value, 'mdp')">
             </td>
         </tr>
-        <tr><td></td>
-            <td><span id="err_mdp"></span></td>
+        <tr><td colspan="2"><span id="err_mdp"></span></td>
 
         </tr>
         <tr>
-            <td colspan="2"><label for="cgu"><input type="checkbox" id="cgu" name="CGU" value="oui" required> J'accepte
+            <td colspan="2" class="critere"><label for="cgu"><input type="checkbox" id="cgu" name="CGU" value="oui" required> J'accepte
                     les conditions d'utilisation.</label></td>
+        </tr>
+
+
+
     </table>
-    <p>Déjà un compte ? <a href="index.php?cible=utilisateurs&fonction=connexion" class="underline">Se connecter.</a>
-    </p>
+    <p>Déjà un compte ? <a href="index.php?cible=utilisateurs&fonction=connexion" class="underline">Se connecter.</a></p>
     <button type="submit" id='btn' value="Envoyer" class="buttonForm">Envoyer</button>
 </form>

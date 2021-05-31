@@ -32,13 +32,13 @@ p{
   margin:2% 2% 2% 2%;
 }
 
-.footerForm{
+.footer,.footer a{
+  color:#4C5760;
   position: relative;
-height: auto;
-text-align: center;
-display: block;
-padding-top: 2%;
-min-height: 5%;
+  padding: 10px;
+  display: inline-block;
+  height: auto;
+  min-height: 20px;
 }
 
 .button{
@@ -94,13 +94,8 @@ h1{
 }
 
 .mainForm{
-  position: relative;
-  margin: 0%;
-padding: auto;
-padding-left: 3%;
-padding-right: 3%;
 height: auto;
-min-height: 35%;
+min-height: 54%;
 }
 
 .headerForm{
@@ -110,7 +105,7 @@ min-height: 35%;
 
 table{
   position: relative;
-  margin: auto;
+  align-content: center;
 }
 
 .critere{
@@ -136,3 +131,7 @@ span {
 button:disabled {
   color:#DEE3E2;
 }
+
+ tr.center{
+   text-align: center;
+ }

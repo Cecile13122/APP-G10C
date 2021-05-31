@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" name="viewport"/>
     <link type="text/css" rel="stylesheet" href="./vues/style.css"/>
-      <link rel="shortcut icon" type="image/x-icon" href="./images/ATC_v200.png"/>
+    <link rel="shortcut icon" type="image/x-icon" href="./images/ATC_v200.png"/>
     <title>Helitest</title>
   </head>
   <body>

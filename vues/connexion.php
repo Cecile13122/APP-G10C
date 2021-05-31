@@ -1,5 +1,4 @@
-<script src="verificationFormulaire.js" type="text/javascript"></script>
-
+<div class="mainForm">
 <h1>Connexion</h1>
 <h2><?php if(isset($erreur)&&!empty($erreur)){echo $erreur;} ?></h2>
       <form method="post" action="index.php?cible=utilisateurs&fonction=connexion">
@@ -18,5 +17,4 @@
         <p>Pas encore de compte ? <a href="index.php?cible=utilisateurs&fonction=inscription" class="underline">S'inscrire.</a></p>
           <button id="btn" type="submit" value="Envoyer" class="buttonForm">Envoyer</button>
       </form>
-
-
+</div>

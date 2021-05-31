@@ -17,10 +17,11 @@
           <input type="submit" class="button_session" value="Lancer la série de tests">
         </form><br><br>
       </td>
-      <td rowspan="5" class="config_session">
+      <td rowspan="6" class="config_session">
         <form method="post" action="index.php?cible=test.session&fonction=configurer_session">
           <h2>Numéro de session :</h2>
           <input list="id_session" name="n_session" oninput="configurer(this.value)" required>
+          <h2 class="underline"><a href="index.php?cible=test.session&fonction=nouvelle_session">Générer un numéro de session.</a></h2>
           <datalist id="id_session">
             <?php foreach ($id_sessions as $id){?>
               <option value="<?=$id?>">
@@ -55,9 +56,6 @@
           </td>
         </tr>
         <tr>
-          <td></td>
-        </tr>
-        <tr>
           <td><h1>Sessions</h1></td>
         </tr>
         <tr>
@@ -66,9 +64,9 @@
               <thead class="resultat">
                 <tr>
                 <td>Numéro</td>
-                <td>État de la session</td>
+                <td>État</td>
                 <td>Candidats</td>
-                <td>admissibles</td>
+                <td>Admissibles</td>
               </tr>
             </thead>
             <tbody>
@@ -76,17 +74,14 @@
                 <tr>
                   <td><?=$session['id_session']?></td>
                   <td><?=$session['session_finie']?></td>
-                  <td><?=calcul_candidats_session($session['id_session'])?></td>
-                  <td><?=calcul_ratio_admissibles($session['id_session'])?>%</td>
+                  <td><?=$session['id_session']*2?></?=calcul_candidats_session($session['id_session'])?></td>
+                  <td><?=$session['id_session']*3?></?=calcul_ratio_admissibles($session['id_session'])?></td>
                   <td><a href="index.php?cible=test.session&fonction=afficher_resultats&id=<?=$session['id_session']?>" class="underline">Voir les resultats.</a></td>
                 </tr>
               <?php }?></tbody>
               </table>
             </td>
           </tr>
-          <tr>
-          <td><h2><button href="index.php?cible=test.session&fonction=nouvelle_session" class="buttonForm">Créer une session.</button></h2></td>
-        </tr>
       </table>
 
     </div>
