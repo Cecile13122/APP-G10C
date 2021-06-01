@@ -27,7 +27,7 @@ function connexion_personne($mail){
 function supprimer_utilisateur($mail){
   $bdd=connect_bdd();
   $role_utilisateur = verification_role($mail);
-  $requete=$bdd->prepare('DELETE FROM '.$role_utilisateur.' WHERE mail_'.$role_utilisateur.'=?');
+  $requete=$bdd->prepare('DELETE '.$role_utilisateur.' FROM '.$role_utilisateur.' WHERE mail_'.$role_utilisateur.'=?');
   $requete->execute(array($mail));
   return $role_utilisateur;
 }

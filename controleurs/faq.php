@@ -55,7 +55,9 @@ if (isset($_SESSION['role']) && ($_SESSION['role']=="administrateur")){
 if ($vue=="faq"){
     $vue=$vue.'.'.$role;
 }
-
+if (isset($_SESSION['role'])){
+$role = $_SESSION['role'];
+}
 include ('vues/header.'.$role.'.php');
 include ('vues/' . $vue . '.php');
 include ('vues/footer.php');

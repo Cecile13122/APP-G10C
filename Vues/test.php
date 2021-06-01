@@ -26,12 +26,11 @@ if (!isset($session) ) {
       <td rowspan="6" class="config_session">
         <form method="post" action="index.php?cible=test.session&fonction=configurer_session">
           <h2>Numéro de session :</h2>
-<<<<<<< HEAD
+
           <input list="id_session"  name="n_session" onchange="configurer(this.value)" value = "<?php if (isset($_GET['id']) && !(empty($_GET['id']))){ echo $_GET['id'];}?>"required>
-=======
-          <input list="id_session" name="n_session" oninput="configurer(this.value)" required>
+
           <h2 class="underline"><a href="index.php?cible=test.session&fonction=nouvelle_session">Générer un numéro de session.</a></h2>
->>>>>>> 7eac2ee4be2955c8e4df4c70e3c585e49fe2aa24
+
           <datalist id="id_session">
             <?php foreach ($id_sessions as $id){?>
               <option value="<?=$id?>">
@@ -84,25 +83,19 @@ if (!isset($session) ) {
                 <tr>
                   <td><?=$session['id_session']?></td>
                   <td><?=$session['session_finie']?></td>
-<<<<<<< HEAD
+
                   <td><?=calcul_candidats_session($session['id_session'])[0]?></td>
                   <td><?=calcul_ratio_admissibles($session['id_session'])?>%</td>
-=======
-                  <td><?=$session['id_session']*2?></?=calcul_candidats_session($session['id_session'])?></td>
-                  <td><?=$session['id_session']*3?></?=calcul_ratio_admissibles($session['id_session'])?></td>
->>>>>>> 7eac2ee4be2955c8e4df4c70e3c585e49fe2aa24
-                  <td><a href="index.php?cible=test.session&fonction=afficher_resultats&id=<?=$session['id_session']?>" class="underline">Voir les resultats.</a></td>
+
+                  
+
+                  <td><a href="index.php?cible=test.session&fonction=afficher_resultats&id=<?=$session['id_session']?>" class="underline" >Voir les resultats.</a></td>
                 </tr>
               <?php }?></tbody>
               </table>
             </td>
           </tr>
-<<<<<<< HEAD
-          <tr>
-              <td><h2><form method="post" action="index.php?cible=test.session&fonction=nouvelle_session"> <input type="submit" class="buttonForm" value="Créer une session"></form></h2></td>
-        </tr>
-=======
->>>>>>> 7eac2ee4be2955c8e4df4c70e3c585e49fe2aa24
+
       </table>
 
     </div>

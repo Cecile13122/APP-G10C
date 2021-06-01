@@ -63,9 +63,9 @@ switch ($function) {
     case 'nouvelle_session':
 
         $vue="test";
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
             generer_session($_SESSION['mail']);
-        }
+
         $sessions = recuperer_session_recruteur($_SESSION['mail']);
         break;
 
