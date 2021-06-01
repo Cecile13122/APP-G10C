@@ -47,14 +47,18 @@ switch ($function) {
 
 
 if(session_status()==1 || session_status()==0){session_start();}
-if (isset($_SESSION['role']) && ($_SESSION['role']=="administrateur")){
+if (isset($_SESSION['role'])){
         $role = $_SESSION['role'];
-        }else {
+        }
+      else {
     $role="";
 }
-if ($vue=="faq"){
+
+
+if (($role=="administrateur")&&($vue=="faq")){
     $vue=$vue.'.'.$role;
 }
+
 if (isset($_SESSION['role'])){
 $role = $_SESSION['role'];
 }

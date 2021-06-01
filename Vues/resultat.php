@@ -2,7 +2,7 @@
 if (isset($resultats_candidat) && !empty($resultats_candidat)) {
     $resultats_candidat = $resultats_candidat[0];
 } else {
-    
+
     $resultats_candidat = [
         'id_test' => null,
         'mail_candidat' => null,
@@ -18,12 +18,12 @@ if (isset($resultats_candidat) && !empty($resultats_candidat)) {
 }
 ?>
 <div class="main">
-    <h2><?= $profil['prenom'] . " " . strtoupper($profil['nom']) ?> -
+    <h2><?= $profil['prenom'] . " " . strtoupper($profil['nom']) ?> 
         Session <?php if (isset($resultats_candidat)) {
             echo $resultats_candidat['id_session'];
         } ?> </h2>
-    <table class="resultat">
-        <tr>
+    <table class="testT">
+        <tr class="test">
             <td class="test">
                 <h3>Condition Physique</h3>
                 <ul>
@@ -57,7 +57,7 @@ if (isset($resultats_candidat) && !empty($resultats_candidat)) {
                 </ul>
             </td>
         </tr>
-        <tr>
+        <tr class="test">
             <td class="test">
                 <h3>Réflexe</h3>
                 <ul>
@@ -72,7 +72,7 @@ if (isset($resultats_candidat) && !empty($resultats_candidat)) {
                 <p><?php if (is_numeric($resultats_candidat['temperature'])){
 
                     echo calcul_resultat($resultats_candidat['id_test']) ;}
-                    else {echo 'En attente';}?></p>
+                    else {echo 'En attente.';}?></p>
             </td>
         </tr>
     </table>

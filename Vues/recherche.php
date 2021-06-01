@@ -15,7 +15,7 @@
             <?php
             }else{
             foreach ($resultat_recherche as $candidat) :?>
-                <tr>
+                <tr class="recherche">
                     <td ><?= strtoupper($candidat['nom']) ?></a></td>
                     <td ><?= $candidat['prenom'] ?></td>
                     <td ><?= $candidat['mail'] ?></td>

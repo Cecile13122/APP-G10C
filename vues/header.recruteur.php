@@ -22,7 +22,7 @@
       <div class="profil">
         <a href class="modif_profil"><h2><?=$_SESSION['prenom']." ". strtoupper($_SESSION['nom'])."</h2>".strtoupper($_SESSION['role'])?><br>Mon profil</a>
         <div class = "sous_profil">
-          <a href="index.php?cible=utilisateurs&fonction=modification_mdp">Modification mot de passe</a>
+          <a href="index.php?cible=utilisateurs&fonction=modification_mdp">Modification mot de passe</a><br>
           <a href="index.php?cible=utilisateurs&fonction=deconnexion">Déconnexion</a>
         </div>
       </div>

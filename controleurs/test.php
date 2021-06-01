@@ -45,7 +45,8 @@ switch ($function) {
         $vue = "erreur404";
         $message = "Erreur 404 : la page recherchée n'existe pas.";
 }
+$role=$_SESSION['role'];
 
-include('vues/header.' . $_SESSION['role'] . '.php');
+include('vues/header.'.$role.'.php');
 include('vues/' . $vue . '.php');
 include('vues/footer.php');
