@@ -29,6 +29,10 @@ h1{
 tr.recherche{
   color: white;
 }
+
+h1 a {
+  color:#4C5760;
+}
 @font-face {
     font-family: 'lt_internetregular';
     src: url('ltinternet-regular-webfont.woff2') format('woff2'),
