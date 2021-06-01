@@ -47,15 +47,17 @@ switch ($function) {
 
 
 if(session_status()==1 || session_status()==0){session_start();}
-if (isset($_SESSION['role']) && ($_SESSION['role']=="administrateur")){
+if (isset($_SESSION['role'])){
         $role = $_SESSION['role'];
-        }else {
+        }
+      else {
     $role="";
 }
-if ($vue=="faq"){
+include('vues/header.'.$role.'.php');
+
+if (($role=="administrateur")&&($vue=="faq")){
     $vue=$vue.'.'.$role;
 }
 
-include ('vues/header.'.$role.'.php');
-include ('vues/' . $vue . '.php');
-include ('vues/footer.php');
+include('vues/' . $vue . '.php');
+include('vues/footer.php');

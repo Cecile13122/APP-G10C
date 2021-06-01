@@ -96,7 +96,7 @@ h1{
 
 .mainForm{
 height: auto;
-min-height: 50%%;
+min-height: 50%;
 }
 
 .headerForm{
@@ -106,7 +106,7 @@ min-height: 50%%;
 
 table{
   position: relative;
-  align-content: center;
+  left: 28%;
 }
 
 .critere{

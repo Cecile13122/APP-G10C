@@ -28,7 +28,7 @@
         <a href="index.php?cible=utilisateurs&fonction=afficher_page&page=contact">Contact</a>
         <form class="recherche" method="post" action ="index.php?cible=utilisateurs&fonction=recherche">
             <input type="text" name="recherche" placeholder="Recherche" required onchange="verificationNom(this.value, this.id)">
-            <button type="submit" class="loupe"><img src="./images/loupe.png" alt="Loupe" class="add"></button>
+            <button type="submit" ><img src="./images/loupe.png" alt="Loupe"></button>
         </form>
       </div>
 

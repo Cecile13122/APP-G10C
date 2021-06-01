@@ -1,4 +1,3 @@
-<script src="verificationFormulaire.js" type="text/javascript"></script>
 <?php
 $info_candidat = recuperation_profil($_SESSION['mail']);
 ?>
@@ -64,5 +63,6 @@ $info_candidat = recuperation_profil($_SESSION['mail']);
                        ></td>
         </tr>
     </table>
-    <button id="btn" type="submit" value="Envoyer" class="buttonForm">Envoyer</button>
+    <button id="btn" type="submit" value="Envoyer" class="buttonForm">Envoyer</button><br>
+    <a href="index.php?cible=utilisateurs&fonction=afficher_page&page=accueil" class="underline">Retour à la page d'accueil</a>
 </form>
