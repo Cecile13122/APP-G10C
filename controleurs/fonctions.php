@@ -10,24 +10,42 @@ function verification_form($form){
   }
   return $message;
 }
+*/
+function verifications_pattern($keys,$values){
+  $message="";
+  $pattern = array('nom' => "/^[A-Za-zÜ-ü'-]+( *[A-Za-zÜ-ü'-]+)*$/",
+  'prenom'=>"/^[A-Za-zÜ-ü'-]+( *[A-Za-zÜ-ü'-]+)*$/",
+  'genre'=>"(F|P)",
+  'date_naissance'=>"#\d{4}(-\d{2}){2}#",
+  'numero_tel'=>"/(0|\+ ?33) *[1-9](*[0-9]{2}){4}/",
+  'code_postal'=> "/\d{5,6}/",
+  'mail_candidat'=>"/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/",
+  'mail_recruteur'=>"/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/",
+  'mail_administrateur'=>"/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/",
+  'mdp'=>"/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&\._-]{8,}$/");
 
-function verifications_pattern($key,$value){
-  $pattern = array('nom' => "/^[A-Za-zÜ-ü'-]+( *[A-Za-zÜ-ü'-]+)*$/",'prenom'=>"/^[A-Za-zÜ-ü'-]+( *[A-Za-zÜ-ü'-]+)*$/", 'genre'=>"/FOUM/",'date_naissance'=>"#\d{4}(-\d{2}){2}#",'numero_tel'=>"/(0|\+ ?33) *[1-9](*[0-9]{2}){4}/",'code_postal'=> "/\d{5,6}/",'mail_'=>"/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/",'mdp'=>"/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&\._-]{8,}$/");
-
-  switch ($key){
-    case 'date_naissance':
-      if (!preg_match($date_pattern, $value)) {
-          return " La date de naissance est incorecte <br>";
-      } else {
-          if (calcul_age($value) > 32) {
-              return "Malheureusement vous avez dépassé l'âge maximal requis <br>";
-          } elseif (calcul_age($value) < 18) {
-              return "Malheureusement vous n'avez pas l'âge minimum requis. Revenez dans " . (18 - calcul_age($value)) . " ans. <br>";
-          }
+  $critere =array('nom' => "du nom",
+  'prenom'=>"du prénom",
+  'genre'=>"du genre ",
+  'date_naissance'=>"de la date de naissance ",
+  'numero_tel'=>"du numéro téléphone",
+  'code_postal'=> "du code postal",
+  'mail_candidat'=>"de l'adresse mail",
+  'mail_recruteur'=>"de l'adresse mail",
+  'mail_administrateur'=>"de l'adresse mail",
+  'mdp'=>"du mot de passe");
+  $i=0;
+  foreach ($keys as $key ) {
+    echo $key."=".$values[$i]."<br>";
+    if (($key!="valider")&&($key!="clef_confirmation")){
+      if (!preg_match($pattern[$key], $values[$i++])) {
+          $message=$message."Le format ".$critere[$key]." est incorrect !<br>";
       }
-      break;
+    }
   }
-}*/
+  return $message;
+  }
+
 function verification_nom($nom, $prenom)
 {
     $nom_pattern = "/^[A-Za-zÜ-ü'-]+( *[A-Za-zÜ-ü'-]+)*$/";
@@ -36,12 +54,6 @@ function verification_nom($nom, $prenom)
     }
 }
 
-function verification_civilite($civilite)
-{
-    if (strlen($civilite) != 1) {
-        return "Civilité incorrect <br>";
-    }
-}
 
 function verification_age($date_naissance)
 {
@@ -120,10 +132,12 @@ function test_input($donnee)
     $donnee = htmlspecialchars($donnee);
     return $donnee;
 }
-
-function recuperer_attributs($role_utilisateur)
-{
-    return $role_utilisateur == "candidat" ? array('prenom', 'nom', 'mail_candidat', 'mdp', 'date_naissance', 'numero_tel', 'genre', 'code_postal', 'valider', 'clef_confirmation') : array('prenom', 'nom', 'mail_' . $role_utilisateur, 'mdp');
+function recuperer_attributs($role_utilisateur){
+  $attributs = array('prenom','nom','mail_'.$role_utilisateur,'mdp');
+  if ($role_utilisateur=="candidat"){
+    $attributs=array_merge($attributs,array('date_naissance','numero_tel','genre','code_postal','valider','clef_confirmation'));
+  }
+  return $attributs;
 }
 
 function confirmation_compte()

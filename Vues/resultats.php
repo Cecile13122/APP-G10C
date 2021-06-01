@@ -21,13 +21,13 @@
       <?php if (isset($candidats)){
       foreach ($candidats as $candidat) :?>
         <tr>
-          <td rowspan="2"><?=$candidat['mail_candidat']?></td>
-          <td rowspan="2"><?=$candidat['date_test']?></td>
-          <td><?=$candidat['frequence_cardiaque']?><br><?=$candidat['frequence_cardiaque_bis']?></td>
-          <td><?=$candidat['temperature']?><br><?=$candidat['temperature_bis']?></td>
-          <td rowspan="2"><?=$candidat['tonalite']?></td>
-          <td rowspan="2"><?=$candidat['stimulus_visuel']?></td>
-          <td rowspan="2"><?=$candidat['stimulus_audio']?></td>
+          <td ><?=$candidat['mail_candidat']?></td>
+          <td><?=$candidat['date_test']?></td>
+          <td><?=$candidat['frequence_cardiaque']." et ".$candidat['frequence_cardiaque_bis']?></td>
+          <td><?=$candidat['temperature']." et ".$candidat['temperature_bis']?></td>
+          <td><?=$candidat['tonalite']?></td>
+          <td><?=$candidat['stimulus_visuel']?></td>
+          <td ><?=$candidat['stimulus_audio']?></td>
         </tr>
       <?php endforeach;}
       else {

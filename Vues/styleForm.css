@@ -32,13 +32,13 @@ p{
   margin:2% 2% 2% 2%;
 }
 
-.footerForm{
+.footer,.footer a{
+  color:#4C5760;
   position: relative;
-height: auto;
-text-align: center;
-display: block;
-padding-top: 2%;
-min-height: 5%;
+  padding: 10px;
+  display: inline-block;
+  height: auto;
+  min-height: 10%;
 }
 
 .button{
@@ -52,6 +52,7 @@ min-height: 5%;
 .inputForm{
   background-color: white;
   border-color: #93A8AC;
+  border-radius: 10px;
   padding: 2px 10px 2px;
   margin: 10px;
   color:#93A8AC;
@@ -73,7 +74,7 @@ min-height: 5%;
   background-color: white;
   border-color: #DEE3E2;
   padding: 3px 20px 3px;
-  margin: 10px;
+  margin: 8px;
   border-style: solid;
   border-radius: 5px;
   position: relative;
@@ -94,23 +95,18 @@ h1{
 }
 
 .mainForm{
-  position: relative;
-  margin: 0%;
-padding: auto;
-padding-left: 3%;
-padding-right: 3%;
 height: auto;
-min-height: 35%;
+min-height: 50%%;
 }
 
 .headerForm{
   height:auto;
-  min-height:45%;
+  min-height:40%;
 }
 
 table{
   position: relative;
-  margin: auto;
+  align-content: center;
 }
 
 .critere{
@@ -136,3 +132,7 @@ span {
 button:disabled {
   color:#DEE3E2;
 }
+
+ tr.center{
+   text-align: center;
+ }

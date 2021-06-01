@@ -18,7 +18,6 @@ switch ($function) {
 
     case 'afficher_faq':
         $vue = "faq";
-
         break;
 
     case 'ajout_question':
@@ -29,9 +28,8 @@ switch ($function) {
       break;
 
     case 'supprimer_question':
-      echo $_GET['id'];
-      $vue = "faq";
       supprimer_question($_GET['id']);
+      $vue = "faq";
       break;
 
     case 'modifier_question':
@@ -58,6 +56,6 @@ if ($vue=="faq"){
     $vue=$vue.'.'.$role;
 }
 
-include ('vues/header.'.$_SESSION['role'].'.php');
+include ('vues/header.'.$role.'.php');
 include ('vues/' . $vue . '.php');
 include ('vues/footer.php');
