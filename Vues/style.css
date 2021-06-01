@@ -366,7 +366,7 @@ h3{
   font-size: 25px;
   font-weight: normal;
   text-align: center;
-  margin-left: 40px;
+  /*margin-left: 40px;*/
 }
 
 table th.utilisateurs {

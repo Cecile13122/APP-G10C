@@ -14,8 +14,7 @@ $faq=recuperation_faq();
                         <textarea type="text" name="question" class="question_faq" required><?=$donnee['question']?></textarea><br>
                         <textarea type="text" name="reponse" class="reponse_faq" required><?=$donnee['reponse'] ?></textarea>
                         <input type="submit" value="Modifier" class="buttonFaq">
-                        <button value="<?=$donnee['id_faq'] ?>" onclick="supprimer(this.value)" class="buttonFaqRed">Supprimer</button>
-                    </form>
+                    </form><button value="<?=$donnee['id_faq'] ?>" onclick="supprimer(this.value)" class="buttonFaqRed">Supprimer</button>
                 <?php }
             endforeach;?>
           </div>
@@ -35,7 +34,7 @@ $faq=recuperation_faq();
 
 <script>
 function supprimer(id){
-  if (confirm("Êtes-vous sur de vouloir supprimer ?")){
+  if (confirm("Êtes-vous sur de vouloir supprimer cet utilisateur ?")){
     window.location.href = "index.php?cible=faq&fonction=supprimer_question&id="+id;
   }
 }

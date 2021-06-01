@@ -21,7 +21,7 @@ if (!empty($_GET['role_utilisateur'])) {
 }
 
 if (!empty($_GET['utilisateur'])) {
-    $utilisateur = $_GET['utilisate+%nb vEt eur'];
+    $utilisateur = $_GET['utilisateur'];
 }
 
 if (!empty($_GET['page'])) {
@@ -370,23 +370,27 @@ switch ($function) {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $values = array();
             $keys = recuperer_attributs($role_utilisateur);
-            $message = "";
             foreach ($keys as $key) {
+              echo $key."= ";
+              echo test_input($_POST[$key])."<br>";
                 array_push($values, test_input($_POST[$key]));
-                //ajouter validation formulaire
             }
-            //$message = verification_civilite($civilite).verification_nom($nom, $prenom).verification_numero($telephone).verification_postal($code_postal).verification_mail($email, $email).verification_age($date_naissance);
+            $message = verifications_pattern($keys,$values);
+            $utilisateur=array_combine($keys, $values);
             if (empty($message)) {
-                $mot_de_passe = crypter_mdp($mot_de_passe);
-                $clef = confirmation_compte();
-                mail_confirmation_compte($email, $clef);
-                insertion(connect_bdd(), array_combine($keys, $values), $role_utilisateur);
+                if ($role_utilisateur=="candidat"){
+                  $utilisateur[$clef_confirmation]= confirmation_compte();
+                  $utilisateur[$mdp]=crypter_mdp($mot_de_passe);
+                  $utilisateur[$valider]=0;
+                }
+                mail_confirmation_compte($utilisateur['mail_'+$role_utilisateur], $clef);
+                insertion(connect_bdd(), $utilisateur, $role_utilisateur);
+                include("index.php?cible=utilisateurs&fonction=afficher_utilisateurs&role_utilisateur=" . $role_utilisateur);
             }
-
         }
-
-        $values = array('mail_candidat' => $email, 'nom' => $nom, 'prenom' => $prenom, 'mdp' => $mot_de_passe, 'date_naissance' => $date_naissance, 'numero_tel' => $telephone, 'genre' => $civilite, 'code_postal' => $code_postal, 'valider' => 0, 'clef_confirmation' => $clef);
+        $vue="utilisateurs";
         break;
+
     case 'accueil':
         $vue='accueil';
         $form='';
@@ -428,4 +432,3 @@ if (!empty($form)) {
 
 include('vues/' . $vue . '.php');
 include('vues/footer.php');
-

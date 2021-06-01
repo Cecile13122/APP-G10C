@@ -28,9 +28,8 @@ switch ($function) {
       break;
 
     case 'supprimer_question':
-      echo $_GET['id'];
-      $vue = "faq";
       supprimer_question($_GET['id']);
+      $vue = "faq";
       break;
 
     case 'modifier_question':
