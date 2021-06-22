@@ -20,7 +20,7 @@
     </tr>
       <?php if (isset($candidats)){
       foreach ($candidats as $candidat) :?>
-        <tr>
+        <tr class="result">
           <td ><?=$candidat['mail_candidat']?></td>
           <td><?=$candidat['date_test']?></td>
           <td><?=$candidat['frequence_cardiaque']." et ".$candidat['frequence_cardiaque_bis']?></td>
