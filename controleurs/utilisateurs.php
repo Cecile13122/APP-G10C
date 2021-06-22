@@ -299,7 +299,7 @@ switch ($function) {
                     $erreur = "L'identifiant et/ou le mot de passe sont incorrects ";
                 }
             }else{
-            $erreur = "L'identifiant et/ou le mot de passe sont incorrects §§§§§§§§§§";
+            $erreur = "L'identifiant et/ou le mot de passe sont incorrects";
         }}
         break;
 
