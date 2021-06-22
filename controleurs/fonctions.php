@@ -367,3 +367,11 @@ function ajout_mesure($trame, $id_test){
     ajouter_mesure($colonneBdd, $id_test, $trame['VAL']);
 }
 
+
+function envoi_trame($req,$typ, $num_capteur, $val, $num_trame, $chk){
+  $tra = "1";
+  $obj = ""; /*num  app*/
+  $trame = $tra+$obj+$req+$typ+$num_capteur+$val+$num_trame+$chk+date("Ymd")+date("His");
+  /*envoyer la trame*/
+  return $trame;
+}
