@@ -42,8 +42,8 @@ switch ($function) {
     $capteurs = array("","","","","",""); type des capteurs
     $num_capteurs = array("","","","","",""); numeros des capteurs
     $resultats = array('mail_candidat' => $_SESSION['mail'], 'id_session' => , 'date_test' => date(),'frequence_cardiaque' => "",'temperature' => "",'tonalite' => "",'frequence_cardiaque_bis' => "",'temperature_bis' => "",'stimulus_visuel' => "",'stimulus_audio' => "");
-    $capteurs = array("","","","","",""); /*type des capteurs*/
-    $num_capteurs = array("","","","","",""); /*numeros des capteurs*/
+    $capteurs = array("","","","","",""); /*type des capteurs
+    $num_capteurs = array("","","","","",""); /*numeros des capteurs
     $resultats = array('mail_candidat' => $_SESSION['mail'], 'id_session' => recuperer_id_sessions($_SESSION['mail']), 'date_test' => date(Ymd),'frequence_cardiaque' => "",'temperature' => "",'tonalite' => "",'frequence_cardiaque_bis' => "",'temperature_bis' => "",'stimulus_visuel' => "",'stimulus_audio' => "");
 
     envoi_trame(); envoi trame de synchro ??
