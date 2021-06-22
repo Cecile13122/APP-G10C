@@ -30,9 +30,7 @@ if (!empty($_GET['page'])) {
 
 
 switch ($function) {
-    case 'modifier_utilisateur':
-        // code...
-        break;
+
 
     case 'modification_profil':
         $form = "form";
@@ -348,9 +346,17 @@ switch ($function) {
         $vue = "utilisateurs";
         break;
 
+    case 'modifier_utilisateur':
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+        }
+        $vue='utilisateurs';
+        break;
+
     case 'supprimer_utilisateur':
         $role_utilisateur = supprimer_utilisateur($_GET['mail']);
-        include("index.php?cible=utilisateurs&fonction=afficher_utilisateurs&role_utilisateur=" . $role_utilisateur);
+        $get ='?cible=utilisateurs&amp;fonction=afficher_utilisateurs&amp;role_utilisateur=' . $role_utilisateur;
+$vue='utilisateur';
         break;
 
     case 'candidat':
@@ -432,5 +438,8 @@ if (!empty($form)) {
     include('vues/header.' . $role . '.php');
 }
 
-include('vues/' . $vue . '.php');
+if (!isset($get)){
+    $get='';
+}
+include('vues/' . $vue . '.php'.$get);
 include('vues/footer.php');

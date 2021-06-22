@@ -53,11 +53,15 @@ if (isset($_SESSION['role'])){
       else {
     $role="";
 }
-include('vues/header.'.$role.'.php');
+
 
 if (($role=="administrateur")&&($vue=="faq")){
     $vue=$vue.'.'.$role;
 }
 
-include('vues/' . $vue . '.php');
-include('vues/footer.php');
+if (isset($_SESSION['role'])){
+$role = $_SESSION['role'];
+}
+include ('vues/header.'.$role.'.php');
+include ('vues/' . $vue . '.php');
+include ('vues/footer.php');

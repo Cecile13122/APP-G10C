@@ -20,7 +20,7 @@
 
                 <input type="email" name="email" placeholder="exemple@mail.com" class="inputForm" required><br>
                 <input type="text" name="sujet" placeholder="Objet" class="inputForm" required>
-                <h3>Message :</h3>
+                <ul><li><h3>Message :</h3></li></ul>
                 <input type="text" name="message" class="inputMessage"required>
                 <br>
               <input type="submit" value="Envoyer" class="buttonForm">

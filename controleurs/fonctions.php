@@ -1,6 +1,7 @@
 <?php
 include_once('modele/requetes.candidats.php');
 include_once('modele/requetes.session.php');
+include_once('modele/requetes.test.php');
 /*
 function verification_form($form){
   $message="";
@@ -138,6 +139,7 @@ function recuperer_attributs($role_utilisateur){
   }
   return $attributs;
 }
+
 function confirmation_compte()
 {
     $longeurclef = 15;
@@ -213,12 +215,13 @@ function redirection($form, $vue, $erreur)
     include('vues/footer.php');
 }
 
-function recuperer_id_sessions($mail){
-  $id = array();
-   foreach (recuperer_session_recruteur($mail) as $session):
-     array_push($id,$session['id_session']);
-   endforeach;
-   return $id;
+function recuperer_id_sessions($mail)
+{
+    $id = array();
+    foreach (recuperer_session_recruteur($mail) as $session):
+        array_push($id, $session['id_session']);
+    endforeach;
+    return $id;
 }
 
 function calcul_candidats_session($id)
@@ -228,7 +231,24 @@ function calcul_candidats_session($id)
 
 function calcul_ratio_admissibles($id)
 {
-    //faire fonction, modifier les db
+    $session = recuperer_session($id);
+    if ($session['session_finie'] != 'En cours') {
+
+        $candidats = recuperation_candidats_session($id);
+        if (count($candidats)>0){
+        $ratio = 0;
+        foreach ($candidats as $candidat) {
+            $resultat = calcul_resultat($candidat['id_test']);
+            if ($resultat == "Acceptée" || $resultat == "Accepté") {
+                $ratio++;
+            }
+        }
+        return $ratio / (count($candidats)) * 100;
+        }
+     else {
+         return '-';
+     }}else{return'-';}
+
 }
 
 function recuperation_candidats_recherche($recherches)
@@ -294,19 +314,21 @@ function calcul_resultat($id_test)
         if (calcul_modif_temperature($test['temperature'], $test['temperature_bis']) < $session['seuil_dif_temperature']) {
             $score++;
         }
-        if ($profil['genre'] == 'F'){
-        if ($score < 7) {
-
-            return 'Refusée';
-        } else {
-            return 'Acceptée';
-        }}else{
+        if ($profil['genre'] == 'F') {
             if ($score < 7) {
-            return 'Refusé';
+
+                return 'Refusée';
+            } else {
+                return 'Acceptée';
+            }
         } else {
-            return 'Accepté';
+            if ($score < 7) {
+                return 'Refusé';
+            } else {
+                return 'Accepté';
+            }
         }
-    }}
+    }
 
 }
 

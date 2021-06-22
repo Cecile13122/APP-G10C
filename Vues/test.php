@@ -1,3 +1,8 @@
+<?php
+if (!isset($session) ) {
+    $session=array('','', '','','','','','','','','');
+} ?>
+<script src="verificationFormulaire.js" type="text/javascript"></script>
 <div class="main">
   <table>
     <tr>
@@ -6,9 +11,10 @@
     </tr>
     <tr>
       <td>
-        <form method="post" action="index.php?cible=test.session&fonction=nouveau_test">
-          <input type="text" name="mail" placeholder="Adresse mail candidat" required pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"><br><br>
-          <input list="id_session" name="n_session" placeholder="Numéro de session" required pattern="/d+"><br>
+        <form method="post" action="index.php?cible=test.session&fonction=nouveau_test"  onsubmit="alert('Les tests vont commencer.')">
+          <input type="text" id ="mail"name="mail" placeholder="Adresse mail candidat" required oninput="verificationMail(this.value, this.id)"><br>
+            <span id="err_mail"<br>
+          <input list="id_session" name="n_session" placeholder="Numéro de session" required><br>
           <datalist id="id_session">
             <?php foreach ($id_sessions as $id){?>
               <option value="<?=$id?>">
@@ -20,8 +26,11 @@
       <td rowspan="6" class="config_session">
         <form method="post" action="index.php?cible=test.session&fonction=configurer_session">
           <h2>Numéro de session :</h2>
-          <input list="id_session" name="n_session" oninput="configurer(this.value)" required>
+
+          <input list="id_session"  name="n_session" onchange="configurer(this.value)" value = "<?php if (isset($_GET['id']) && !(empty($_GET['id']))){ echo $_GET['id'];}?>"required>
+
           <h2 class="underline"><a href="index.php?cible=test.session&fonction=nouvelle_session">Générer un numéro de session.</a></h2>
+
           <datalist id="id_session">
             <?php foreach ($id_sessions as $id){?>
               <option value="<?=$id?>">
@@ -50,8 +59,8 @@
               <h2>Temps de réaction à un stimuli visuel (ms) : </h2>
               <input type="number"  name="stimulus_visuel" id="stimulus_visuel" min="0" max="250" value="<?=$session[9]?>"  required pattern="/d{2,3}"><br><br>
 
-              <input type="submit" class="buttonForm" value="Confirmer">
-              <input type="submit" class="buttonForm" value="Clôturer la session">
+              <input type="submit" class="buttonForm" name="valider" value="Confirmer">
+              <input type="submit" class="buttonForm" name="cloturer" value="Clôturer la session">
             </form>
           </td>
         </tr>
@@ -61,7 +70,7 @@
         <tr>
           <td>
             <table class="resultat">
-              <thead class="resultat">
+              <thead>
                 <tr>
                 <td>Numéro</td>
                 <td>État</td>
@@ -74,21 +83,25 @@
                 <tr>
                   <td><?=$session['id_session']?></td>
                   <td><?=$session['session_finie']?></td>
-                  <td><?=$session['id_session']*2?></?=calcul_candidats_session($session['id_session'])?></td>
-                  <td><?=$session['id_session']*3?></?=calcul_ratio_admissibles($session['id_session'])?></td>
-                  <td><a href="index.php?cible=test.session&fonction=afficher_resultats&id=<?=$session['id_session']?>" class="underline">Voir les resultats.</a></td>
+
+                  <td><?=calcul_candidats_session($session['id_session'])[0]?></td>
+                  <td><?=calcul_ratio_admissibles($session['id_session'])?>%</td>
+
+                  
+
+                  <td><a href="index.php?cible=test.session&fonction=afficher_resultats&id=<?=$session['id_session']?>" class="underline" >Voir les resultats.</a></td>
                 </tr>
               <?php }?></tbody>
               </table>
             </td>
           </tr>
+
       </table>
 
     </div>
 
     <script>
     function configurer(id){
-      confirm("salut");
       window.location.href = "index.php?cible=test.session&fonction=remplir_seuils&id="+id.toString();
       /*
       var xhttp = new XMLHttpRequest();
