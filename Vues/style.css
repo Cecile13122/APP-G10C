@@ -100,9 +100,9 @@ h1 a {
 .navbar .recherche {
     font-size: 20pt;
     float: left;
-    display: inline;
-    /* float: left; */
     display: inline-block;
+    /* float: left;
+    display: inline-block;*/
     color: #4C5760;
     text-align: center;
     margin-top: 2.2%;
@@ -715,6 +715,18 @@ datalist {
   border-radius: 5px;
   box-shadow: -2px 2px 11px -4px black;
   border-spacing: 10px;
+}
+
+.result{
+  border-radius: 5px;
+  background-color: #93A8AC;
+  font-size: 20px;
+  color:white;
+}
+
+.loupe{
+  border: none;
+  background-color: #FAF6F0;
 }
 
 .resultat td, .resultat a{
