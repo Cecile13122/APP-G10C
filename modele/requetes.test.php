@@ -38,3 +38,21 @@
    return $requete->fetch();
  }
 
+function ajouter_mesure($colonneBdd, $id_test, $val){
+     $bdd=connect_bdd();
+     $requete=$bdd->prepare('UPDATE test SET :colonne=:val WHERE id_test=:id');
+     $requete->execute(array(
+         'colonne'=>$colonneBdd,
+         'val'=>$val,
+         'id'=>$id_test
+     ));
+}
+
+function create_test($email, $id_session){
+     $bdd=connect_bdd();
+     $requete=$bdd->prepare('INSERT INTO test(mail_candidat,id_session) VALUES (:mail, :id) ');
+     $requete->execute(array(
+         'mail'=>$email,
+         'id'=> $id_session
+         ));
+}

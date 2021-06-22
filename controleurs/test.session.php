@@ -24,6 +24,16 @@ switch ($function) {
         break;
 
     case 'nouveau_test':
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (isset($_POST['mail']) && isset($_POST['n_session'])) {
+                $email = $_POST['mail'];
+                $id_session = $_POST['n_session'];
+
+                $id_test = create_test($email, $id_session);
+                $trames = recuperation_trames();
+                $size = count($trames);
+                ajout_mesure($size - 2, $id_test);
+            }}
         $vue = "test";
         break;
 

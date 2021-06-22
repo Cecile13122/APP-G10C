@@ -19,6 +19,20 @@ $table = "candidat";
  * @return boolean
  */
 function create_candidat(PDO $bdd, array $values, string $table): bool{
+    //$bdd = connect_bdd();
+    $requete = $bdd->prepare('INSERT INTO candidat(mail_candidat, nom, prenom, mdp, date_naissance, numero_tel, genre, code_postal, valider, clef_confirmation) VALUES (:mail,:nom,:prenom, :mdp, :date_naissance, :telephone, :genre, :code_postal, :valider, :clef_confirmation)');
+    $requete->execute(array(
+        'mail' => $values['email'],
+        'nom' => $values['nom'],
+        'prenom' => values['prenom'],
+        'mdp' => $mot_de_passe,
+        'date_naissance' => $date_naissance,
+        'telephone' => $telephone,
+        'genre' => $civilite,
+        'code_postal' => $code_postal));
+
+
+
     return insertion($bdd, $values, $table);
 }
 
