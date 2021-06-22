@@ -12,9 +12,9 @@ if (!isset($session) ) {
     <tr>
       <td>
         <form method="post" action="index.php?cible=test.session&fonction=nouveau_test"  onsubmit="alert('Les tests vont commencer.')">
-          <input type="text" id ="mail"name="mail" placeholder="Adresse mail candidat" required oninput="verificationMail(this.value, this.id)"><br>
-            <span id="err_mail"<br>
-          <input list="id_session" name="n_session" placeholder="Numéro de session" required><br>
+          <input type="text" id ="mail" name="mail" placeholder="Adresse mail candidat" required oninput="verificationMail(this.value, this.id)"><br>
+            <span id="err_mail"></span><br>
+          <input id="numero" list="id_session" name="n_session" placeholder="Numéro de session" required><br>
           <datalist id="id_session">
             <?php foreach ($id_sessions as $id){?>
               <option value="<?=$id?>">
