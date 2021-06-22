@@ -13,7 +13,7 @@ if (!isset($session) ) {
       <td>
         <form method="post" action="index.php?cible=test.session&fonction=nouveau_test"  onsubmit="alert('Les tests vont commencer.')">
           <input type="text" id ="mail"name="mail" placeholder="Adresse mail candidat" required oninput="verificationMail(this.value, this.id)"><br>
-            <span id="err_mail"<br>
+            <span id="err_mail"><br>
           <input list="id_session" name="n_session" placeholder="Numéro de session" required><br>
           <datalist id="id_session">
             <?php foreach ($id_sessions as $id){?>
@@ -23,7 +23,7 @@ if (!isset($session) ) {
           <input type="submit" class="button_session" value="Lancer la série de tests">
         </form><br><br>
       </td>
-      <td rowspan="6" class="config_session">
+      <td rowspan="2" class="config_session">
         <form method="post" action="index.php?cible=test.session&fonction=configurer_session">
           <h2>Numéro de session :</h2>
 
@@ -60,15 +60,13 @@ if (!isset($session) ) {
               <input type="number"  name="stimulus_visuel" id="stimulus_visuel" min="0" max="250" value="<?=$session[9]?>"  required pattern="/d{2,3}"><br><br>
 
               <input type="submit" class="buttonForm" name="valider" value="Confirmer">
-              <input type="submit" class="buttonForm" name="cloturer" value="Clôturer la session">
+              <input type="submit" class="buttonFormRed" name="cloturer" value="Clôturer la session">
             </form>
           </td>
         </tr>
         <tr>
-          <td><h1>Sessions</h1></td>
-        </tr>
-        <tr>
           <td>
+            <h1>Sessions</h1>
             <table class="resultat">
               <thead>
                 <tr>
@@ -87,7 +85,7 @@ if (!isset($session) ) {
                   <td><?=calcul_candidats_session($session['id_session'])[0]?></td>
                   <td><?=calcul_ratio_admissibles($session['id_session'])?>%</td>
 
-                  
+
 
                   <td><a href="index.php?cible=test.session&fonction=afficher_resultats&id=<?=$session['id_session']?>" class="underline" >Voir les resultats.</a></td>
                 </tr>
