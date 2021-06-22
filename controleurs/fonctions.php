@@ -332,42 +332,41 @@ function calcul_resultat($id_test)
 
 }
 
-function recuperation_donnees(){
-  $ch = curl_init();
-  curl_setopt($ch,CURLOPT_URL,"http://projets-tomcat.isep.fr:8080/appService?ACTION=GETLOG&TEAM=9999");
-  curl_setopt($ch, CURLOPT_HEADER, FALSE);
-  curl_setopt($ch, CURLOT_RETURNTRANSFER, TRUE);
-  $data = str_split(curl_exec($ch),33); /*découpe les données brutes en portion de 33 caractères*/
-  $trame = $data[1];
+function recuperation_trames(){
+    $ch = curl_init();
+    curl_setopt(
+        $ch,
+        CURLOPT_URL,
+        "http://projets-tomcat.isep.fr:8080/appService/?ACTION=GETLOG&TEAM=G10C");
+    curl_setopt($ch, CURLOPT_HEADER, FALSE);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    $data = curl_exec($ch);
+    curl_close($ch);
 
-  list($tra, $obj, $req, $typ, $num_capteur, $val, $num_trame, $chk, $year, $month, $day, $hour, $min, $sec)=sscanf($trame, "%1s%4s%1s%1s%2s%4s%4s%2s%4s%2s%2s%2s%2s%2s");
-  return $val;
-}
-/*
-function decodage_trame($trame){
 
-  $tra = substr($trame, 0, 1);
-  $obj = substr($trame, 1, 5);
-  $req = substr($trame, 5, 6);
-  $typ = substr($trame, 6, 7);
-  $num = substr($trame, );
-  $val = substr($trame, 22, 26);
-  $tim = substr($trame, 26, 30);
-  $chk = substr($trame, 30, 32);
+    $data_tab = str_split($data,33);
+    for($i=0, $size=count($data_tab); $i<$size-1; $i++){
+        list($t, $o, $r, $c, $n, $v, $a, $x, $year, $month, $day, $hour, $min, $sec) =
+            sscanf($data_tab[$i],"%1s%4s%1s%1s%2s%4s%4s%2s%4s%2s%2s%2s%2s%2s");
+        $data_tab[$i]= ['TRA'=>$t, 'OBJ'=>$o, 'REQ'=>$r, 'TYP'=>$c, 'NUM'=>$n, 'VAL'=>$v, 'TIM'=>$a, 'CHK'=>$x, 'YEA'=>$year, 'MON'=>$month, 'DAY'=>$day, 'HOU'=>$hour, 'MIN'=>$min, 'SEC'=>$sec];
 
+    }
+
+    return $data_tab;
 
 }
-/*
-function debut_tests(){
-  $f_cardiaque =
-  $temp =
-  $tonalite =
-  $f_cardiaque2 =
-  $temp2 =
-  $stim_visuel =
-  $stim_audio =
+
+function ajout_mesure($trame, $id_test){
+    $capteur = $trame['TYP'];
+    $colonneBdd='';
+    switch($capteur){
+        case 3:
+            $colonneBdd = "temperature";
+            break;
+    }
+    ajouter_mesure($colonneBdd, $id_test, $trame['VAL']);
 }
-*/
+
 
 function envoi_trame($req,$typ, $num_capteur, $val, $num_trame, $chk){
   $tra = "1";

@@ -136,7 +136,7 @@ switch ($function) {
             verification_civilite($civilite),verification_nom($nom, $prenom),verification_numero($telephone),erification_postal($code_postal),verification_mail($email, $confirmation_mail),verification_age($date_naissance),verification_mdp($mot_de_passe, $confirmation_mdp)
 */
 
-            /*$err_civilite = verification_civilite($civilite);*/
+            //$err_civilite = verification_civilite($civilite);
             $err_nom = verification_nom($nom, $prenom);
             $err_telephone = verification_numero($telephone);
             $err_code_postal = verification_postal($code_postal);
