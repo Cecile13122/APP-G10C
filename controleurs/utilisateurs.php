@@ -138,7 +138,7 @@ switch ($function) {
             verification_civilite($civilite),verification_nom($nom, $prenom),verification_numero($telephone),erification_postal($code_postal),verification_mail($email, $confirmation_mail),verification_age($date_naissance),verification_mdp($mot_de_passe, $confirmation_mdp)
 */
 
-            $err_civilite = verification_civilite($civilite);
+            /*$err_civilite = verification_civilite($civilite);*/
             $err_nom = verification_nom($nom, $prenom);
             $err_telephone = verification_numero($telephone);
             $err_code_postal = verification_postal($code_postal);
@@ -150,11 +150,13 @@ switch ($function) {
             if (empty($err_mail) && empty($err_telephone) && empty($err_nom) && empty($err_mdp) && empty($err_code_postal) && empty($err_civilite) && empty($err_date_naissance)) {
                 $mot_de_passe = crypter_mdp($mot_de_passe);
                 $clef = confirmation_compte();
+                $jeton = uniqid();
                 mail_confirmation_compte($email, $clef);
-                $values = array('mail_candidat' => $email, 'nom' => $nom, 'prenom' => $prenom, 'mdp' => $mot_de_passe, 'date_naissance' => $date_naissance, 'numero_tel' => $telephone, 'genre' => $civilite, 'code_postal' => $code_postal, 'valider' => 0, 'clef_confirmation' => $clef);
-                create_candidat($bdd, $values, $table);
-                session_start();
+                $values = array('mail_candidat' => $email, 'nom' => $nom, 'prenom' => $prenom, 'mdp' => $mot_de_passe, 'date_naissance' => $date_naissance, 'numero_tel' => $telephone, 'genre' => $civilite, 'code_postal' => $code_postal, 'valider' => 0,
+                 'clef_confirmation' => $clef, 'jeton' => $jeton);
                 $role = "candidat";
+                create_candidat($bdd, $values, $role);
+                session_start();
                 $_SESSION['mail'] = $email;
                 $_SESSION['prenom'] = $prenom;
                 $_SESSION['nom'] = $nom;

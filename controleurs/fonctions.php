@@ -309,3 +309,48 @@ function calcul_resultat($id_test)
     }}
 
 }
+
+function recuperation_donnees(){
+  $ch = curl_init();
+  curl_setopt($ch,CURLOPT_URL,"http://projets-tomcat.isep.fr:8080/appService?ACTION=GETLOG&TEAM=9999");
+  curl_setopt($ch, CURLOPT_HEADER, FALSE);
+  curl_setopt($ch, CURLOT_RETURNTRANSFER, TRUE);
+  $data = str_split(curl_exec($ch),33); /*découpe les données brutes en portion de 33 caractères*/
+  $trame = $data[1];
+
+  list($tra, $obj, $req, $typ, $num_capteur, $val, $num_trame, $chk, $year, $month, $day, $hour, $min, $sec)=sscanf($trame, "%1s%4s%1s%1s%2s%4s%4s%2s%4s%2s%2s%2s%2s%2s");
+  return $val;
+}
+/*
+function decodage_trame($trame){
+
+  $tra = substr($trame, 0, 1);
+  $obj = substr($trame, 1, 5);
+  $req = substr($trame, 5, 6);
+  $typ = substr($trame, 6, 7);
+  $num = substr($trame, );
+  $val = substr($trame, 22, 26);
+  $tim = substr($trame, 26, 30);
+  $chk = substr($trame, 30, 32);
+
+
+}
+/*
+function debut_tests(){
+  $f_cardiaque =
+  $temp =
+  $tonalite =
+  $f_cardiaque2 =
+  $temp2 =
+  $stim_visuel =
+  $stim_audio =
+}
+*/
+
+function envoi_trame($req,$typ, $num_capteur, $val, $num_trame, $chk){
+  $tra = "1";
+  $obj = ""; /*num  app*/
+  $trame = $tra+$obj+$req+$typ+$num_capteur+$val+$num_trame+$chk+date("Ymd")+date("His");
+  /*envoyer la trame*/
+  return $trame;
+}

@@ -23,7 +23,18 @@ switch ($function) {
     break;
 
   case 'nouveau_test':
-$vue = "test";
+    $vue = "resultat";
+    $capteurs = array("","","","","",""); /*type des capteurs*/
+    $num_capteurs = array("","","","","",""); /*numeros des capteurs*/
+    $resultats = array('mail_candidat' => $_SESSION['mail'], 'id_session' => , 'date_test' => date(),'frequence_cardiaque' => "",'temperature' => "",'tonalite' => "",'frequence_cardiaque_bis' => "",'temperature_bis' => "",'stimulus_visuel' => "",'stimulus_audio' => "");
+
+    envoi_trame(); /*envoi trame de synchro ??*/
+
+    for ($i=3; $i++; i<$resultats.size()){
+      envoi_trame("2",$capteurs[$i], $num_capteurs[$i], $val, $num_trame, $chk); /*val num tram et chk ???*/
+      $resultats[$i] = recuperation_donnees();
+    }
+    enregistrer_resultats($resultats);
     break;
 
     case 'afficher_sessions':
