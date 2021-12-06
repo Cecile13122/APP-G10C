@@ -28,29 +28,33 @@ switch ($function) {
             if (isset($_POST['mail']) && isset($_POST['n_session'])) {
                 $email = $_POST['mail'];
                 $id_session = $_POST['n_session'];
-
-                $id_test = create_test($email, $id_session);
+                create_test($email, $id_session);
+                $id_test=recuperation_id_test($email, $id_session);
                 $trames = recuperation_trames();
                 $size = count($trames);
-                ajout_mesure($size - 2, $id_test);
+                ajout_mesure($trames[$size - 2], $id_test);
+                echo "id test : ".var_dump($trames[$size - 2]);
             }}
         $vue = "test";
         break;
-  case 'nouveau_test':
+/*  case 'nouveau_test':
     $vue = "resultat";
-    $capteurs = array("","","","","",""); /*type des capteurs*/
-    $num_capteurs = array("","","","","",""); /*numeros des capteurs*/
+    $capteurs = array("","","","","",""); type des capteurs
+    $num_capteurs = array("","","","","",""); numeros des capteurs
+    $resultats = array('mail_candidat' => $_SESSION['mail'], 'id_session' => , 'date_test' => date(),'frequence_cardiaque' => "",'temperature' => "",'tonalite' => "",'frequence_cardiaque_bis' => "",'temperature_bis' => "",'stimulus_visuel' => "",'stimulus_audio' => "");
+    $capteurs = array("","","","","",""); /*type des capteurs
+    $num_capteurs = array("","","","","",""); /*numeros des capteurs
     $resultats = array('mail_candidat' => $_SESSION['mail'], 'id_session' => recuperer_id_sessions($_SESSION['mail']), 'date_test' => date(Ymd),'frequence_cardiaque' => "",'temperature' => "",'tonalite' => "",'frequence_cardiaque_bis' => "",'temperature_bis' => "",'stimulus_visuel' => "",'stimulus_audio' => "");
 
-    envoi_trame(); /*envoi trame de synchro ??*/
+    envoi_trame(); envoi trame de synchro ??
 
     for ($i=3; $i++; i<$resultats.size()){
-      envoi_trame("2",$capteurs[$i], $num_capteurs[$i], $val, $num_trame, $chk); /*val num tram et chk ???*/
+      envoi_trame("2",$capteurs[$i], $num_capteurs[$i], $val, $num_trame, $chk); val num tram et chk ???
       $resultats[$i] = recuperation_donnees();
     }
     enregistrer_resultats($resultats);
     break;
-
+*/
     case 'afficher_sessions':
         $sessions = recuperer_session_recruteur($_SESSION['mail']);
         $id_sessions = recuperer_id_sessions($_SESSION['mail']);

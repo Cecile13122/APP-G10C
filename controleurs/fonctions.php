@@ -364,7 +364,11 @@ function ajout_mesure($trame, $id_test){
             $colonneBdd = "temperature";
             break;
     }
-    ajouter_mesure($colonneBdd, $id_test, $trame['VAL']);
+    $val=hexdec($trame['VAL']);
+    $id_test=intval($id_test);
+    echo gettype($id_test);
+
+    ajouter_mesure($colonneBdd, $id_test, $val);
 }
 
 
